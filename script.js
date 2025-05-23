@@ -28,7 +28,7 @@ function initDots() {
                 y: y,
                 baseX: x,
                 baseY: y,
-                offset: Math.random() * Math.PI * 2 // 修正箇所
+                offset: Math.random() * Math.PI * 2
             });
         }
     }
@@ -118,7 +118,7 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
 menuToggle?.addEventListener('click', () => {
-    navLinks.classList.toggle('active'); // この 'active' クラスに対応するCSSを style.css に記述する必要があります
+    navLinks.classList.toggle('active');
 });
 
 // ナビゲーションのスクロール制御
@@ -153,8 +153,6 @@ setInterval(() => {
     roleElements.forEach((el, index) => {
         el.style.opacity = '0.3';
     });
-    if (roleElements[currentRoleIndex]) { // 要素が存在するか確認
-        roleElements[currentRoleIndex].style.opacity = '1';
-    }
+    roleElements[currentRoleIndex].style.opacity = '1';
     currentRoleIndex = (currentRoleIndex + 1) % roles.length;
 }, 2000);

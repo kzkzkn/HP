@@ -7,10 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css"> {/* */}
 </head>
 <body>
+    <!-- ナビゲーション -->
     <nav>
         <div class="nav-container">
             <div class="logo">KG</div>
@@ -29,6 +30,7 @@
         </div>
     </nav>
 
+    <!-- ヒーローセクション -->
     <section class="hero" id="home">
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
@@ -54,6 +56,7 @@
         </div>
     </section>
 
+    <!-- About セクション -->
     <section id="about" class="fade-in">
         <div class="container">
             <h2 class="section-title">About</h2>
@@ -100,13 +103,15 @@
         </div>
     </section>
 
+    <!-- Works セクション -->
     <section id="works" class="fade-in">
         <div class="container">
             <h2 class="section-title">Works</h2>
             <div class="works-grid">
                 <div class="work-item">
                     <div class="work-image" data-category="Community">
-                        </div>
+                        <!-- 画像プレースホルダー -->
+                    </div>
                     <div class="work-info">
                         <h3>学生団体SONOSAKI</h3>
                         <p class="work-subtitle">立ち上げ・組織化</p>
@@ -139,7 +144,8 @@
 
                 <div class="work-item">
                     <div class="work-image" data-category="Partnership">
-                        </div>
+                        <!-- 画像プレースホルダー -->
+                    </div>
                     <div class="work-info">
                         <h3>LinkedIn Student Club</h3>
                         <p class="work-subtitle">Japan Ambassador</p>
@@ -167,7 +173,8 @@
 
                 <div class="work-item">
                     <div class="work-image" data-category="AI Initiative">
-                        </div>
+                        <!-- 画像プレースホルダー -->
+                    </div>
                     <div class="work-info">
                         <h3>学生団体AIspire</h3>
                         <p class="work-subtitle">創設・運営</p>
@@ -197,6 +204,7 @@
         </div>
     </section>
 
+    <!-- Services セクション -->
     <section id="services" class="services fade-in">
         <div class="container">
             <h2 class="section-title">Services</h2>
@@ -249,6 +257,7 @@
         </div>
     </section>
 
+    <!-- Contact セクション -->
     <section id="contact" class="fade-in">
         <div class="container">
             <h2 class="section-title">Contact</h2>
@@ -280,17 +289,46 @@
                     <a href="https://line.me/ti/p/xMXfsv9d1G" target="_blank" class="social-link">
                         <i class="fab fa-line"></i>
                     </a>
-                </div>
-            </div>
-        </div>
+                
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kizuku Goto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav>...</nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero" id="home">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">...</div>
+        <div class="scroll-indicator">...</div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Kizuku Goto. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- About セクション -->
+    <section id="about" class="fade-in">...</section>
 
-    <script src="script.js"></script> {/* */}
+    <!-- Works セクション -->
+    <section id="works" class="fade-in">...</section>
+
+    <!-- Services セクション -->
+    <section id="services" class="services fade-in">...</section>
+
+    <!-- Contact セクション -->
+    <section id="contact" class="fade-in">...</section>
+
+    <!-- Footer -->
+    <footer>...</footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

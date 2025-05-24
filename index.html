@@ -1,29 +1,4 @@
-    <script>
-        // ヒーローキャンバスアニメーション
-        const canvas = document.getElementById('hero-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-        
-        // ドットグリッドアニメーション
-        const dots = [];
-        const dotSpacing = 50;
-        const dotSize = 1;
-        
-        for (let x = 0; x < canvas.width; x += dotSpacing) {
-            for (let y = 0; y < canvas.height; y += dotSpacing) {
-                dots.push({
-                    x: x,
-                    y: y,
-                    baseX: x,
-                    baseY: y,
-                    offset: Math.<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -997,7 +972,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Kizuku Goto. All rights reserved.</p>
+            <p>© 2025 Kizuku Goto. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1018,13 +993,13 @@
         const dots = [];
         const dotSpacing = 50;
         const dotSize = 1;
-        const mouseRadius = 150;
+        const mouseRadius = 150; // ここからが本来のスクリプトの続きでした
         let mouseX = 0;
         let mouseY = 0;
         
         // ドットの初期化
         function initDots() {
-            dots.length = 0;
+            dots.length = 0; // 既存のドットをクリア
             for (let x = 0; x < canvas.width; x += dotSpacing) {
                 for (let y = 0; y < canvas.height; y += dotSpacing) {
                     dots.push({
@@ -1038,7 +1013,7 @@
             }
         }
         
-        initDots();
+        initDots(); // 初期化関数を呼び出し
         
         // マウス位置の追跡
         document.addEventListener('mousemove', (e) => {
@@ -1082,19 +1057,20 @@
         // リサイズ時にドットを再初期化
         window.addEventListener('resize', () => {
             resizeCanvas();
-            initDots();
+            initDots(); // リサイズ時にドットを再生成
         });
 
-        // スクロールアニメーション
+        // スクロールアニメーション (fade-inクラスの要素用)
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.1, // 要素の10%が見えたら発火
+            rootMargin: '0px 0px -100px 0px' // ビューポートの下から100px手前で発火
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // 一度表示されたら監視を停止
                 }
             });
         }, observerOptions);
@@ -1117,15 +1093,15 @@
             });
         });
 
-        // モバイルメニュー
+        // モバイルメニューのトグル
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
         menuToggle?.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            navLinks.classList.toggle('active'); // CSSで.active時のスタイルを定義してください
         });
 
-        // ナビゲーションのスクロール制御
+        // ナビゲーションのスクロール制御（隠れる/表示される）
         let lastScroll = 0;
         const nav = document.querySelector('nav');
 
@@ -1133,15 +1109,15 @@
             const currentScroll = window.pageYOffset;
 
             if (currentScroll <= 0) {
-                nav.style.transform = 'translateY(0)';
+                nav.style.transform = 'translateY(0)'; // トップにいるときは常に表示
                 return;
             }
 
             if (currentScroll > lastScroll && currentScroll > 100) {
-                // 下にスクロール
+                // 下にスクロールしている時 (100px以上スクロールしたら隠す)
                 nav.style.transform = 'translateY(-100%)';
             } else {
-                // 上にスクロール
+                // 上にスクロールしている時
                 nav.style.transform = 'translateY(0)';
             }
 
@@ -1153,13 +1129,20 @@
         let currentRoleIndex = 0;
         const roleElements = document.querySelectorAll('.role');
         
+        // 初回表示
+        roleElements[0].style.opacity = '1';
+
         setInterval(() => {
-            roleElements.forEach((el, index) => {
-                el.style.opacity = '0.3';
-            });
-            roleElements[currentRoleIndex].style.opacity = '1';
+            // 現在の役割の要素を非アクティブにする
+            roleElements[currentRoleIndex].style.opacity = '0.3';
+            
+            // 次の役割のインデックスを計算
             currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-        }, 2000);
+            
+            // 次の役割の要素をアクティブにする
+            roleElements[currentRoleIndex].style.opacity = '1';
+
+        }, 2000); // 2秒ごとに切り替え
     </script>
 </body>
 </html>

@@ -621,7 +621,7 @@
 
 
         /* =================================== */
-        /* レスポンシブデザイン (ここからが修正・追加箇所です) */
+        /* レスポンシブデザイン */
         /* =================================== */
 
         /* --- タブレット (1024px以下) --- */
@@ -647,7 +647,7 @@
             }
         }
         
-        /* --- スマートフォン (768px以下) --- */
+        /* --- スマートフォン (大きめ / 768px以下) --- */
         @media (max-width: 768px) {
             html { 
                 scroll-padding-top: 70px; 
@@ -677,10 +677,11 @@
 
             /* ヒーローセクション */
             .hero {
-                padding: calc(var(--spacing) * 12) calc(var(--spacing) * 2);
+                padding-top: calc(var(--spacing) * 12);
+                padding-bottom: calc(var(--spacing) * 10);
             }
             .hero-title {
-                font-size: 2.1rem;
+                font-size: clamp(2rem, 8vw, 2.5rem); /* clampで柔軟に */
                 line-height: 1.5;
             }
             .hero-subtitle {
@@ -689,9 +690,6 @@
             }
             .hero-name {
                 margin-top: calc(var(--spacing) * 5);
-            }
-            .scroll-indicator {
-                bottom: calc(var(--spacing) * 3);
             }
 
             /* セクションタイトル */
@@ -767,6 +765,68 @@
             }
             .contact-card {
                 padding: calc(var(--spacing) * 4);
+            }
+        }
+        
+        /* --- スマートフォン (標準 / 480px以下) --- */
+        /* ここで375pxなどの一般的なスマホ表示を最終調整します */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 calc(var(--spacing) * 2.5);
+            }
+            section {
+                padding: calc(var(--spacing) * 10) 0;
+            }
+            
+            .hero {
+                min-height: 90vh; /* 高さを少し抑える */
+                padding-left: calc(var(--spacing) * 2);
+                padding-right: calc(var(--spacing) * 2);
+            }
+            .hero-title {
+                font-size: 1.9rem; /* 375pxで最適化 */
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: calc(var(--spacing) * 7);
+            }
+
+            .concept-content h3 {
+                font-size: 1.4rem;
+            }
+            .concept-content p {
+                font-size: 0.95rem; /* 15.2px */
+            }
+            .concept-statement {
+                padding: calc(var(--spacing) * 3);
+            }
+            .concept-statement p {
+                font-size: 1.2rem;
+            }
+            .support-item {
+                 padding: calc(var(--spacing) * 3);
+            }
+            .support-item h5 {
+                font-size: 1.05rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .contact-message {
+                font-size: 1rem;
+            }
+            .contact-card {
+                padding: calc(var(--spacing) * 3);
+            }
+            .btn {
+                padding: calc(var(--spacing) * 1.25) calc(var(--spacing) * 3);
+                font-size: 0.9rem;
             }
         }
     </style>

@@ -251,7 +251,7 @@
             transform-origin: left;
             transition: transform 0.6s var(--transition-curve) 0.5s;
         }
-        .hero-content:hover .highlight::after {
+        .hero-content.animate .highlight::after {
              transform: scaleX(1);
         }
 
@@ -337,7 +337,7 @@
             border-radius: 2px;
         }
 
-        /* Concept セクション - デザイン改修 */
+        /* Concept セクション */
         #concept {
             background: var(--bg-secondary);
             padding: calc(var(--spacing) * 15) 0;
@@ -404,7 +404,7 @@
         }
         .concept-statement .highlight-red { color: var(--danger); }
         .concept-statement .highlight-blue { color: var(--accent-primary); }
-        .concept-statement .sp-only { display: none; }
+        .sp-br { display: none; }
 
         /* 具体的にお手伝いできること */
         .concept-support h4 {
@@ -449,7 +449,6 @@
             margin-bottom: 0;
             color: var(--text-secondary);
         }
-
 
         /* Services セクション */
         #services { background: var(--bg-primary); }
@@ -620,45 +619,52 @@
         .support-item.fade-in:nth-child(3) { transition-delay: 0.2s; }
         .support-item.fade-in:nth-child(4) { transition-delay: 0.3s; }
 
-        /* === 修正箇所 === */
-        /* PC/SP表示切り替え用の基本スタイル */
-        .pc-only {
-            display: block; /* PCでは表示 */
-        }
-        .sp-only {
-            display: none; /* PCでは非表示 */
-        }
 
-        /* === 修正箇所 === */
-        /* レスポンシブ対応の強化 */
+        /* =================================== */
+        /* レスポンシブデザイン (ここからが修正・追加箇所です) */
+        /* =================================== */
+
+        /* --- タブレット (1024px以下) --- */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: clamp(2.8rem, 7vw, 3.8rem);
+            }
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: calc(var(--spacing) * 10);
+            }
+            .concept-content h3 {
+                font-size: 1.7rem;
+            }
+            .concept-statement p {
+                 font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+            }
+            .profile-main h3 {
+                font-size: 1.8rem;
+            }
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+        
+        /* --- スマートフォン (768px以下) --- */
         @media (max-width: 768px) {
-            /* --- 全体的な調整 --- */
             html { 
                 scroll-padding-top: 70px; 
             }
+            
+            /* 全体的な余白・フォント調整 */
             .container {
-                /* スマホ画面の左右の余白を少し詰める */
                 padding: 0 calc(var(--spacing) * 3);
             }
             section {
-                /* セクション間の余白をスマホ向けに最適化 */
                 padding: calc(var(--spacing) * 12) 0;
             }
-            .section-title {
-                font-size: 1.8rem; /* セクションタイトルの文字サイズを調整 */
-                margin-bottom: calc(var(--spacing) * 8); /* タイトル下の余白を調整 */
-            }
-            .section-title::after {
-                bottom: -15px;
-                width: 60px;
-            }
-            /* PCでのみ表示する改行などを非表示に */
-            .pc-only {
-                display: none;
+            body {
+                line-height: 1.7;
             }
 
-
-            /* --- ナビゲーション --- */
+            /* ナビゲーション */
             .nav-container {
                 padding: 0 calc(var(--spacing) * 3);
             }
@@ -668,77 +674,99 @@
             .menu-toggle { 
                 display: flex; 
             }
-            
 
-            /* --- ヒーローセクション --- */
+            /* ヒーローセクション */
             .hero {
-                padding: calc(var(--spacing) * 12) calc(var(--spacing) * 3);
+                padding: calc(var(--spacing) * 12) calc(var(--spacing) * 2);
             }
             .hero-title {
-                /* clamp()をやめて、スマホに最適な固定サイズと行間に */
-                font-size: 2rem; 
+                font-size: 2.1rem;
                 line-height: 1.5;
             }
             .hero-subtitle {
                 font-size: 1.1rem;
                 margin-bottom: calc(var(--spacing) * 5);
             }
+            .hero-name {
+                margin-top: calc(var(--spacing) * 5);
+            }
+            .scroll-indicator {
+                bottom: calc(var(--spacing) * 3);
+            }
 
+            /* セクションタイトル */
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: calc(var(--spacing) * 8);
+            }
+            .section-title::after {
+                width: 60px;
+                bottom: -15px;
+            }
 
-            /* --- Conceptセクション --- */
-            #concept {
-                padding: calc(var(--spacing) * 12) 0;
+            /* Concept セクション */
+            .concept-content {
+                gap: calc(var(--spacing) * 8);
             }
             .concept-content h3 {
-                font-size: 1.5rem; /* 小見出しのサイズ調整 */
+                font-size: 1.5rem;
                 line-height: 1.5;
+                margin-bottom: calc(var(--spacing) * 4);
+            }
+            .concept-content .lead-text {
+                font-size: 1.05rem;
             }
             .concept-content p {
-                font-size: 0.95rem; /* 本文の文字サイズ調整 */
-                line-height: 2; /* 行間を少し詰める */
+                font-size: 1rem;
+                line-height: 2;
+                margin-bottom: calc(var(--spacing) * 2);
+            }
+            .concept-statement {
+                padding: calc(var(--spacing) * 3);
             }
             .concept-statement p {
-                /* 強調メッセージの文字サイズと行間を調整 */
-                font-size: 1.3rem; 
+                font-size: 1.3rem;
                 line-height: 1.6;
             }
-            .concept-statement .sp-only { 
-                display: block; /* スマホ用の改行を表示 */
+            .sp-br { 
+                display: block; /* スマホで改行を表示 */
             }
             .support-grid { 
-                grid-template-columns: 1fr; /* 1列レイアウトに */
+                grid-template-columns: 1fr; 
             }
             .concept-support h4 {
                 font-size: 1.4rem;
             }
 
-
-            /* --- Servicesセクション --- */
+            /* Services セクション */
             .services-grid { 
-                grid-template-columns: 1fr; /* 1列レイアウトに */
+                grid-template-columns: 1fr;
                 gap: calc(var(--spacing) * 4);
             }
             .service-card {
                 padding: calc(var(--spacing) * 4);
             }
 
-            
-            /* --- Profileセクション --- */
+            /* Profile セクション */
             .profile-main h3 {
                 font-size: 1.6rem;
+                margin-bottom: calc(var(--spacing) * 4);
             }
             .profile-main p {
                 font-size: 1rem;
+                line-height: 1.9;
             }
 
-
-            /* --- Contactセクション --- */
+            /* Contact セクション */
             .contact-message {
                 font-size: 1.1rem;
-                line-height: 1.7;
+                margin-bottom: calc(var(--spacing) * 6);
             }
             .contact-options { 
-                grid-template-columns: 1fr; /* 1列レイアウトに */
+                grid-template-columns: 1fr; 
+            }
+            .contact-card {
+                padding: calc(var(--spacing) * 4);
             }
         }
     </style>
@@ -774,9 +802,8 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <!-- === 修正箇所 === -->
             <h1 class="hero-title">
-                AIがもたらす<span class="highlight threat">「脅威」</span>を、<br class="pc-only">
+                AIがもたらす<span class="highlight threat">「脅威」</span>を、<br>
                 経営者の<span class="highlight weapon">「武器」</span>にする。
             </h1>
             <p class="hero-subtitle">
@@ -808,7 +835,7 @@
 
                 <div class="concept-statement">
                     <p>
-                        AIがもたらす<span class="highlight-red">「脅威」</span>を、<br class="sp-only">
+                        AIがもたらす<span class="highlight-red">「脅威」</span>を、<br class="sp-br">
                         経営者の<span class="highlight-blue">「武器」</span>にする。
                     </p>
                 </div>
@@ -921,10 +948,9 @@
         <div class="container fade-in">
             <h2 class="section-title">Contact</h2>
             <div class="contact-content">
-                <!-- === 修正箇所 === -->
                 <p class="contact-message">
-                    AIの活用について、何から始めればいいか分からない。<br class="pc-only">
-                    そんな危機感を抱える方へ。<br class="pc-only">
+                    AIの活用について、何から始めればいいか分からない。<br>
+                    そんな危機感を抱える方へ。<br>
                     まずはお話をお聞かせください。
                 </p>
                 
@@ -1016,7 +1042,8 @@
             // ヒーローセクションのタイトルアニメーションを初回表示時にトリガー
             setTimeout(() => {
                 if (heroContent) {
-                    heroContent.classList.add('hover');
+                    // 元の:hover疑似クラスの代わりに、JavaScriptでクラスを付与して制御
+                    heroContent.classList.add('animate');
                 }
             }, 500);
 

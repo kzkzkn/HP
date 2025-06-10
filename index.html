@@ -620,18 +620,126 @@
         .support-item.fade-in:nth-child(3) { transition-delay: 0.2s; }
         .support-item.fade-in:nth-child(4) { transition-delay: 0.3s; }
 
-        /* レスポンシブ */
+        /* === 修正箇所 === */
+        /* PC/SP表示切り替え用の基本スタイル */
+        .pc-only {
+            display: block; /* PCでは表示 */
+        }
+        .sp-only {
+            display: none; /* PCでは非表示 */
+        }
+
+        /* === 修正箇所 === */
+        /* レスポンシブ対応の強化 */
         @media (max-width: 768px) {
-            html { scroll-padding-top: 70px; }
-            .nav-links { display: none; }
-            .menu-toggle { display: flex; }
-            .hero-title { font-size: 2.2rem; }
-            .section-title { font-size: 2.2rem; }
-            .concept-content h3 { font-size: 1.6rem; }
-            .concept-statement .sp-only { display: block; }
-            .support-grid { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: 1fr; }
-            .contact-options { grid-template-columns: 1fr; }
+            /* --- 全体的な調整 --- */
+            html { 
+                scroll-padding-top: 70px; 
+            }
+            .container {
+                /* スマホ画面の左右の余白を少し詰める */
+                padding: 0 calc(var(--spacing) * 3);
+            }
+            section {
+                /* セクション間の余白をスマホ向けに最適化 */
+                padding: calc(var(--spacing) * 12) 0;
+            }
+            .section-title {
+                font-size: 1.8rem; /* セクションタイトルの文字サイズを調整 */
+                margin-bottom: calc(var(--spacing) * 8); /* タイトル下の余白を調整 */
+            }
+            .section-title::after {
+                bottom: -15px;
+                width: 60px;
+            }
+            /* PCでのみ表示する改行などを非表示に */
+            .pc-only {
+                display: none;
+            }
+
+
+            /* --- ナビゲーション --- */
+            .nav-container {
+                padding: 0 calc(var(--spacing) * 3);
+            }
+            .nav-links { 
+                display: none; 
+            }
+            .menu-toggle { 
+                display: flex; 
+            }
+            
+
+            /* --- ヒーローセクション --- */
+            .hero {
+                padding: calc(var(--spacing) * 12) calc(var(--spacing) * 3);
+            }
+            .hero-title {
+                /* clamp()をやめて、スマホに最適な固定サイズと行間に */
+                font-size: 2rem; 
+                line-height: 1.5;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: calc(var(--spacing) * 5);
+            }
+
+
+            /* --- Conceptセクション --- */
+            #concept {
+                padding: calc(var(--spacing) * 12) 0;
+            }
+            .concept-content h3 {
+                font-size: 1.5rem; /* 小見出しのサイズ調整 */
+                line-height: 1.5;
+            }
+            .concept-content p {
+                font-size: 0.95rem; /* 本文の文字サイズ調整 */
+                line-height: 2; /* 行間を少し詰める */
+            }
+            .concept-statement p {
+                /* 強調メッセージの文字サイズと行間を調整 */
+                font-size: 1.3rem; 
+                line-height: 1.6;
+            }
+            .concept-statement .sp-only { 
+                display: block; /* スマホ用の改行を表示 */
+            }
+            .support-grid { 
+                grid-template-columns: 1fr; /* 1列レイアウトに */
+            }
+            .concept-support h4 {
+                font-size: 1.4rem;
+            }
+
+
+            /* --- Servicesセクション --- */
+            .services-grid { 
+                grid-template-columns: 1fr; /* 1列レイアウトに */
+                gap: calc(var(--spacing) * 4);
+            }
+            .service-card {
+                padding: calc(var(--spacing) * 4);
+            }
+
+            
+            /* --- Profileセクション --- */
+            .profile-main h3 {
+                font-size: 1.6rem;
+            }
+            .profile-main p {
+                font-size: 1rem;
+            }
+
+
+            /* --- Contactセクション --- */
+            .contact-message {
+                font-size: 1.1rem;
+                line-height: 1.7;
+            }
+            .contact-options { 
+                grid-template-columns: 1fr; /* 1列レイアウトに */
+            }
         }
     </style>
 </head>
@@ -666,8 +774,9 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
+            <!-- === 修正箇所 === -->
             <h1 class="hero-title">
-                AIがもたらす<span class="highlight threat">「脅威」</span>を、<br>
+                AIがもたらす<span class="highlight threat">「脅威」</span>を、<br class="pc-only">
                 経営者の<span class="highlight weapon">「武器」</span>にする。
             </h1>
             <p class="hero-subtitle">
@@ -812,9 +921,10 @@
         <div class="container fade-in">
             <h2 class="section-title">Contact</h2>
             <div class="contact-content">
+                <!-- === 修正箇所 === -->
                 <p class="contact-message">
-                    AIの活用について、何から始めればいいか分からない。<br>
-                    そんな危機感を抱える方へ。<br>
+                    AIの活用について、何から始めればいいか分からない。<br class="pc-only">
+                    そんな危機感を抱える方へ。<br class="pc-only">
                     まずはお話をお聞かせください。
                 </p>
                 

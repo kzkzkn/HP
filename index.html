@@ -647,13 +647,12 @@
             }
         }
         
-        /* --- スマートフォン (大きめ / 768px以下) --- */
+        /* --- タブレット(縦) / 大きめのスマホ (768px以下) --- */
         @media (max-width: 768px) {
             html { 
                 scroll-padding-top: 70px; 
             }
             
-            /* 全体的な余白・フォント調整 */
             .container {
                 padding: 0 calc(var(--spacing) * 3);
             }
@@ -663,8 +662,6 @@
             body {
                 line-height: 1.7;
             }
-
-            /* ナビゲーション */
             .nav-container {
                 padding: 0 calc(var(--spacing) * 3);
             }
@@ -674,14 +671,12 @@
             .menu-toggle { 
                 display: flex; 
             }
-
-            /* ヒーローセクション */
             .hero {
                 padding-top: calc(var(--spacing) * 12);
                 padding-bottom: calc(var(--spacing) * 10);
             }
             .hero-title {
-                font-size: clamp(2rem, 8vw, 2.5rem); /* clampで柔軟に */
+                font-size: clamp(2rem, 8vw, 2.5rem);
                 line-height: 1.5;
             }
             .hero-subtitle {
@@ -691,8 +686,6 @@
             .hero-name {
                 margin-top: calc(var(--spacing) * 5);
             }
-
-            /* セクションタイトル */
             .section-title {
                 font-size: 2rem;
                 margin-bottom: calc(var(--spacing) * 8);
@@ -701,8 +694,6 @@
                 width: 60px;
                 bottom: -15px;
             }
-
-            /* Concept セクション */
             .concept-content {
                 gap: calc(var(--spacing) * 8);
             }
@@ -727,7 +718,7 @@
                 line-height: 1.6;
             }
             .sp-br { 
-                display: block; /* スマホで改行を表示 */
+                display: block;
             }
             .support-grid { 
                 grid-template-columns: 1fr; 
@@ -735,8 +726,6 @@
             .concept-support h4 {
                 font-size: 1.4rem;
             }
-
-            /* Services セクション */
             .services-grid { 
                 grid-template-columns: 1fr;
                 gap: calc(var(--spacing) * 4);
@@ -744,8 +733,6 @@
             .service-card {
                 padding: calc(var(--spacing) * 4);
             }
-
-            /* Profile セクション */
             .profile-main h3 {
                 font-size: 1.6rem;
                 margin-bottom: calc(var(--spacing) * 4);
@@ -754,8 +741,6 @@
                 font-size: 1rem;
                 line-height: 1.9;
             }
-
-            /* Contact セクション */
             .contact-message {
                 font-size: 1.1rem;
                 margin-bottom: calc(var(--spacing) * 6);
@@ -768,8 +753,26 @@
             }
         }
         
-        /* --- スマートフォン (標準 / 480px以下) --- */
-        /* ここで375pxなどの一般的なスマホ表示を最終調整します */
+        /* ========================================================== */
+        /* ★★★【修正箇所】★★★
+           481px ~ 600px の範囲の表示崩れを解消するためのブレークポイント */
+        /* ========================================================== */
+        @media (max-width: 600px) {
+            section {
+                padding: calc(var(--spacing) * 11) 0;
+            }
+            .hero-title {
+                font-size: 2.1rem; /* clamp()が大きすぎるため、固定値で上書き */
+            }
+            .section-title {
+                font-size: 1.9rem; /* 768pxの2remから少し小さく */
+            }
+            .concept-statement p {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* --- 小さめのスマホ (480px以下) --- */
         @media (max-width: 480px) {
             .container {
                 padding: 0 calc(var(--spacing) * 2.5);
@@ -777,32 +780,26 @@
             section {
                 padding: calc(var(--spacing) * 10) 0;
             }
-            
             .hero {
-                min-height: 90vh; /* 高さを少し抑える */
+                min-height: 90vh;
                 padding-left: calc(var(--spacing) * 2);
                 padding-right: calc(var(--spacing) * 2);
             }
             .hero-title {
-                font-size: 1.9rem; /* 375pxで最適化 */
+                font-size: 1.9rem; /* 375pxに最適化 */
             }
             .hero-subtitle {
                 font-size: 1rem;
             }
-
             .section-title {
                 font-size: 1.8rem;
                 margin-bottom: calc(var(--spacing) * 7);
             }
-
             .concept-content h3 {
                 font-size: 1.4rem;
             }
             .concept-content p {
                 font-size: 0.95rem; /* 15.2px */
-            }
-            .concept-statement {
-                padding: calc(var(--spacing) * 3);
             }
             .concept-statement p {
                 font-size: 1.2rem;
@@ -813,11 +810,9 @@
             .support-item h5 {
                 font-size: 1.05rem;
             }
-
             .service-card h3 {
                 font-size: 1.2rem;
             }
-
             .contact-message {
                 font-size: 1rem;
             }

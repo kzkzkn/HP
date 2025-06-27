@@ -615,44 +615,60 @@
             color: var(--text-secondary);
         }
 
-        /* About セクション */
-        #about {
-            background: var(--bg-primary);
-        }
+       /* About セクション - 最終版 */
+#about {
+    background: var(--bg-primary);
+}
 
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
+.about-content {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-        .about-content h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: calc(var(--spacing) * 4);
-            color: var(--text-primary);
-        }
+.about-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing);
+    color: var(--text-primary);
+}
 
-        .about-content p {
-            margin-bottom: calc(var(--spacing) * 3);
-            font-size: 1.1rem;
-            line-height: 2;
-        }
+.about-subtitle {
+    font-size: 1.1rem;
+    color: var(--accent-primary);
+    font-weight: 500;
+    margin-bottom: calc(var(--spacing) * 5);
+}
 
-        .about-mission {
-            margin-top: calc(var(--spacing) * 6);
-            padding: calc(var(--spacing) * 4);
-            background: var(--bg-secondary);
-            border-left: 4px solid var(--accent-primary);
-            border-radius: 0 8px 8px 0;
-        }
+.about-story p {
+    margin-bottom: calc(var(--spacing) * 4);
+    font-size: 1.05rem;
+    line-height: 2;
+}
 
-        .about-mission p {
-            margin: 0;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
+.about-insight {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    color: var(--accent-primary) !important;
+    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-primary);
+    font-style: italic;
+    line-height: 1.8 !important;
+}
+
+.about-story strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.about-story p:last-child {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
 
         /* Contact セクション - 修正版 */
         #contact { 
@@ -979,7 +995,7 @@
                     <div class="approach-step">
                         <div class="step-number">1</div>
                         <h4>無料ヒアリング</h4>
-                        <p>30分であなたの課題と<br>目標を明確化</p>
+                        <p>60分であなたの課題と<br>目標を明確化</p>
                     </div>
                     <div class="approach-step">
                         <div class="step-number">2</div>
@@ -1088,27 +1104,46 @@
     </section>
     
     <section id="about">
-        <div class="container fade-in">
-            <h2 class="section-title">About</h2>
-            <div class="about-content">
-                <h3>後藤 築 / Kizuku Goto</h3>
+    <div class="container fade-in">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
+            <h3>後藤 築 / Kizuku Goto</h3>
+            <p class="about-subtitle">
+                東大発スタートアップ Dot Start株式会社 CAIO
+            </p>
+            
+            <div class="about-story">
                 <p>
-                    宮城県出身。群馬と東京を拠点に活動。
+                    2023年から生成AI活用に取り組み始め、営業自動化からコンテンツ制作まで、<br>
+                    自分自身が様々な活用方法を試行錯誤していました。
                 </p>
+                
                 <p>
-                    学生時代より、AI技術の社会実装とコミュニティビルディングに情熱を注ぐ。40名規模の学生団体をゼロから立ち上げ、自律的な組織を構築した経験を持つ。
+                    その後、700億円規模のスタートアップでのインサイドセールス、<br>
+                    シリーズAスタートアップでのフィールドセールスを通じて<br>
+                    100社以上の企業のDX現場を見て回る中で、ある現実に直面しました。
                 </p>
-                <div class="about-mission">
-                    <p>
-                        日本の未来を左右する生成AIの波に強い危機感を抱き、<br>
-                        「日本の経営者の力を最大化する」ことをミッションに活動。<br>
-                        複雑な技術を本質的な価値に変換し、<br>
-                        経営者の最初の相談相手となることを目指しています。
-                    </p>
-                </div>
+                
+                <p class="about-insight">
+                    「どんなに優れた技術も、経営者が理解していなければ組織は変わらない」
+                </p>
+                
+                <p>
+                    学生時代、群馬県唯一のビジネス系学生団体を立ち上げ、40名以上の組織を牽引。<br>
+                    10社以上の協賛と県庁認定を獲得した経験が教えてくれたのは、<br>
+                    <strong>トップが動けば、全てが動く</strong>ということでした。
+                </p>
+                
+                <p>
+                    自分が当たり前に使っている技術が、<br>
+                    多くの企業ではまだ「よくわからないもの」として扱われている。<br>
+                    <strong>この温度差を埋めることが、今の自分の使命です。</strong>
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section id="contact">
         <div class="container fade-in">

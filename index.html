@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="経営者特化の生成AI活用パーソナルコーチング。月1回の1on1とLINEサポートで、AIを使いこなす経営者へ。">
+    <meta name="keywords" content="生成AI,AI活用,経営者,コーチング,ChatGPT,Claude,Gemini">
+    <meta name="author" content="後藤築">
+    
     <title>Kizuku Goto | 経営者特化 AI活用パーソナルコーチ</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
     <style>
         :root {
             --bg-primary: #F9FAFB;
@@ -263,6 +269,28 @@
             letter-spacing: 0.05em;
         }
 
+        .hero-description {
+            margin: calc(var(--spacing) * 6) auto;
+            padding: calc(var(--spacing) * 4);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            max-width: 700px;
+        }
+
+        .hero-description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: calc(var(--spacing) * 2);
+        }
+
+        .hero-description p:last-child {
+            margin-bottom: 0;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
         .hero-name {
             display: block;
             font-size: 1rem;
@@ -307,7 +335,7 @@
 
         /* セクション共通 */
         section {
-            padding: calc(var(--spacing) * 18) 0;
+            padding: calc(var(--spacing) * 15) 0;
             position: relative;
         }
         .container {
@@ -321,7 +349,7 @@
             font-weight: 700;
             color: var(--text-primary);
             text-align: center;
-            margin-bottom: calc(var(--spacing) * 12);
+            margin-bottom: calc(var(--spacing) * 10);
             position: relative;
         }
 
@@ -337,185 +365,306 @@
             border-radius: 2px;
         }
 
-        /* Concept セクション */
-        #concept {
+        /* What We Do セクション */
+        #what-we-do {
             background: var(--bg-secondary);
-            padding: calc(var(--spacing) * 15) 0;
         }
-        .concept-content {
-            max-width: 860px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: calc(var(--spacing) * 10);
-        }
-        .concept-intro, .concept-section, .concept-support {
-            text-align: left;
-        }
-        .concept-content h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.6;
-            margin-bottom: calc(var(--spacing) * 5);
-            padding-bottom: calc(var(--spacing) * 2);
-            border-bottom: 2px solid var(--border-color);
-            position: relative;
-        }
-        .concept-content h3::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 20%;
-            max-width: 100px;
-            height: 2px;
-            background: var(--accent-primary);
-        }
-        .concept-content .lead-text {
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: calc(var(--spacing) * 3);
-        }
-        .concept-content p {
-            font-size: 1.05rem;
-            line-height: 2.2;
-            margin-bottom: calc(var(--spacing) * 3);
-        }
-        .concept-content strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-        .concept-statement {
-            margin: calc(var(--spacing) * 2) 0;
-            padding: calc(var(--spacing) * 4) calc(var(--spacing) * 5);
-            background: var(--bg-tertiary);
-            border-left: 5px solid var(--accent-primary);
-            border-radius: 0 8px 8px 0;
-            text-align: center;
-        }
-        .concept-statement p {
-            margin: 0;
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1.7;
-        }
-        .concept-statement .highlight-red { color: var(--danger); }
-        .concept-statement .highlight-blue { color: var(--accent-primary); }
-        .sp-br { display: none; }
 
-        /* 具体的にお手伝いできること */
-        .concept-support h4 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--text-primary);
+        .what-we-do-intro {
             text-align: center;
-            margin-bottom: calc(var(--spacing) * 6);
+            max-width: 800px;
+            margin: 0 auto calc(var(--spacing) * 8);
         }
-        .support-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: calc(var(--spacing) * 4);
-        }
-        .support-item {
-            background: var(--bg-primary);
-            padding: calc(var(--spacing) * 4);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            transition: all 0.3s var(--transition-curve);
-        }
-        .support-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--accent-primary);
-        }
-        .support-item i {
+
+        .what-we-do-intro h3 {
             font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: calc(var(--spacing) * 3);
+        }
+
+        .what-we-do-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .service-overview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: calc(var(--spacing) * 4);
+            margin-bottom: calc(var(--spacing) * 8);
+        }
+
+        .service-item {
+            text-align: center;
+        }
+
+        .service-item i {
+            font-size: 3rem;
             color: var(--accent-primary);
             margin-bottom: calc(var(--spacing) * 2);
-            display: block;
         }
-        .support-item h5 {
+
+        .service-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing);
+        }
+
+        .service-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .approach-section {
+            background: var(--bg-tertiary);
+            padding: calc(var(--spacing) * 6);
+            border-radius: 16px;
+            margin-top: calc(var(--spacing) * 8);
+        }
+
+        .approach-section h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: calc(var(--spacing) * 4);
+        }
+
+        .approach-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: calc(var(--spacing) * 4);
+        }
+
+        .approach-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: calc(var(--spacing) * 2);
+        }
+
+        .approach-step h4 {
             font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: var(--spacing);
         }
-        .support-item p {
+
+        .approach-step p {
             font-size: 0.9rem;
-            line-height: 1.8;
-            margin-bottom: 0;
             color: var(--text-secondary);
         }
 
-        /* Services セクション */
-        #services { background: var(--bg-primary); }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: calc(var(--spacing) * 5);
-        }
-        .service-card {
-            background: var(--bg-secondary);
-            padding: calc(var(--spacing) * 5);
-            border-radius: 1rem;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s var(--transition-curve);
-            display: flex;
-            flex-direction: column;
-        }
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent-primary);
-        }
-        .service-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--border-color);
-            line-height: 1;
-            margin-bottom: calc(var(--spacing) * 3);
-        }
-        .service-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing);
-            color: var(--text-primary);
-        }
-        .service-card .subtitle {
-            font-size: 0.9rem;
-            color: var(--accent-primary);
-            margin-bottom: calc(var(--spacing) * 3);
-            font-weight: 500;
-        }
-        .service-card p { 
-            font-size: 0.95rem; 
-            flex-grow: 1;
+        /* Why Now セクション */
+        #why-now {
+            background: var(--bg-primary);
         }
 
-        /* Profile セクション */
-        #profile { background: var(--bg-secondary); }
-        .profile-single { max-width: 800px; margin: 0 auto; }
-        .profile-main h3 {
+        .why-now-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: calc(var(--spacing) * 4);
+        }
+
+        .why-now-card {
+            background: var(--bg-secondary);
+            padding: calc(var(--spacing) * 4);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s var(--transition-curve);
+        }
+
+        .why-now-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .why-now-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: calc(var(--spacing) * 2);
+        }
+
+        .why-now-card p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .why-now-card .highlight {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .why-now-card .warning {
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        /* Pricing セクション - 修正版 */
+        #pricing {
+            background: var(--bg-secondary);
+        }
+
+        .pricing-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto calc(var(--spacing) * 6);
+        }
+
+        .pricing-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: calc(var(--spacing) * 3);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-plan {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: calc(var(--spacing) * 4);
+            text-align: center;
+            transition: all 0.3s var(--transition-curve);
+            position: relative;
+        }
+
+        .pricing-plan.featured {
+            border-color: var(--accent-primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-plan.featured::before {
+            content: 'おすすめ';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-primary);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .pricing-plan:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-plan.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .plan-duration {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing);
+        }
+
+        .plan-price {
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: calc(var(--spacing) * 5);
-            text-align: center;
-            color: var(--text-primary);
-            letter-spacing: 0.05em;
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing);
         }
-        .profile-main p {
+
+        .plan-price span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            display: block;
+            margin-top: calc(var(--spacing) * 0.5);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: calc(var(--spacing) * 3);
+            margin-top: calc(var(--spacing) * 2);
+        }
+
+        .plan-features li {
+            padding: var(--spacing) 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* About セクション */
+        #about {
+            background: var(--bg-primary);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: calc(var(--spacing) * 4);
+            color: var(--text-primary);
+        }
+
+        .about-content p {
             margin-bottom: calc(var(--spacing) * 3);
             font-size: 1.1rem;
             line-height: 2;
         }
 
-        /* Contact セクション */
-        #contact { background: var(--bg-primary); }
-        .contact-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .about-mission {
+            margin-top: calc(var(--spacing) * 6);
+            padding: calc(var(--spacing) * 4);
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent-primary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .about-mission p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Contact セクション - 修正版 */
+        #contact { 
+            background: var(--bg-secondary); 
+        }
+        
+        .contact-content { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            text-align: center; 
+        }
+        
         .contact-message {
             font-size: 1.2rem;
             margin-bottom: calc(var(--spacing) * 8);
@@ -523,71 +672,126 @@
             font-weight: 500;
             line-height: 1.8;
         }
-        .contact-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: calc(var(--spacing) * 4);
-            margin-bottom: calc(var(--spacing) * 10);
+
+        .cta-box {
+            background: linear-gradient(135deg, #EBF5FF 0%, #DBEAFE 100%);
+            padding: calc(var(--spacing) * 6);
+            border-radius: 16px;
+            margin-bottom: calc(var(--spacing) * 6);
         }
-        .contact-card {
-            background: var(--bg-secondary);
-            padding: calc(var(--spacing) * 5);
-            border-radius: 1rem;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s var(--transition-curve);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .contact-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-        }
-        .contact-card i {
+
+        .cta-box h3 {
             font-size: 1.8rem;
-            color: var(--accent-primary);
+            font-weight: 600;
+            color: var(--text-primary);
             margin-bottom: calc(var(--spacing) * 3);
         }
-        .contact-card h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing);
-            color: var(--text-primary);
-        }
-        .contact-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+
+        .cta-features {
+            list-style: none;
             margin-bottom: calc(var(--spacing) * 4);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
         }
+
+        .cta-features li {
+            padding: calc(var(--spacing) * 1.5) 0;
+            font-size: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .cta-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--hope);
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: calc(var(--spacing) * 1.5);
+        }
+
         .btn {
             display: inline-block;
-            padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 4);
+            padding: calc(var(--spacing) * 2) calc(var(--spacing) * 5);
             background: var(--accent-primary);
             color: var(--bg-secondary);
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
+            font-size: 1.1rem;
+            font-weight: 600;
             letter-spacing: 0.02em;
             border-radius: 8px;
             transition: all 0.3s var(--transition-curve);
             border: 1px solid transparent;
         }
+        
         .btn:hover {
             background: var(--accent-secondary);
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
-        .btn-outline {
+
+        .btn-secondary {
             background: transparent;
             border-color: var(--border-color);
             color: var(--text-secondary);
+            font-size: 1rem;
+            padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 4);
         }
-        .btn-outline:hover {
+
+        .btn-secondary:hover {
             background: var(--bg-tertiary);
             color: var(--text-primary);
             border-color: var(--bg-tertiary);
             box-shadow: none;
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: calc(var(--spacing) * 4);
+            margin-top: calc(var(--spacing) * 6);
+        }
+
+        .contact-card {
+            padding: calc(var(--spacing) * 4);
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s var(--transition-curve);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: calc(var(--spacing) * 2);
+        }
+
+        .contact-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing);
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: calc(var(--spacing) * 3);
+        }
+
+        .contact-note {
+            margin-top: calc(var(--spacing) * 4);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
         }
 
         /* Footer */
@@ -612,42 +816,8 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .service-card.fade-in:nth-child(2) { transition-delay: 0.1s; }
-        .service-card.fade-in:nth-child(3) { transition-delay: 0.2s; }
-        .service-card.fade-in:nth-child(4) { transition-delay: 0.3s; }
-        .support-item.fade-in:nth-child(2) { transition-delay: 0.1s; }
-        .support-item.fade-in:nth-child(3) { transition-delay: 0.2s; }
-        .support-item.fade-in:nth-child(4) { transition-delay: 0.3s; }
 
-
-        /* =================================== */
         /* レスポンシブデザイン */
-        /* =================================== */
-
-        /* --- タブレット (1024px以下) --- */
-        @media (max-width: 1024px) {
-            .hero-title {
-                font-size: clamp(2.8rem, 7vw, 3.8rem);
-            }
-            .section-title {
-                font-size: 2.5rem;
-                margin-bottom: calc(var(--spacing) * 10);
-            }
-            .concept-content h3 {
-                font-size: 1.7rem;
-            }
-            .concept-statement p {
-                 font-size: clamp(1.3rem, 3.5vw, 1.6rem);
-            }
-            .profile-main h3 {
-                font-size: 1.8rem;
-            }
-            .services-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-        }
-        
-        /* --- タブレット(縦) / 大きめのスマホ (768px以下) --- */
         @media (max-width: 768px) {
             html { 
                 scroll-padding-top: 70px; 
@@ -657,13 +827,7 @@
                 padding: 0 calc(var(--spacing) * 3);
             }
             section {
-                padding: calc(var(--spacing) * 12) 0;
-            }
-            body {
-                line-height: 1.7;
-            }
-            .nav-container {
-                padding: 0 calc(var(--spacing) * 3);
+                padding: calc(var(--spacing) * 10) 0;
             }
             .nav-links { 
                 display: none; 
@@ -671,114 +835,34 @@
             .menu-toggle { 
                 display: flex; 
             }
-            .hero {
-                padding-top: calc(var(--spacing) * 12);
-                padding-bottom: calc(var(--spacing) * 10);
-            }
             .hero-title {
                 font-size: clamp(2rem, 8vw, 2.5rem);
-                line-height: 1.5;
-            }
-            .hero-subtitle {
-                font-size: 1.1rem;
-                margin-bottom: calc(var(--spacing) * 5);
-            }
-            .hero-name {
-                margin-top: calc(var(--spacing) * 5);
             }
             .section-title {
                 font-size: 2rem;
-                margin-bottom: calc(var(--spacing) * 8);
-            }
-            .section-title::after {
-                width: 60px;
-                bottom: -15px;
-            }
-            .concept-content {
-                gap: calc(var(--spacing) * 8);
-            }
-            .concept-content h3 {
-                font-size: 1.5rem;
-                line-height: 1.5;
-                margin-bottom: calc(var(--spacing) * 4);
-            }
-            .concept-content .lead-text {
-                font-size: 1.05rem;
-            }
-            .concept-content p {
-                font-size: 1rem;
-                line-height: 2;
-                margin-bottom: calc(var(--spacing) * 2);
-            }
-            .concept-statement {
-                padding: calc(var(--spacing) * 3);
-            }
-            .concept-statement p {
-                font-size: 1.3rem;
-                line-height: 1.6;
-            }
-            .sp-br { 
-                display: block;
-            }
-            .support-grid { 
-                grid-template-columns: 1fr; 
-            }
-            .concept-support h4 {
-                font-size: 1.4rem;
-            }
-            .services-grid { 
-                grid-template-columns: 1fr;
-                gap: calc(var(--spacing) * 4);
-            }
-            .service-card {
-                padding: calc(var(--spacing) * 4);
-            }
-            .profile-main h3 {
-                font-size: 1.6rem;
-                margin-bottom: calc(var(--spacing) * 4);
-            }
-            .profile-main p {
-                font-size: 1rem;
-                line-height: 1.9;
-            }
-            .contact-message {
-                font-size: 1.1rem;
                 margin-bottom: calc(var(--spacing) * 6);
             }
-            .contact-options { 
-                grid-template-columns: 1fr; 
+            .service-overview,
+            .approach-steps,
+            .why-now-grid,
+            .pricing-table {
+                grid-template-columns: 1fr;
+                gap: calc(var(--spacing) * 3);
             }
-            .contact-card {
-                padding: calc(var(--spacing) * 4);
+            .pricing-plan.featured {
+                transform: scale(1);
             }
-        }
-        
-        /* ========================================================== */
-        /* ★★★【修正箇所】★★★
-           481px ~ 600px の範囲の表示崩れを解消するためのブレークポイント */
-        /* ========================================================== */
-        @media (max-width: 600px) {
-            section {
-                padding: calc(var(--spacing) * 11) 0;
-            }
-            .hero-title {
-                font-size: 2.1rem; /* clamp()が大きすぎるため、固定値で上書き */
-            }
-            .section-title {
-                font-size: 1.9rem; /* 768pxの2remから少し小さく */
-            }
-            .concept-statement p {
-                font-size: 1.25rem;
+            .contact-options {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* --- 小さめのスマホ (480px以下) --- */
         @media (max-width: 480px) {
             .container {
-                padding: 0 calc(var(--spacing) * 2.5);
+                padding: 0 calc(var(--spacing) * 2);
             }
             section {
-                padding: calc(var(--spacing) * 10) 0;
+                padding: calc(var(--spacing) * 8) 0;
             }
             .hero {
                 min-height: 90vh;
@@ -786,42 +870,14 @@
                 padding-right: calc(var(--spacing) * 2);
             }
             .hero-title {
-                font-size: 1.9rem; /* 375pxに最適化 */
-            }
-            .hero-subtitle {
-                font-size: 1rem;
+                font-size: 1.9rem;
             }
             .section-title {
                 font-size: 1.8rem;
-                margin-bottom: calc(var(--spacing) * 7);
-            }
-            .concept-content h3 {
-                font-size: 1.4rem;
-            }
-            .concept-content p {
-                font-size: 0.95rem; /* 15.2px */
-            }
-            .concept-statement p {
-                font-size: 1.2rem;
-            }
-            .support-item {
-                 padding: calc(var(--spacing) * 3);
-            }
-            .support-item h5 {
-                font-size: 1.05rem;
-            }
-            .service-card h3 {
-                font-size: 1.2rem;
-            }
-            .contact-message {
-                font-size: 1rem;
-            }
-            .contact-card {
-                padding: calc(var(--spacing) * 3);
             }
             .btn {
-                padding: calc(var(--spacing) * 1.25) calc(var(--spacing) * 3);
-                font-size: 0.9rem;
+                font-size: 1rem;
+                padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
             }
         }
     </style>
@@ -832,9 +888,10 @@
             <div class="logo">Kizuku Goto</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#concept">Concept</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#profile">Profile</a></li>
+                <li><a href="#what-we-do">What We Do</a></li>
+                <li><a href="#why-now">Why Now</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
@@ -848,9 +905,10 @@
     <div class="mobile-menu" id="mobileMenu">
         <ul>
             <li><a href="#home" class="mobile-link">Home</a></li>
-            <li><a href="#concept" class="mobile-link">Concept</a></li>
-            <li><a href="#services" class="mobile-link">Services</a></li>
-            <li><a href="#profile" class="mobile-link">Profile</a></li>
+            <li><a href="#what-we-do" class="mobile-link">What We Do</a></li>
+            <li><a href="#why-now" class="mobile-link">Why Now</a></li>
+            <li><a href="#pricing" class="mobile-link">Pricing</a></li>
+            <li><a href="#about" class="mobile-link">About</a></li>
             <li><a href="#contact" class="mobile-link">Contact</a></li>
         </ul>
     </div>
@@ -864,135 +922,187 @@
             <p class="hero-subtitle">
                 経営者特化 AI活用 パーソナルコーチ
             </p>
+            
+            <div class="hero-description fade-in">
+                <p>
+                    「ChatGPTは触ってみたけど、業務では使えていない」<br>
+                    「どのAIツールを使えばいいか分からない」<br>
+                    「社内に導入したいが、何から始めればいいか...」
+                </p>
+                <p>
+                    月1回の1on1とLINEサポートで、<br>
+                    あなた専用のAI活用戦略を一緒に作ります。
+                </p>
+            </div>
+            
             <p class="hero-name">後藤 築 / Kizuku Goto</p>
         </div>
-        <a href="#concept" class="scroll-indicator" aria-label="次のセクションへスクロール">
+        <a href="#what-we-do" class="scroll-indicator" aria-label="次のセクションへスクロール">
             <div class="mouse"><div class="wheel"></div></div>
         </a>
     </section>
 
-    <section id="concept">
+    <section id="what-we-do">
         <div class="container fade-in">
-            <h2 class="section-title">Concept</h2>
-            <div class="concept-content">
-                <div class="concept-intro">
-                    <h3>このままでは、日本が危ない。</h3>
-                    <p class="lead-text">
-                        かつて日本は、「世界の工場」と呼ばれていました。経営と現場が一体となり、日本人の勤勉さと本質を追求する力で、世界を驚かせる製品を生み出していたからです。
-                    </p>
-                    <p>
-                        しかし、コンピューター革命の波に乗り遅れてからその輝きは失われ、近年のDXでは海外との差が広がるばかりでした。
-                    </p>
-                    <p>
-                        そして今、私たちは「生成AI」という、これまでとは全く異なる巨大な岐路の前に立たされています。
-                    </p>
+            <h2 class="section-title">What We Do</h2>
+            
+            <div class="what-we-do-intro">
+                <h3>完全オーダーメイドの生成AI活用支援</h3>
+                <p>
+                    画一的な研修やセミナーではなく、<br>
+                    あなたの業界・課題・目標に合わせた<br>
+                    1対1のパーソナルコーチングです。
+                </p>
+            </div>
+            
+            <div class="service-overview">
+                <div class="service-item fade-in">
+                    <i class="fas fa-user"></i>
+                    <h4>月1回の1on1セッション</h4>
+                    <p>対面またはオンラインで<br>実際の業務課題を解決</p>
                 </div>
-
-                <div class="concept-statement">
-                    <p>
-                        AIがもたらす<span class="highlight-red">「脅威」</span>を、<br class="sp-br">
-                        経営者の<span class="highlight-blue">「武器」</span>にする。
-                    </p>
+                <div class="service-item fade-in">
+                    <i class="fas fa-comments"></i>
+                    <h4>LINE無制限サポート</h4>
+                    <p>24時間以内に返信<br>日々の疑問を即解決</p>
                 </div>
-
-                <div class="concept-section">
-                    <h3>あなたに、直接伝えたい</h3>
-                    <p>
-                        私は物心ついた頃から、日本は「失われた世代」「衰退する国」と呼ばれてきました。
-                    </p>
-                    <p>
-                        これほど勤勉で優れた国民性を持ちながら、なぜ世界に後れを取るのか――その悔しさを抱き続けてきた世代として、AIという決定的な分岐点でこの国が再び遅れを取る現状を、見過ごすわけにはいきません。
-                    </p>
+                <div class="service-item fade-in">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>カスタムカリキュラム</h4>
+                    <p>無料ヒアリングで設計<br>あなた専用の学習計画</p>
                 </div>
-
-                <div class="concept-support fade-in">
-                    <h4>具体的にお手伝いできること</h4>
-                    <div class="support-grid">
-                        <div class="support-item fade-in">
-                            <i class="fas fa-search-dollar"></i>
-                            <h5>最新動向のキュレーション</h5>
-                            <p>あなたの業界に直結する要素だけを厳選し、要点をお伝えします。</p>
-                        </div>
-                        <div class="support-item fade-in">
-                            <i class="fas fa-road"></i>
-                            <h5>社内導入のロードマップ設計</h5>
-                            <p>小さく始め、大きく育てる道筋を具体的手順とともに提案します。</p>
-                        </div>
-                        <div class="support-item fade-in">
-                            <i class="fas fa-chart-line"></i>
-                            <h5>失敗リスクを抑えた成果戦略</h5>
-                            <p>検証・改善サイクルを共に回し、成果を上げる仕組みを構築します。</p>
-                        </div>
-                        <div class="support-item fade-in">
-                            <i class="fas fa-hands-helping"></i>
-                            <h5>"最初の相談相手"としての伴走</h5>
-                            <p>何をすべきか分からず危機感だけ募る――そんな孤独を解消します。</p>
-                        </div>
+            </div>
+            
+            <div class="approach-section fade-in">
+                <h3>3ステップのアプローチ</h3>
+                <div class="approach-steps">
+                    <div class="approach-step">
+                        <div class="step-number">1</div>
+                        <h4>無料ヒアリング</h4>
+                        <p>30分であなたの課題と<br>目標を明確化</p>
+                    </div>
+                    <div class="approach-step">
+                        <div class="step-number">2</div>
+                        <h4>カリキュラム設計</h4>
+                        <p>業界・規模・課題に<br>合わせた計画作成</p>
+                    </div>
+                    <div class="approach-step">
+                        <div class="step-number">3</div>
+                        <h4>実践＆改善</h4>
+                        <p>実務で使いながら<br>継続的にブラッシュアップ</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <section id="services">
-        <div class="container">
-            <h2 class="section-title fade-in">Services</h2>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-number">01</div>
-                    <h3>経営者の思考OSアップデート</h3>
-                    <p class="subtitle">AIを「自分ごと」化し、経営判断の軸を築く</p>
+    <section id="why-now">
+        <div class="container fade-in">
+            <h2 class="section-title">Why Now</h2>
+            
+            <div class="why-now-grid">
+                <div class="why-now-card fade-in">
+                    <h3>競合他社の動き</h3>
                     <p>
-                        月額制の1on1パーソナルコーチング。最新のAI動向から、貴社の事業に直結する活用法までをマンツーマンで伴走。
-                        漠然とした危機感を、具体的な次の一手へと変える「思考の壁打ち相手」になります。
+                        2024年、<span class="highlight">72%</span>の企業が<br>
+                        既に生成AIを導入済み。<br>
+                        今動かなければ、<br>
+                        取り返しのつかない差に。
                     </p>
                 </div>
-
-                <div class="service-card fade-in">
-                    <div class="service-number">02</div>
-                    <h3>AI活用による事業変革支援</h3>
-                    <p class="subtitle">アイデアを、最速でプロトタイプへ</p>
+                <div class="why-now-card fade-in">
+                    <h3>経営者自身の武器に</h3>
                     <p>
-                        新規事業創出、マーケティング精度向上、業務効率化など、経営課題に合わせたAIソリューションを共に設計。
-                        経営者の閃きが、次の日にはもう形になっている。そんなスピード感を実現します。
+                        数百万円のコンサルより、<br>
+                        <span class="highlight">経営者自身が使える</span><br>
+                        ことの方が価値がある。<br>
+                        意思決定の速度が変わる。
                     </p>
                 </div>
-
-                <div class="service-card fade-in">
-                    <div class="service-number">03</div>
-                    <h3>社内へのAI文化醸成</h3>
-                    <p class="subtitle">経営者のビジョンを、組織の力へ</p>
+                <div class="why-now-card fade-in">
+                    <h3>小さく始めて大きく</h3>
                     <p>
-                        経営者一人だけがAIを理解しても、会社は変わりません。
-                        経営者のビジョンを現場に浸透させ、全社でAIを使いこなす文化と仕組み作りをサポートします。
+                        月1回のセッションから<br>
+                        スタート。リスクを抑えて<br>
+                        <span class="highlight">確実な成果</span>を積み上げ、<br>
+                        組織全体へ展開。
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="service-card fade-in">
-                    <div class="service-number">04</div>
-                    <h3>AI PoC・受託開発伴走</h3>
-                    <p class="subtitle">ビジョンを、確かなプロダクトへ</p>
-                    <p>
-                        アイデアの仮説検証から本番リリースまで、専任チームが一気通貫で伴走。
-                        まずはスモールスタートのPoCで技術的・経済的なリスクとROIをクリアにし、勝算が見えたら受託開発フェーズで一気にスケール。要件定義・設計・実装・運用保守まで支援します。
-                    </p>
+    <section id="pricing">
+        <div class="container fade-in">
+            <h2 class="section-title">Pricing</h2>
+            
+            <div class="pricing-intro">
+                <p>
+                    全プラン共通：月1回の1on1セッション（60分）＋ LINE無制限サポート<br>
+                    ※表示価格は税別です
+                </p>
+            </div>
+            
+            <div class="pricing-table">
+                <div class="pricing-plan fade-in">
+                    <div class="plan-duration">3ヶ月</div>
+                    <div class="plan-price">
+                        375,000円
+                        <span>月額 125,000円</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>まずはお試しで</li>
+                        <li>基礎から実践まで</li>
+                        <li>習慣化の第一歩</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-plan featured fade-in">
+                    <div class="plan-duration">6ヶ月</div>
+                    <div class="plan-price">
+                        660,000円
+                        <span>月額 110,000円</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>しっかり身につける</li>
+                        <li>応用力を養う</li>
+                        <li>組織展開の準備</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-plan fade-in">
+                    <div class="plan-duration">12ヶ月</div>
+                    <div class="plan-price">
+                        1,200,000円
+                        <span>月額 100,000円</span>
+                    </div>
+                    <ul class="plan-features">
+                        <li>完全マスター</li>
+                        <li>経営への実装</li>
+                        <li>継続的な進化</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
     
-    <section id="profile">
+    <section id="about">
         <div class="container fade-in">
-            <h2 class="section-title">Profile</h2>
-            <div class="profile-single">
-                <div class="profile-main">
-                    <h3>後藤 築 / Kizuku Goto</h3>
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <h3>後藤 築 / Kizuku Goto</h3>
+                <p>
+                    宮城県出身。群馬と東京を拠点に活動。
+                </p>
+                <p>
+                    学生時代より、AI技術の社会実装とコミュニティビルディングに情熱を注ぐ。40名規模の学生団体をゼロから立ち上げ、自律的な組織を構築した経験を持つ。
+                </p>
+                <div class="about-mission">
                     <p>
-                        宮城県出身。群馬と東京を拠点に活動。学生時代より、AI技術の社会実装とコミュニティビルディングに情熱を注ぐ。40名規模の学生団体をゼロから立ち上げ、自律的な組織を構築した経験を持つ。
-                    </p>
-                    <p>
-                        現在は、日本の未来を左右する生成AIの波に強い危機感を抱き、「日本の経営者の力を最大化する」ことをミッションに活動開始。複雑な技術を本質的な価値に変換し、経営者の最初の相談相手となることを目指している。
+                        日本の未来を左右する生成AIの波に強い危機感を抱き、<br>
+                        「日本の経営者の力を最大化する」ことをミッションに活動。<br>
+                        複雑な技術を本質的な価値に変換し、<br>
+                        経営者の最初の相談相手となることを目指しています。
                     </p>
                 </div>
             </div>
@@ -1009,30 +1119,41 @@
                     まずはお話をお聞かせください。
                 </p>
                 
+                <div class="cta-box">
+                    <h3>無料ヒアリング実施中</h3>
+                    <ul class="cta-features">
+                        <li>あなたの業務のどこにAIを活用できるか診断</li>
+                        <li>投資対効果の概算をその場で提示</li>
+                        <li>あなた専用のカリキュラム案を作成</li>
+                        <li>サービスが本当に必要かを一緒に判断</li>
+                    </ul>
+                    <a href="https://calendar.app.google/jL4FY1VV6G2vN3Ak8" target="_blank" rel="noopener noreferrer" class="btn">
+                        無料ヒアリングを予約する
+                    </a>
+                    <p class="contact-note">
+                        ※しつこい営業は一切しません
+                    </p>
+                </div>
+                
                 <div class="contact-options">
                     <div class="contact-card">
-                        <div>
-                            <i class="fas fa-calendar-alt"></i>
-                            <h4>無料相談</h4>
-                            <p>30分の無料オンライン相談で、貴社の課題を整理します</p>
-                        </div>
-                        <a href="https://calendar.app.google/jL4FY1VV6G2vN3Ak8" target="_blank" class="btn">
-                            日程を予約する
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>オンライン相談</h4>
+                        <p>30分の無料相談で<br>課題を整理します</p>
+                        <a href="https://calendar.app.google/jL4FY1VV6G2vN3Ak8" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                            日程を見る
                         </a>
                     </div>
                     
                     <div class="contact-card">
-                        <div>
-                            <i class="fas fa-envelope"></i>
-                            <h4>メールでのお問い合わせ</h4>
-                            <p>まずは気軽にご質問・ご相談ください</p>
-                        </div>
-                        <a href="mailto:kzkn510@gmail.com" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i>
+                        <h4>メールで問い合わせ</h4>
+                        <p>まずは気軽に<br>ご質問ください</p>
+                        <a href="mailto:kzkn510@gmail.com" class="btn-secondary">
                             メールを送る
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -1094,10 +1215,9 @@
                 observer.observe(el);
             });
             
-            // ヒーローセクションのタイトルアニメーションを初回表示時にトリガー
+            // ヒーローセクションのアニメーション
             setTimeout(() => {
                 if (heroContent) {
-                    // 元の:hover疑似クラスの代わりに、JavaScriptでクラスを付与して制御
                     heroContent.classList.add('animate');
                 }
             }, 500);

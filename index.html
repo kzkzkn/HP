@@ -7,54 +7,99 @@
     <meta name="keywords" content="生成AI,AI活用,経営者,コーチング,ChatGPT,Claude,Gemini">
     <meta name="author" content="後藤築">
     
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="Kizuku Goto | 経営者特化 AI活用パーソナルコーチ">
+    <meta property="og:description" content="AIがもたらす「脅威」を、経営者の「武器」にする。">
+    <meta property="og:type" content="website">
+    
     <title>Kizuku Goto | 経営者特化 AI活用パーソナルコーチ</title>
     
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- External resources -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
+        /* ===========================
+           CSS Variables
+        =========================== */
         :root {
-            --bg-primary: #F9FAFB;
-            --bg-secondary: #FFFFFF;
-            --bg-tertiary: #F3F4F6;
-            --text-primary: #111827;
-            --text-secondary: #374151;
-            --text-muted: #6B7280;
-            --border-color: #E5E7EB;
-            --accent-primary: #3B82F6;
-            --accent-secondary: #1D4ED8;
-            --danger: #EF4444;
-            --hope: #10B981;
-            --spacing: 8px;
+            /* Colors */
+            --color-bg-primary: #F9FAFB;
+            --color-bg-secondary: #FFFFFF;
+            --color-bg-tertiary: #F3F4F6;
+            --color-text-primary: #111827;
+            --color-text-secondary: #374151;
+            --color-text-muted: #6B7280;
+            --color-border: #E5E7EB;
+            --color-accent: #3B82F6;
+            --color-accent-dark: #1D4ED8;
+            --color-danger: #EF4444;
+            --color-success: #10B981;
+            
+            /* Spacing */
+            --space-unit: 8px;
+            --space-xs: calc(var(--space-unit) * 0.5);
+            --space-sm: var(--space-unit);
+            --space-md: calc(var(--space-unit) * 2);
+            --space-lg: calc(var(--space-unit) * 3);
+            --space-xl: calc(var(--space-unit) * 4);
+            --space-2xl: calc(var(--space-unit) * 6);
+            --space-3xl: calc(var(--space-unit) * 8);
+            --space-4xl: calc(var(--space-unit) * 10);
+            --space-5xl: calc(var(--space-unit) * 15);
+            
+            /* Typography */
+            --font-primary: 'Inter', 'Noto Sans JP', sans-serif;
+            --font-size-xs: 0.875rem;
+            --font-size-sm: 0.9rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.1rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.8rem;
+            
+            /* Effects */
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-            --transition-curve: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Layout */
+            --container-max: 1280px;
+            --container-content: 1100px;
+            --container-narrow: 800px;
+            --nav-height: 70px;
         }
 
-        * {
+        /* ===========================
+           Reset & Base
+        =========================== */
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        ::selection {
-            background: var(--accent-primary);
-            color: var(--bg-secondary);
-        }
-
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 90px;
+            scroll-padding-top: var(--nav-height);
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            font-family: var(--font-primary);
             font-weight: 400;
-            color: var(--text-secondary);
-            background: var(--bg-primary);
+            color: var(--color-text-secondary);
+            background: var(--color-bg-primary);
             line-height: 1.8;
             letter-spacing: 0.01em;
             overflow-x: hidden;
@@ -62,20 +107,86 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* スクロールバー */
+        ::selection {
+            background: var(--color-accent);
+            color: var(--color-bg-secondary);
+        }
+
+        /* Scrollbar */
+        @supports (scrollbar-width: thin) {
+            * {
+                scrollbar-width: thin;
+                scrollbar-color: var(--color-text-muted) var(--color-bg-tertiary);
+            }
+        }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: var(--bg-tertiary);
+            background: var(--color-bg-tertiary);
         }
+
         ::-webkit-scrollbar-thumb {
-            background: var(--text-muted);
+            background: var(--color-text-muted);
             border-radius: 4px;
         }
 
-        /* ナビゲーション */
-        nav {
+        /* ===========================
+           Typography
+        =========================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: var(--color-text-primary);
+            line-height: 1.3;
+        }
+
+        /* ===========================
+           Layout Components
+        =========================== */
+        .container {
+            max-width: var(--container-content);
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        .container--narrow {
+            max-width: var(--container-narrow);
+        }
+
+        .section {
+            padding: var(--space-5xl) 0;
+            position: relative;
+        }
+
+        .section--alt {
+            background-color: var(--color-bg-secondary);
+        }
+
+        .section__title {
+            font-size: var(--font-size-4xl);
+            text-align: center;
+            margin-bottom: var(--space-4xl);
+            position: relative;
+        }
+
+        .section__title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--color-accent), var(--color-accent-dark));
+            border-radius: 2px;
+        }
+
+        /* ===========================
+           Navigation
+        =========================== */
+        .nav {
             position: fixed;
             top: 0;
             width: 100%;
@@ -83,67 +194,69 @@
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s var(--transition-curve);
-            padding: calc(var(--spacing) * 2.5) 0;
+            border-bottom: 1px solid var(--color-border);
+            transition: all var(--transition-base);
+            padding: calc(var(--space-unit) * 2.5) 0;
         }
 
-        nav.scrolled {
+        .nav--scrolled {
             box-shadow: var(--shadow-md);
             background: rgba(255, 255, 255, 0.85);
         }
 
-        .nav-container {
-            max-width: 1280px;
+        .nav__container {
+            max-width: var(--container-max);
             margin: 0 auto;
-            padding: 0 calc(var(--spacing) * 4);
+            padding: 0 var(--space-xl);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.25rem;
+        .nav__logo {
+            font-size: var(--font-size-xl);
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--color-text-primary);
         }
 
-        .nav-links {
+        .nav__links {
             display: flex;
-            gap: calc(var(--spacing) * 5);
+            gap: calc(var(--space-unit) * 5);
             list-style: none;
         }
 
-        .nav-links a {
-            color: var(--text-secondary);
+        .nav__link {
+            color: var(--color-text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: var(--font-size-sm);
             font-weight: 500;
             position: relative;
-            transition: color 0.3s var(--transition-curve);
+            transition: color var(--transition-base);
         }
 
-        .nav-links a:hover {
-            color: var(--accent-primary);
+        .nav__link:hover,
+        .nav__link:focus {
+            color: var(--color-accent);
         }
 
-        .nav-links a::after {
+        .nav__link::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent-primary);
-            transition: width 0.3s var(--transition-curve);
+            background: var(--color-accent);
+            transition: width var(--transition-base);
         }
 
-        .nav-links a:hover::after {
+        .nav__link:hover::after,
+        .nav__link:focus::after {
             width: 100%;
         }
 
-        /* モバイルメニュー */
-        .menu-toggle {
+        /* Mobile Menu */
+        .nav__toggle {
             display: none;
             flex-direction: column;
             gap: 5px;
@@ -154,20 +267,22 @@
             z-index: 1001;
         }
 
-        .menu-toggle span {
+        .nav__toggle-bar {
             width: 24px;
             height: 2px;
-            background: var(--text-primary);
-            transition: all 0.3s var(--transition-curve);
+            background: var(--color-text-primary);
+            transition: all var(--transition-base);
         }
 
-        .menu-toggle.active span:nth-child(1) {
+        .nav__toggle--active .nav__toggle-bar:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
-        .menu-toggle.active span:nth-child(2) {
+
+        .nav__toggle--active .nav__toggle-bar:nth-child(2) {
             opacity: 0;
         }
-        .menu-toggle.active span:nth-child(3) {
+
+        .nav__toggle--active .nav__toggle-bar:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
@@ -177,32 +292,45 @@
             right: -100%;
             width: 100%;
             height: 100vh;
-            background: var(--bg-secondary);
-            transition: right 0.4s var(--transition-curve);
+            background: var(--color-bg-secondary);
+            transition: right 0.4s var(--transition-base);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 999;
         }
-        .mobile-menu.active { right: 0; }
-        .mobile-menu ul { list-style: none; text-align: center; }
-        .mobile-menu li { margin: calc(var(--spacing) * 4) 0; }
-        .mobile-menu a {
-            color: var(--text-primary);
+
+        .mobile-menu--active {
+            right: 0;
+        }
+
+        .mobile-menu__list {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu__item {
+            margin: var(--space-xl) 0;
+        }
+
+        .mobile-menu__link {
+            color: var(--color-text-primary);
             text-decoration: none;
             font-size: 1.8rem;
             font-weight: 500;
-            padding: var(--spacing) calc(var(--spacing) * 2);
+            padding: var(--space-sm) var(--space-md);
         }
 
-        /* ヒーローセクション */
+        /* ===========================
+           Hero Section
+        =========================== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: calc(var(--spacing) * 15) calc(var(--spacing) * 4) calc(var(--spacing) * 10);
-            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: var(--space-5xl) var(--space-xl) var(--space-4xl);
+            background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -217,35 +345,45 @@
             background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
             transform: translate(-50%, -50%);
             animation: pulse 15s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
+            pointer-events: none;
         }
 
-        .hero-content {
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.7;
+            }
+        }
+
+        .hero__content {
             text-align: center;
             max-width: 900px;
             z-index: 1;
         }
 
-        .hero-title {
+        .hero__title {
             font-size: clamp(2.5rem, 6vw, 4.2rem);
-            font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-            line-height: 1.3;
-            margin-bottom: calc(var(--spacing) * 4);
+            margin-bottom: var(--space-xl);
         }
 
-        .hero-title .highlight {
+        .hero__title-highlight {
             position: relative;
             display: inline-block;
         }
-        .hero-title .threat { color: var(--danger); }
-        .hero-title .weapon { color: var(--accent-primary); }
 
-        .hero-title .highlight::after {
+        .hero__title-highlight--threat {
+            color: var(--color-danger);
+        }
+
+        .hero__title-highlight--weapon {
+            color: var(--color-accent);
+        }
+
+        .hero__title-highlight::after {
             content: '';
             position: absolute;
             bottom: -2px;
@@ -255,71 +393,78 @@
             background: currentColor;
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.6s var(--transition-curve) 0.5s;
-        }
-        .hero-content.animate .highlight::after {
-             transform: scaleX(1);
+            transition: transform var(--transition-slow) 0.5s;
         }
 
-        .hero-subtitle {
-            font-size: 1.25rem;
+        .hero__content--animate .hero__title-highlight::after {
+            transform: scaleX(1);
+        }
+
+        .hero__subtitle {
+            font-size: var(--font-size-xl);
             font-weight: 400;
-            color: var(--text-secondary);
-            margin-bottom: calc(var(--spacing) * 6);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-2xl);
             letter-spacing: 0.05em;
         }
 
-        .hero-description {
-            margin: calc(var(--spacing) * 6) auto;
-            padding: calc(var(--spacing) * 4);
+        .hero__description {
+            margin: var(--space-2xl) auto;
+            padding: var(--space-xl);
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(10px);
             border-radius: 12px;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--color-border);
             max-width: 700px;
         }
 
-        .hero-description p {
-            font-size: 1.1rem;
+        .hero__description p {
+            font-size: var(--font-size-lg);
             line-height: 1.8;
-            margin-bottom: calc(var(--spacing) * 2);
+            margin-bottom: var(--space-md);
         }
 
-        .hero-description p:last-child {
+        .hero__description p:last-child {
             margin-bottom: 0;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--color-text-primary);
         }
 
-        .hero-name {
+        .hero__name {
             display: block;
-            font-size: 1rem;
+            font-size: var(--font-size-base);
             font-weight: 400;
-            color: var(--text-muted);
+            color: var(--color-text-muted);
             letter-spacing: 0.1em;
-            margin-top: calc(var(--spacing) * 6);
+            margin-top: var(--space-2xl);
         }
-        
+
         .scroll-indicator {
             position: absolute;
-            bottom: calc(var(--spacing) * 4);
+            bottom: var(--space-xl);
             left: 50%;
             transform: translateX(-50%);
             cursor: pointer;
             opacity: 0.7;
-            transition: opacity 0.3s;
+            transition: opacity var(--transition-base);
         }
-        .scroll-indicator:hover { opacity: 1; }
-        .mouse {
+
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+
+        .scroll-indicator__mouse {
             width: 28px;
             height: 44px;
-            border: 2px solid var(--text-muted);
+            border: 2px solid var(--color-text-muted);
             border-radius: 14px;
+            position: relative;
         }
-        .wheel {
+
+        .scroll-indicator__wheel {
             width: 4px;
             height: 8px;
-            background: var(--text-muted);
+            background: var(--color-text-muted);
             border-radius: 2px;
             position: absolute;
             top: 8px;
@@ -327,619 +472,747 @@
             transform: translateX(-50%);
             animation: scroll-wheel 2.2s infinite ease-out;
         }
+
         @keyframes scroll-wheel {
-            0% { transform: translate(-50%, 0); opacity: 1; }
-            70% { transform: translate(-50%, 15px); opacity: 0; }
-            100% { opacity: 0; }
+            0% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+            70% {
+                transform: translate(-50%, 15px);
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
         }
 
-        /* セクション共通 */
-        section {
-            padding: calc(var(--spacing) * 15) 0;
-            position: relative;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 calc(var(--spacing) * 4);
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            text-align: center;
-            margin-bottom: calc(var(--spacing) * 10);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
-            border-radius: 2px;
-        }
-
-        /* What We Do セクション */
-        #what-we-do {
-            background: var(--bg-secondary);
-        }
-
-        .what-we-do-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto calc(var(--spacing) * 8);
-        }
-
-        .what-we-do-intro h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: calc(var(--spacing) * 3);
-        }
-
-        .what-we-do-intro p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        .service-overview {
+        /* ===========================
+           Service Components
+        =========================== */
+        .service-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: calc(var(--spacing) * 4);
-            margin-bottom: calc(var(--spacing) * 8);
+            gap: var(--space-xl);
         }
 
         .service-item {
             text-align: center;
         }
 
-        .service-item i {
+        .service-item__icon {
             font-size: 3rem;
-            color: var(--accent-primary);
-            margin-bottom: calc(var(--spacing) * 2);
+            color: var(--color-accent);
+            margin-bottom: var(--space-md);
         }
 
-        .service-item h4 {
-            font-size: 1.2rem;
+        .service-item__title {
+            font-size: var(--font-size-xl);
             font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: var(--spacing);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
         }
 
-        .service-item p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
+        .service-item__text {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
         }
 
-        .approach-section {
-            background: var(--bg-tertiary);
-            padding: calc(var(--spacing) * 6);
+        /* ===========================
+           Card Components
+        =========================== */
+        .card {
+            background: var(--color-bg-secondary);
+            padding: var(--space-xl);
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-base);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card__title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .card__text {
+            font-size: var(--font-size-sm);
+            line-height: 1.8;
+        }
+
+        /* ===========================
+           Button Components
+        =========================== */
+        .btn {
+            display: inline-block;
+            padding: var(--space-md) calc(var(--space-unit) * 5);
+            background: var(--color-accent);
+            color: var(--color-bg-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            border-radius: 8px;
+            transition: all var(--transition-base);
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn--secondary {
+            background: transparent;
+            border-color: var(--color-border);
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-base);
+            padding: calc(var(--space-unit) * 1.5) var(--space-xl);
+        }
+
+        .btn--secondary:hover,
+        .btn--secondary:focus {
+            background: var(--color-bg-tertiary);
+            color: var(--color-text-primary);
+            border-color: var(--color-bg-tertiary);
+            box-shadow: none;
+        }
+
+        /* ===========================
+           Specific Sections
+        =========================== */
+        
+        /* What We Do */
+        .intro-text {
+            text-align: center;
+            max-width: var(--container-narrow);
+            margin: 0 auto var(--space-3xl);
+        }
+
+        .intro-text__title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .intro-text__description {
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+        }
+
+        .approach-box {
+            background: var(--color-bg-tertiary);
+            padding: var(--space-2xl);
             border-radius: 16px;
-            margin-top: calc(var(--spacing) * 8);
+            margin-top: var(--space-3xl);
         }
 
-        .approach-section h3 {
+        .approach-box__title {
             font-size: 1.6rem;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--color-text-primary);
             text-align: center;
-            margin-bottom: calc(var(--spacing) * 4);
+            margin-bottom: var(--space-xl);
         }
 
-        .approach-steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: calc(var(--spacing) * 4);
-        }
-
-        .approach-step {
+        .step {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
 
-        .step-number {
+        .step__number {
             width: 48px;
             height: 48px;
-            background: var(--accent-primary);
+            background: var(--color-accent);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: calc(var(--spacing) * 2);
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-md);
         }
 
-        .approach-step h4 {
-            font-size: 1.1rem;
+        .step__title {
+            font-size: var(--font-size-lg);
             font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: var(--spacing);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
         }
 
-        .approach-step p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        .step__text {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
         }
 
-        /* Why Now セクション */
-        #why-now {
-            background: var(--bg-primary);
+        /* Why Now */
+        .card--highlight .highlight {
+            color: var(--color-accent);
+            font-weight: 600;
         }
 
-        .why-now-grid {
+        .card--highlight .warning {
+            color: var(--color-danger);
+            font-weight: 600;
+        }
+
+        /* Pricing */
+        .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: calc(var(--spacing) * 4);
-        }
-
-        .why-now-card {
-            background: var(--bg-secondary);
-            padding: calc(var(--spacing) * 4);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            transition: all 0.3s var(--transition-curve);
-        }
-
-        .why-now-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .why-now-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: calc(var(--spacing) * 2);
-        }
-
-        .why-now-card p {
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        .why-now-card .highlight {
-            color: var(--accent-primary);
-            font-weight: 600;
-        }
-
-        .why-now-card .warning {
-            color: var(--danger);
-            font-weight: 600;
-        }
-
-        /* Pricing セクション - 修正版 */
-        #pricing {
-            background: var(--bg-secondary);
-        }
-
-        .pricing-intro {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto calc(var(--spacing) * 6);
-        }
-
-        .pricing-intro p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .pricing-table {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: calc(var(--spacing) * 3);
+            gap: var(--space-lg);
             max-width: 1000px;
             margin: 0 auto;
         }
 
-        .pricing-plan {
-            background: var(--bg-primary);
-            border: 2px solid var(--border-color);
+        .pricing-card {
+            background: var(--color-bg-primary);
+            border: 2px solid var(--color-border);
             border-radius: 12px;
-            padding: calc(var(--spacing) * 4);
+            padding: var(--space-xl);
             text-align: center;
-            transition: all 0.3s var(--transition-curve);
+            transition: all var(--transition-base);
             position: relative;
         }
 
-        .pricing-plan.featured {
-            border-color: var(--accent-primary);
+        .pricing-card--featured {
+            border-color: var(--color-accent);
             transform: scale(1.05);
         }
 
-        .pricing-plan.featured::before {
+        .pricing-card--featured::before {
             content: 'おすすめ';
             position: absolute;
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--accent-primary);
+            background: var(--color-accent);
             color: white;
             padding: 4px 16px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: var(--font-size-xs);
             font-weight: 600;
         }
 
-        .pricing-plan:hover {
+        .pricing-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
 
-        .pricing-plan.featured:hover {
+        .pricing-card--featured:hover {
             transform: scale(1.05) translateY(-5px);
         }
 
-        .plan-duration {
+        .pricing-card__duration {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: var(--spacing);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
         }
 
-        .plan-price {
-            font-size: 2rem;
+        .pricing-card__price {
+            font-size: var(--font-size-3xl);
             font-weight: 700;
-            color: var(--accent-primary);
-            margin-bottom: var(--spacing);
+            color: var(--color-accent);
+            margin-bottom: var(--space-sm);
         }
 
-        .plan-price span {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .pricing-card__price-sub {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
             font-weight: 400;
             display: block;
-            margin-top: calc(var(--spacing) * 0.5);
+            margin-top: var(--space-xs);
         }
 
-        .plan-features {
+        .pricing-card__features {
             list-style: none;
-            margin-bottom: calc(var(--spacing) * 3);
-            margin-top: calc(var(--spacing) * 2);
+            margin: var(--space-md) 0 var(--space-lg);
         }
 
-        .plan-features li {
-            padding: var(--spacing) 0;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+        .pricing-card__feature {
+            padding: var(--space-sm) 0;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
         }
 
-       /* About セクション - 最終版 */
+/* ===========================
+   About Section - 洗練版
+=========================== */
 #about {
-    background: var(--bg-primary);
+    background: var(--color-bg-primary);
 }
 
-.about-content {
-    max-width: 750px;
+.about-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* ヘッダー部分 */
+.about-header {
+    text-align: center;
+    margin-bottom: var(--space-4xl);
+}
+
+.about-header__name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+}
+
+.about-header__title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+}
+
+/* ストーリー部分 */
+.about-story {
+    position: relative;
+}
+
+.about-story__text {
+    font-size: 1.1rem;
+    line-height: 2.2;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2xl);
+    font-weight: 400;
+}
+
+/* キーメッセージ */
+.about-key-message {
+    margin: var(--space-4xl) 0;
+    padding: 0;
+    text-align: center;
+}
+
+.about-key-message__text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.8;
+    position: relative;
+    display: inline-block;
+}
+
+.about-key-message__text::before,
+.about-key-message__text::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 1px;
+    background: var(--color-accent);
+    top: 50%;
+}
+
+.about-key-message__text::before {
+    left: -60px;
+}
+
+.about-key-message__text::after {
+    right: -60px;
+}
+
+/* ハイライト */
+.about-story__highlight {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* ミッション */
+.about-mission {
+    margin-top: var(--space-4xl);
+    padding-top: var(--space-3xl);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.about-mission__text {
+    font-size: 1.2rem;
+    line-height: 2;
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+.about-mission__emphasis {
+    display: block;
+    margin-top: var(--space-lg);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .about-header__name {
+        font-size: 2rem;
+    }
+    
+    .about-key-message__text {
+        font-size: 1.2rem;
+    }
+    
+    .about-key-message__text::before,
+    .about-key-message__text::after {
+        display: none;
+    }
+    
+    .about-mission__text {
+        font-size: 1.05rem;
+    }
+}
+
+
+
+/* ===========================
+   Contact Section - 修正版
+=========================== */
+#contact {
+    background: var(--color-bg-secondary);
+}
+
+.contact-wrapper {
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
 
-.about-content h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing);
-    color: var(--text-primary);
+/* イントロテキスト */
+.contact-intro {
+    margin-bottom: var(--space-3xl);
 }
 
-.about-subtitle {
-    font-size: 1.1rem;
-    color: var(--accent-primary);
+.contact-intro__text {
+    font-size: var(--font-size-xl);
+    line-height: 1.8;
+    color: var(--color-text-primary);
     font-weight: 500;
-    margin-bottom: calc(var(--spacing) * 5);
+    margin-bottom: var(--space-md);
 }
 
-.about-story p {
-    margin-bottom: calc(var(--spacing) * 4);
-    font-size: 1.05rem;
-    line-height: 2;
+/* CTAボックス */
+.contact-cta {
+    background: linear-gradient(135deg, #EBF5FF 0%, #DBEAFE 100%);
+    padding: var(--space-3xl);
+    border-radius: 16px;
+    margin-bottom: var(--space-3xl);
 }
 
-.about-insight {
-    font-size: 1.3rem !important;
-    font-weight: 600 !important;
-    color: var(--accent-primary) !important;
-    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
-    background: var(--bg-secondary);
-    border-radius: 8px;
-    border-left: 4px solid var(--accent-primary);
-    font-style: italic;
-    line-height: 1.8 !important;
-}
-
-.about-story strong {
-    color: var(--text-primary);
+.contact-cta__title {
+    font-size: 1.8rem;
     font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2xl);
 }
 
-.about-story p:last-child {
-    font-size: 1.1rem;
-    color: var(--text-primary);
+.contact-cta__list {
+    list-style: none;
+    max-width: 500px;
+    margin: 0 auto var(--space-2xl);
+    text-align: left;
+}
+
+.contact-cta__item {
+    padding: var(--space-md) 0 var(--space-md) 2rem;
+    font-size: var(--font-size-base);
+    position: relative;
+    color: var(--color-text-secondary);
+}
+
+.contact-cta__item::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.contact-cta__button {
+    display: inline-block;
+    padding: var(--space-md) var(--space-3xl);
+    background: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all var(--transition-base);
+    margin-bottom: var(--space-lg);
+}
+
+.contact-cta__button:hover {
+    background: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-cta__note {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* コンタクトオプション */
+.contact-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-2xl);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-base);
+    text-align: center;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-card__icon {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+    display: block;
+}
+
+.contact-card__title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.contact-card__text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+}
+
+.contact-card__link {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-xl);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
     font-weight: 500;
+    border-radius: 6px;
+    transition: all var(--transition-base);
+}
+
+.contact-card__link:hover {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+    border-color: var(--color-bg-tertiary);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .contact-cta {
+        padding: var(--space-2xl);
+    }
+    
+    .contact-cta__title {
+        font-size: 1.5rem;
+    }
+    
+    .contact-options {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .contact-intro__text {
+        font-size: var(--font-size-lg);
+    }
 }
 
 
-        /* Contact セクション - 修正版 */
-        #contact { 
-            background: var(--bg-secondary); 
-        }
-        
-        .contact-content { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            text-align: center; 
-        }
-        
-        .contact-message {
-            font-size: 1.2rem;
-            margin-bottom: calc(var(--spacing) * 8);
-            color: var(--text-primary);
-            font-weight: 500;
-            line-height: 1.8;
-        }
-
-        .cta-box {
-            background: linear-gradient(135deg, #EBF5FF 0%, #DBEAFE 100%);
-            padding: calc(var(--spacing) * 6);
-            border-radius: 16px;
-            margin-bottom: calc(var(--spacing) * 6);
-        }
-
-        .cta-box h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: calc(var(--spacing) * 3);
-        }
-
-        .cta-features {
-            list-style: none;
-            margin-bottom: calc(var(--spacing) * 4);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
-        }
-
-        .cta-features li {
-            padding: calc(var(--spacing) * 1.5) 0;
-            font-size: 1rem;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .cta-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--hope);
-            font-weight: bold;
-            font-size: 1.2rem;
-            top: calc(var(--spacing) * 1.5);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: calc(var(--spacing) * 2) calc(var(--spacing) * 5);
-            background: var(--accent-primary);
-            color: var(--bg-secondary);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            border-radius: 8px;
-            transition: all 0.3s var(--transition-curve);
-            border: 1px solid transparent;
-        }
-        
-        .btn:hover {
-            background: var(--accent-secondary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border-color: var(--border-color);
-            color: var(--text-secondary);
-            font-size: 1rem;
-            padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 4);
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-            border-color: var(--bg-tertiary);
-            box-shadow: none;
-        }
-
-        .contact-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: calc(var(--spacing) * 4);
-            margin-top: calc(var(--spacing) * 6);
-        }
-
-        .contact-card {
-            padding: calc(var(--spacing) * 4);
-            background: var(--bg-primary);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s var(--transition-curve);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .contact-card i {
-            font-size: 2rem;
-            color: var(--accent-primary);
-            margin-bottom: calc(var(--spacing) * 2);
-        }
-
-        .contact-card h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: var(--spacing);
-        }
-
-        .contact-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: calc(var(--spacing) * 3);
-        }
-
-        .contact-note {
-            margin-top: calc(var(--spacing) * 4);
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-
-        /* Footer */
-        footer {
-            padding: calc(var(--spacing) * 6) 0;
-            text-align: center;
-            background: var(--bg-tertiary);
-            border-top: 1px solid var(--border-color);
-        }
-        footer p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* アニメーション */
+        /* ===========================
+           Animations
+        =========================== */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.8s var(--transition-curve), transform 0.8s var(--transition-curve);
+            transition: opacity 0.8s var(--transition-base), 
+                        transform 0.8s var(--transition-base);
         }
-        .fade-in.visible {
+
+        .fade-in--visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* レスポンシブデザイン */
+        /* ===========================
+           Responsive Design
+        =========================== */
         @media (max-width: 768px) {
-            html { 
-                scroll-padding-top: 70px; 
+            :root {
+                --nav-height: 60px;
             }
             
             .container {
-                padding: 0 calc(var(--spacing) * 3);
+                padding: 0 var(--space-lg);
             }
-            section {
-                padding: calc(var(--spacing) * 10) 0;
+            
+            .section {
+                padding: var(--space-4xl) 0;
             }
-            .nav-links { 
-                display: none; 
+            
+            .nav__links {
+                display: none;
             }
-            .menu-toggle { 
-                display: flex; 
+            
+            .nav__toggle {
+                display: flex;
             }
-            .hero-title {
+            
+            .hero__title {
                 font-size: clamp(2rem, 8vw, 2.5rem);
             }
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: calc(var(--spacing) * 6);
+            
+            .section__title {
+                font-size: var(--font-size-3xl);
+                margin-bottom: var(--space-2xl);
             }
-            .service-overview,
-            .approach-steps,
-            .why-now-grid,
-            .pricing-table {
+            
+            .service-grid,
+            .pricing-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
-                gap: calc(var(--spacing) * 3);
+                gap: var(--space-lg);
             }
-            .pricing-plan.featured {
+            
+            .pricing-card--featured {
                 transform: scale(1);
-            }
-            .contact-options {
-                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 0 calc(var(--spacing) * 2);
+                padding: 0 var(--space-md);
             }
-            section {
-                padding: calc(var(--spacing) * 8) 0;
+            
+            .section {
+                padding: var(--space-3xl) 0;
             }
+            
             .hero {
                 min-height: 90vh;
-                padding-left: calc(var(--spacing) * 2);
-                padding-right: calc(var(--spacing) * 2);
+                padding-left: var(--space-md);
+                padding-right: var(--space-md);
             }
-            .hero-title {
+            
+            .hero__title {
                 font-size: 1.9rem;
             }
-            .section-title {
+            
+            .section__title {
                 font-size: 1.8rem;
             }
+            
             .btn {
-                font-size: 1rem;
-                padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
+                font-size: var(--font-size-base);
+                padding: calc(var(--space-unit) * 1.5) var(--space-lg);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .nav,
+            .scroll-indicator,
+            .mobile-menu {
+                display: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
             }
         }
     </style>
 </head>
 <body>
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">Kizuku Goto</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#what-we-do">What We Do</a></li>
-                <li><a href="#why-now">Why Now</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Navigation -->
+    <nav class="nav" id="navbar" role="navigation" aria-label="メインナビゲーション">
+        <div class="nav__container">
+            <div class="nav__logo">Kizuku Goto</div>
+            <ul class="nav__links">
+                <li><a href="#home" class="nav__link">Home</a></li>
+                <li><a href="#what-we-do" class="nav__link">What We Do</a></li>
+                <li><a href="#why-now" class="nav__link">Why Now</a></li>
+                <li><a href="#pricing" class="nav__link">Pricing</a></li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
             </ul>
-            <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav__toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
+                <span class="nav__toggle-bar"></span>
             </button>
         </div>
     </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#home" class="mobile-link">Home</a></li>
-            <li><a href="#what-we-do" class="mobile-link">What We Do</a></li>
-            <li><a href="#why-now" class="mobile-link">Why Now</a></li>
-            <li><a href="#pricing" class="mobile-link">Pricing</a></li>
-            <li><a href="#about" class="mobile-link">About</a></li>
-            <li><a href="#contact" class="mobile-link">Contact</a></li>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__item">
+                <a href="#home" class="mobile-menu__link">Home</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="#what-we-do" class="mobile-menu__link">What We Do</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="#why-now" class="mobile-menu__link">Why Now</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="#pricing" class="mobile-menu__link">Pricing</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="#about" class="mobile-menu__link">About</a>
+            </li>
+            <li class="mobile-menu__item">
+                <a href="#contact" class="mobile-menu__link">Contact</a>
+            </li>
         </ul>
     </div>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                AIがもたらす<span class="highlight threat">「脅威」</span>を、<br>
-                経営者の<span class="highlight weapon">「武器」</span>にする。
+        <div class="hero__content">
+            <h1 class="hero__title">
+                AIがもたらす<span class="hero__title-highlight hero__title-highlight--threat">「脅威」</span>を、<br>
+                経営者の<span class="hero__title-highlight hero__title-highlight--weapon">「武器」</span>にする。
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero__subtitle">
                 経営者特化 AI活用 パーソナルコーチ
             </p>
             
-            <div class="hero-description fade-in">
+            <div class="hero__description fade-in">
                 <p>
                     「ChatGPTは触ってみたけど、業務では使えていない」<br>
                     「どのAIツールを使えばいいか分からない」<br>
@@ -951,193 +1224,201 @@
                 </p>
             </div>
             
-            <p class="hero-name">後藤 築 / Kizuku Goto</p>
+            <p class="hero__name">後藤 築 / Kizuku Goto</p>
         </div>
         <a href="#what-we-do" class="scroll-indicator" aria-label="次のセクションへスクロール">
-            <div class="mouse"><div class="wheel"></div></div>
+            <div class="scroll-indicator__mouse">
+                <div class="scroll-indicator__wheel"></div>
+            </div>
         </a>
     </section>
 
-    <section id="what-we-do">
+    <!-- What We Do Section -->
+    <section class="section section--alt" id="what-we-do">
         <div class="container fade-in">
-            <h2 class="section-title">What We Do</h2>
+            <h2 class="section__title">What We Do</h2>
             
-            <div class="what-we-do-intro">
-                <h3>完全オーダーメイドの生成AI活用支援</h3>
-                <p>
+            <div class="intro-text">
+                <h3 class="intro-text__title">完全オーダーメイドの生成AI活用支援</h3>
+                <p class="intro-text__description">
                     画一的な研修やセミナーではなく、<br>
                     あなたの業界・課題・目標に合わせた<br>
                     1対1のパーソナルコーチングです。
                 </p>
             </div>
             
-            <div class="service-overview">
+            <div class="service-grid">
                 <div class="service-item fade-in">
-                    <i class="fas fa-user"></i>
-                    <h4>月1回の1on1セッション</h4>
-                    <p>対面またはオンラインで<br>実際の業務課題を解決</p>
+                    <i class="service-item__icon fas fa-user"></i>
+                    <h4 class="service-item__title">月1回の1on1セッション</h4>
+                    <p class="service-item__text">対面またはオンラインで<br>実際の業務課題を解決</p>
                 </div>
                 <div class="service-item fade-in">
-                    <i class="fas fa-comments"></i>
-                    <h4>LINE無制限サポート</h4>
-                    <p>24時間以内に返信<br>日々の疑問を即解決</p>
+                    <i class="service-item__icon fas fa-comments"></i>
+                    <h4 class="service-item__title">LINE無制限サポート</h4>
+                    <p class="service-item__text">24時間以内に返信<br>日々の疑問を即解決</p>
                 </div>
                 <div class="service-item fade-in">
-                    <i class="fas fa-chart-line"></i>
-                    <h4>カスタムカリキュラム</h4>
-                    <p>無料ヒアリングで設計<br>あなた専用の学習計画</p>
+                    <i class="service-item__icon fas fa-chart-line"></i>
+                    <h4 class="service-item__title">カスタムカリキュラム</h4>
+                    <p class="service-item__text">無料ヒアリングで設計<br>あなた専用の学習計画</p>
                 </div>
             </div>
             
-            <div class="approach-section fade-in">
-                <h3>3ステップのアプローチ</h3>
-                <div class="approach-steps">
-                    <div class="approach-step">
-                        <div class="step-number">1</div>
-                        <h4>無料ヒアリング</h4>
-                        <p>60分であなたの課題と<br>目標を明確化</p>
+            <div class="approach-box fade-in">
+                <h3 class="approach-box__title">3ステップのアプローチ</h3>
+                <div class="service-grid">
+                    <div class="step">
+                        <div class="step__number">1</div>
+                        <h4 class="step__title">無料ヒアリング</h4>
+                        <p class="step__text">60分であなたの課題と<br>目標を明確化</p>
                     </div>
-                    <div class="approach-step">
-                        <div class="step-number">2</div>
-                        <h4>カリキュラム設計</h4>
-                        <p>業界・規模・課題に<br>合わせた計画作成</p>
+                    <div class="step">
+                        <div class="step__number">2</div>
+                        <h4 class="step__title">カリキュラム設計</h4>
+                        <p class="step__text">業界・規模・課題に<br>合わせた計画作成</p>
                     </div>
-                    <div class="approach-step">
-                        <div class="step-number">3</div>
-                        <h4>実践＆改善</h4>
-                        <p>実務で使いながら<br>継続的にブラッシュアップ</p>
+                    <div class="step">
+                        <div class="step__number">3</div>
+                        <h4 class="step__title">実践＆改善</h4>
+                        <p class="step__text">実務で使いながら<br>継続的にブラッシュアップ</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="why-now">
-    <div class="container fade-in">
-        <h2 class="section-title">Why Now</h2>
-        
-        <div class="why-now-grid">
-            <div class="why-now-card fade-in">
-                <h3>経営者こそ最大の変革者</h3>
-                <p>
-                    部下に任せても組織は変わらない。<br>
-                    <span class="highlight">トップが使えば全てが変わる</span>。<br>
-                    判断の質、指示の具体性、組織の速度。<br>
-                    それが最強の競争力になる。
-                </p>
-            </div>
-            <div class="why-now-card fade-in">
-                <h3>意思決定の質とスピード</h3>
-                <p>
-                    AIを使いこなす経営者は<br>
-                    判断に必要な情報を<span class="highlight">10分で収集</span>。<br>
-                    従来の10倍の選択肢を検討し、<br>
-                    より精度の高い決断を下せる。
-                </p>
-            </div>
-            <div class="why-now-card fade-in">
-                <h3>人材獲得の必須条件</h3>
-                <p>
-                    優秀な若手は<span class="warning">AI活用が当たり前</span>の<br>
-                    企業を選ぶ時代。<br>
-                    経営者がAIを理解していない会社に<br>
-                    未来を感じる人材は来ない。
-                </p>
+    <!-- Why Now Section -->
+    <section class="section" id="why-now">
+        <div class="container fade-in">
+            <h2 class="section__title">Why Now</h2>
+            
+            <div class="service-grid">
+                <div class="card card--highlight fade-in">
+                    <h3 class="card__title">経営者こそ最大の変革者</h3>
+                    <p class="card__text">
+                        部下に任せても組織は変わらない。<br>
+                        <span class="highlight">トップが使えば全てが変わる</span>。<br>
+                        判断の質、指示の具体性、組織の速度。<br>
+                        それが最強の競争力になる。
+                    </p>
+                </div>
+                <div class="card card--highlight fade-in">
+                    <h3 class="card__title">意思決定の質とスピード</h3>
+                    <p class="card__text">
+                        AIを使いこなす経営者は<br>
+                        判断に必要な情報を<span class="highlight">10分で収集</span>。<br>
+                        従来の10倍の選択肢を検討し、<br>
+                        より精度の高い決断を下せる。
+                    </p>
+                </div>
+                <div class="card card--highlight fade-in">
+                    <h3 class="card__title">人材獲得の必須条件</h3>
+                    <p class="card__text">
+                        優秀な若手は<span class="warning">AI活用が当たり前</span>の<br>
+                        企業を選ぶ時代。<br>
+                        経営者がAIを理解していない会社に<br>
+                        未来を感じる人材は来ない。
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-    <section id="pricing">
+    <!-- Pricing Section -->
+    <section class="section section--alt" id="pricing">
         <div class="container fade-in">
-            <h2 class="section-title">Pricing</h2>
+            <h2 class="section__title">Pricing</h2>
             
-            <div class="pricing-intro">
-                <p>
+            <div class="intro-text">
+                <p class="intro-text__description">
                     全プラン共通：月1回の1on1セッション（60分）＋ LINE無制限サポート<br>
                     ※表示価格は税別です
                 </p>
             </div>
             
-            <div class="pricing-table">
-                <div class="pricing-plan fade-in">
-                    <div class="plan-duration">3ヶ月</div>
-                    <div class="plan-price">
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-card__duration">3ヶ月</div>
+                    <div class="pricing-card__price">
                         375,000円
-                        <span>月額 125,000円</span>
+                        <span class="pricing-card__price-sub">月額 125,000円</span>
                     </div>
-                    <ul class="plan-features">
-                        <li>まずはお試しで</li>
-                        <li>基礎から実践まで</li>
-                        <li>習慣化の第一歩</li>
+                    <ul class="pricing-card__features">
+                        <li class="pricing-card__feature">まずはお試しで</li>
+                        <li class="pricing-card__feature">基礎から実践まで</li>
+                        <li class="pricing-card__feature">習慣化の第一歩</li>
                     </ul>
                 </div>
                 
-                <div class="pricing-plan featured fade-in">
-                    <div class="plan-duration">6ヶ月</div>
-                    <div class="plan-price">
+                <div class="pricing-card pricing-card--featured fade-in">
+                    <div class="pricing-card__duration">6ヶ月</div>
+                    <div class="pricing-card__price">
                         660,000円
-                        <span>月額 110,000円</span>
+                        <span class="pricing-card__price-sub">月額 110,000円</span>
                     </div>
-                    <ul class="plan-features">
-                        <li>しっかり身につける</li>
-                        <li>応用力を養う</li>
-                        <li>組織展開の準備</li>
+                    <ul class="pricing-card__features">
+                        <li class="pricing-card__feature">しっかり身につける</li>
+                        <li class="pricing-card__feature">応用力を養う</li>
+                        <li class="pricing-card__feature">組織展開の準備</li>
                     </ul>
                 </div>
                 
-                <div class="pricing-plan fade-in">
-                    <div class="plan-duration">12ヶ月</div>
-                    <div class="plan-price">
+                <div class="pricing-card fade-in">
+                    <div class="pricing-card__duration">12ヶ月</div>
+                    <div class="pricing-card__price">
                         1,200,000円
-                        <span>月額 100,000円</span>
+                        <span class="pricing-card__price-sub">月額 100,000円</span>
                     </div>
-                    <ul class="plan-features">
-                        <li>完全マスター</li>
-                        <li>経営への実装</li>
-                        <li>継続的な進化</li>
+                    <ul class="pricing-card__features">
+                        <li class="pricing-card__feature">完全マスター</li>
+                        <li class="pricing-card__feature">経営への実装</li>
+                        <li class="pricing-card__feature">継続的な進化</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
     
-    <section id="about">
+  <!-- About Section - 洗練版 -->
+<section class="section" id="about">
     <div class="container fade-in">
-        <h2 class="section-title">About</h2>
-        <div class="about-content">
-            <h3>後藤 築 / Kizuku Goto</h3>
-            <p class="about-subtitle">
-                東大発スタートアップ Dot Start株式会社 CAIO
-            </p>
+        <h2 class="section__title">About</h2>
+        
+        <div class="about-wrapper">
+            <div class="about-header">
+                <h3 class="about-header__name">後藤 築 / Kizuku Goto</h3>
+                <p class="about-header__title">東大発スタートアップ Dot Start株式会社 CAIO</p>
+            </div>
             
             <div class="about-story">
-                <p>
-                    2023年から生成AI活用に取り組み始め、営業自動化からコンテンツ制作まで、<br>
-                    自分自身が様々な活用方法を試行錯誤していました。
+                <p class="about-story__text">
+                    2023年から生成AI活用に取り組み始め、営業自動化からコンテンツ制作まで、自分自身が様々な活用方法を試行錯誤していました。
                 </p>
                 
-                <p>
-                    その後、700億円規模のスタートアップでのインサイドセールス、<br>
-                    シリーズAスタートアップでのフィールドセールスを通じて<br>
-                    100社以上の企業のDX現場を見て回る中で、ある現実に直面しました。
+                <p class="about-story__text">
+                    その後、700億円規模のスタートアップでのインサイドセールス、シリーズAスタートアップでのフィールドセールスを通じて100社以上の企業のDX現場を見て回る中で、ある現実に直面しました。
                 </p>
-                
-                <p class="about-insight">
-                    「どんなに優れた技術も、経営者が理解していなければ組織は変わらない」
+            </div>
+            
+            <div class="about-key-message">
+                <p class="about-key-message__text">
+                    どんなに優れた技術も、<br>
+                    経営者が理解していなければ組織は変わらない
                 </p>
-                
-                <p>
-                    学生時代、群馬県唯一のビジネス系学生団体を立ち上げ、40名以上の組織を牽引。<br>
-                    10社以上の協賛と県庁認定を獲得した経験が教えてくれたのは、<br>
-                    <strong>トップが動けば、全てが動く</strong>ということでした。
+            </div>
+            
+            <div class="about-story">
+                <p class="about-story__text">
+                    学生時代、群馬県唯一のビジネス系学生団体を立ち上げ、40名以上の組織を牽引。10社以上の協賛と県庁認定を獲得した経験が教えてくれたのは、<span class="about-story__highlight">トップが動けば、全てが動く</span>ということでした。
                 </p>
-                
-                <p>
+            </div>
+            
+            <div class="about-mission">
+                <p class="about-mission__text">
                     自分が当たり前に使っている技術が、<br>
-                    多くの企業ではまだ「よくわからないもの」として扱われている。<br>
-                    <strong>この温度差を埋めることが、今の自分の使命です。</strong>
+                    多くの企業ではまだ「よくわからないもの」として扱われている。
+                    <span class="about-mission__emphasis">この温度差を埋めることが、今の自分の使命です。</span>
                 </p>
             </div>
         </div>
@@ -1145,126 +1426,226 @@
 </section>
 
 
-    <section id="contact">
-        <div class="container fade-in">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-content">
-                <p class="contact-message">
-                    AIの活用について、何から始めればいいか分からない。<br>
-                    そんな危機感を抱える方へ。<br>
+
+    <!-- Contact Section - 修正版 -->
+<section class="section section--alt" id="contact">
+    <div class="container fade-in">
+        <h2 class="section__title">Contact</h2>
+        
+        <div class="contact-wrapper">
+            <div class="contact-intro">
+                <p class="contact-intro__text">
+                    AIの活用について、何から始めればいいか分からない。
+                </p>
+                <p class="contact-intro__text">
+                    そんな危機感を抱える方へ。
+                </p>
+                <p class="contact-intro__text">
                     まずはお話をお聞かせください。
                 </p>
-                
-                <div class="cta-box">
-                    <h3>無料ヒアリング実施中</h3>
-                    <ul class="cta-features">
-                        <li>あなたの業務のどこにAIを活用できるか診断</li>
-                        <li>投資対効果の概算をその場で提示</li>
-                        <li>あなた専用のカリキュラム案を作成</li>
-                        <li>サービスが本当に必要かを一緒に判断</li>
-                    </ul>
-                    <a href="https://calendar.app.google/jL4FY1VV6G2vN3Ak8" target="_blank" rel="noopener noreferrer" class="btn">
-                        無料ヒアリングを予約する
-                    </a>
-                    <p class="contact-note">
-                        ※しつこい営業は一切しません
+            </div>
+            
+            <div class="contact-cta">
+                <h3 class="contact-cta__title">無料ヒアリング実施中</h3>
+                <ul class="contact-cta__list">
+                    <li class="contact-cta__item">あなたの業務のどこにAIを活用できるか診断</li>
+                    <li class="contact-cta__item">投資対効果の概算をその場で提示</li>
+                    <li class="contact-cta__item">あなた専用のカリキュラム案を作成</li>
+                    <li class="contact-cta__item">サービスが本当に必要かを一緒に判断</li>
+                </ul>
+                <a href="https://calendar.app.google/jL4FY1VV6G2vN3Ak8" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="contact-cta__button">
+                    無料ヒアリングを予約する
+                </a>
+                <p class="contact-cta__note">
+                    ※しつこい営業は一切しません
+                </p>
+            </div>
+            
+            <div class="contact-options">
+                <div class="contact-card">
+                    <i class="contact-card__icon fas fa-calendar-alt"></i>
+                    <h4 class="contact-card__title">オンライン相談</h4>
+                    <p class="contact-card__text">
+                        30分の無料相談で<br>
+                        課題を整理します
                     </p>
+                    <a href="https://calendar.app.google/jL4FY1VV6G2vN3Ak8" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="contact-card__link">
+                        日程を見る
+                    </a>
                 </div>
                 
-                <div class="contact-options">
-                    <div class="contact-card">
-                        <i class="fas fa-calendar-alt"></i>
-                        <h4>オンライン相談</h4>
-                        <p>30分の無料相談で<br>課題を整理します</p>
-                        <a href="https://calendar.app.google/jL4FY1VV6G2vN3Ak8" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                            日程を見る
-                        </a>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <i class="fas fa-envelope"></i>
-                        <h4>メールで問い合わせ</h4>
-                        <p>まずは気軽に<br>ご質問ください</p>
-                        <a href="mailto:kzkn510@gmail.com" class="btn-secondary">
-                            メールを送る
-                        </a>
-                    </div>
+                <div class="contact-card">
+                    <i class="contact-card__icon fas fa-envelope"></i>
+                    <h4 class="contact-card__title">メールで問い合わせ</h4>
+                    <p class="contact-card__text">
+                        まずは気軽に<br>
+                        ご質問ください
+                    </p>
+                    <a href="mailto:kzkn510@gmail.com" 
+                       class="contact-card__link">
+                        メールを送る
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <p>© 2025 Kizuku Goto. All rights reserved.</p>
+            <p class="footer__text">© 2025 Kizuku Goto. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navbar = document.getElementById('navbar');
-            const menuToggle = document.getElementById('menuToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-            const heroContent = document.querySelector('.hero-content');
-            
-            // スクロール時のナビゲーション変更
-            const handleScroll = () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
+        // Optimized JavaScript
+        (function() {
+            'use strict';
+
+            // Cache DOM elements
+            const elements = {
+                navbar: document.getElementById('navbar'),
+                menuToggle: document.getElementById('menuToggle'),
+                mobileMenu: document.getElementById('mobileMenu'),
+                mobileLinks: document.querySelectorAll('.mobile-menu__link'),
+                heroContent: document.querySelector('.hero__content'),
+                fadeElements: document.querySelectorAll('.fade-in')
+            };
+
+            // State management
+            const state = {
+                isMenuOpen: false,
+                lastScrollY: 0
+            };
+
+            // Utility: Throttle function
+            const throttle = (func, wait) => {
+                let timeout;
+                let lastTime = 0;
+                return function(...args) {
+                    const now = Date.now();
+                    const remaining = wait - (now - lastTime);
+                    
+                    if (remaining <= 0) {
+                        if (timeout) {
+                            clearTimeout(timeout);
+                            timeout = null;
+                        }
+                        lastTime = now;
+                        func.apply(this, args);
+                    } else if (!timeout) {
+                        timeout = setTimeout(() => {
+                            lastTime = Date.now();
+                            timeout = null;
+                            func.apply(this, args);
+                        }, remaining);
+                    }
+                };
+            };
+
+            // Navigation scroll handler
+            const handleScroll = throttle(() => {
+                const scrollY = window.scrollY;
+                
+                if (scrollY > 50) {
+                    elements.navbar.classList.add('nav--scrolled');
                 } else {
-                    navbar.classList.remove('scrolled');
+                    elements.navbar.classList.remove('nav--scrolled');
+                }
+                
+                state.lastScrollY = scrollY;
+            }, 100);
+
+            // Mobile menu functions
+            const toggleMenu = () => {
+                state.isMenuOpen = !state.isMenuOpen;
+                
+                elements.menuToggle.classList.toggle('nav__toggle--active', state.isMenuOpen);
+                elements.mobileMenu.classList.toggle('mobile-menu--active', state.isMenuOpen);
+                elements.menuToggle.setAttribute('aria-expanded', state.isMenuOpen);
+                elements.menuToggle.setAttribute('aria-label', state.isMenuOpen ? 'メニューを閉じる' : 'メニューを開く');
+                elements.mobileMenu.setAttribute('aria-hidden', !state.isMenuOpen);
+                
+                document.body.style.overflow = state.isMenuOpen ? 'hidden' : '';
+            };
+
+            const closeMenu = () => {
+                if (state.isMenuOpen) {
+                    state.isMenuOpen = false;
+                    elements.menuToggle.classList.remove('nav__toggle--active');
+                    elements.mobileMenu.classList.remove('mobile-menu--active');
+                    elements.menuToggle.setAttribute('aria-expanded', 'false');
+                    elements.menuToggle.setAttribute('aria-label', 'メニューを開く');
+                    elements.mobileMenu.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
                 }
             };
 
-            // モバイルメニューの開閉
-            const toggleMenu = () => {
-                const isActive = menuToggle.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                menuToggle.setAttribute('aria-label', isActive ? 'メニューを閉じる' : 'メニューを開く');
-                document.body.style.overflow = isActive ? 'hidden' : '';
-            };
-
-            // モバイルメニューのリンククリックでメニューを閉じる
-            const closeMenu = () => {
-                menuToggle.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                menuToggle.setAttribute('aria-label', 'メニューを開く');
-                document.body.style.overflow = '';
-            };
-
-            // フェードインアニメーション
+            // Intersection Observer for animations
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
-            const observer = new IntersectionObserver((entries, obs) => {
+
+            const fadeInObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        obs.unobserve(entry.target);
+                        entry.target.classList.add('fade-in--visible');
+                        fadeInObserver.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // ヒーローセクションのアニメーション
-            setTimeout(() => {
-                if (heroContent) {
-                    heroContent.classList.add('animate');
+            // Initialize
+            const init = () => {
+                // Set up scroll handler
+                window.addEventListener('scroll', handleScroll, { passive: true });
+                
+                // Set up mobile menu
+                if (elements.menuToggle) {
+                    elements.menuToggle.addEventListener('click', toggleMenu);
                 }
-            }, 500);
+                
+                // Close menu on link click
+                elements.mobileLinks.forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+                
+                // Close menu on escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && state.isMenuOpen) {
+                        closeMenu();
+                    }
+                });
+                
+                // Set up fade-in animations
+                elements.fadeElements.forEach(el => {
+                    fadeInObserver.observe(el);
+                });
+                
+                // Trigger hero animation
+                if (elements.heroContent) {
+                    setTimeout(() => {
+                        elements.heroContent.classList.add('hero__content--animate');
+                    }, 500);
+                }
+            };
 
-            // イベントリスナーの設定
-            window.addEventListener('scroll', handleScroll);
-            menuToggle.addEventListener('click', toggleMenu);
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-        });
+            // Run initialization when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
     </script>
 </body>
 </html>

@@ -970,67 +970,7 @@
     font-style: italic;
 }
 
-/* コンタクトオプション */
-.contact-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    max-width: 600px;
-    margin: 0 auto;
-}
 
-.contact-card {
-    background: var(--color-bg-primary);
-    padding: var(--space-2xl);
-    border-radius: 12px;
-    border: 1px solid var(--color-border);
-    transition: all var(--transition-base);
-    text-align: center;
-}
-
-.contact-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.contact-card__icon {
-    font-size: 2.5rem;
-    color: var(--color-accent);
-    margin-bottom: var(--space-lg);
-    display: block;
-}
-
-.contact-card__title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-sm);
-}
-
-.contact-card__text {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-lg);
-    line-height: 1.6;
-}
-
-.contact-card__link {
-    display: inline-block;
-    padding: var(--space-sm) var(--space-xl);
-    border: 1px solid var(--color-border);
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    border-radius: 6px;
-    transition: all var(--transition-base);
-}
-
-.contact-card__link:hover {
-    background: var(--color-bg-tertiary);
-    color: var(--color-text-primary);
-    border-color: var(--color-bg-tertiary);
-}
 
 /* レスポンシブ */
 @media (max-width: 768px) {
@@ -1040,11 +980,6 @@
     
     .contact-cta__title {
         font-size: 1.5rem;
-    }
-    
-    .contact-options {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
     }
     
     .contact-intro__text {
@@ -1453,7 +1388,7 @@
                     <li class="contact-cta__item">あなた専用のカリキュラム案を作成</li>
                     <li class="contact-cta__item">サービスが本当に必要かを一緒に判断</li>
                 </ul>
-                <a href="https://calendar.app.google/jL4FY1VV6G2vN3Ak8" 
+                <a href="https://calendar.app.google/MWKYZqQSW6HQLhSCA" 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    class="contact-cta__button">
@@ -1462,36 +1397,6 @@
                 <p class="contact-cta__note">
                     ※しつこい営業は一切しません
                 </p>
-            </div>
-            
-            <div class="contact-options">
-                <div class="contact-card">
-                    <i class="contact-card__icon fas fa-calendar-alt"></i>
-                    <h4 class="contact-card__title">オンライン相談</h4>
-                    <p class="contact-card__text">
-                        30分の無料相談で<br>
-                        課題を整理します
-                    </p>
-                    <a href="https://calendar.app.google/MWKYZqQSW6HQLhSCA" 
-                       target="_blank" 
-                       rel="noopener noreferrer" 
-                       class="contact-card__link">
-                        日程を見る
-                    </a>
-                </div>
-                
-                <div class="contact-card">
-                    <i class="contact-card__icon fas fa-envelope"></i>
-                    <h4 class="contact-card__title">メールで問い合わせ</h4>
-                    <p class="contact-card__text">
-                        まずは気軽に<br>
-                        ご質問ください
-                    </p>
-                    <a href="mailto:kzkn510@gmail.com" 
-                       class="contact-card__link">
-                        メールを送る
-                    </a>
-                </div>
             </div>
         </div>
     </div>

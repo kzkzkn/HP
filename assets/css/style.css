@@ -500,6 +500,10 @@ button {
   grid-column: span 2;
 }
 
+.reasons-grid .reason-card:nth-child(6) {
+  grid-column: span 2;
+}
+
 .reason-accent {
   background: var(--accent);
   color: #fff;
@@ -1162,7 +1166,8 @@ button {
   }
 
   .reason-tall,
-  .reason-wide {
+  .reason-wide,
+  .reasons-grid .reason-card:nth-child(6) {
     grid-row: auto;
     grid-column: auto;
   }

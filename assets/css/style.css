@@ -2,8 +2,8 @@
 
 /* ==========================================================================
    株式会社AIの鉄人 — コーポレートサイト
-   Direction A : Editorial（Takram寄り）
-   DESIGN.md v1 に準拠。[暫定]値からの変更点は PR / 報告に列挙する。
+   Direction A : Editorial（Takram寄り／Phase 3 で採用決定）
+   DESIGN.md v2（Phase 4 で確定）に準拠。
    構成:
      1. Tokens
      2. Base
@@ -14,6 +14,7 @@
      7. Sections 01-07
      8. Footer
      9. Motion / Reduced motion
+    10. Print
    ========================================================================== */
 
 /* ==========================================================================
@@ -48,7 +49,14 @@
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* --- Type scale（DESIGN.md §3.3。Direction A で display / h2 を調整） --- */
-  --fs-display: clamp(2rem, 5.6vw, 5.5rem);
+  /*
+   * --fs-display の上下限は、Hero H1 と Mission の確定コピー（指定改行位置）が
+   * 検証幅すべてで破綻しないように決めた実測値。
+   *   下限 28px : 375px 幅で「AI活用のスタンダードを」が1行に収まる最大サイズ
+   *   上限 70px : 1240px コンテナ（内寸1112px）で
+   *               「AI活用のスタンダードをつくる。」が1行に収まる最大サイズ
+   */
+  --fs-display: clamp(1.75rem, 5.6vw, 4.375rem);
   --fs-num:     clamp(3.5rem, 9vw, 8rem);
   --fs-h1:      clamp(2rem, 4.4vw, 3.5rem);
   --fs-h2:      clamp(1.75rem, 3.2vw, 2.75rem);
@@ -114,6 +122,17 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+}
+
+/*
+ * アンカー着地時の余白（DESIGN.md §8.2）。
+ * ヘッダーは static で確定したため、96px ではなく 32px（--space-6）で足りる。
+ * 旧サイトのページ内アンカー（#service / #case / #company / #contact）が
+ * 外部から参照されている可能性があるため維持する（SITE.md §3.5）。
+ */
+.section[id],
+#main {
+  scroll-margin-block-start: var(--space-6);
 }
 
 body {
@@ -262,6 +281,17 @@ strong {
   letter-spacing: 0.12em;
   color: var(--ink-muted);
   text-transform: uppercase;
+}
+
+/*
+ * 改行制御（DESIGN.md §3.4 / §3.2「見出しは word-break と幅制御を優先する」）。
+ * 日本語は任意の文字間で折り返せてしまうため、見出しでは意味の切れ目を .nobr で
+ * まとめ、そこ以外では折り返さないようにする。<br> を増やさずに行末の孤立文字
+ * （「社へ。」だけが次行に落ちる等）を防ぐのが目的で、文言は一切変えない。
+ * 幅が足りないときは .nobr の境界で折り返す。
+ */
+.nobr {
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -482,7 +512,16 @@ strong {
   width: 100%;
 }
 
-@media (min-width: 769px) {
+/*
+ * 横並びナビへの切り替えは lg（1024px）から。
+ * 769px から横並びにすると、ロゴ + ナビ4項目 + CTA が 689px の内寸に収まりきらず
+ * 窮屈になっていた（769px 実測で余白 20px 強）。DESIGN.md §9.1 [確定] の
+ * ブレークポイント4点（480 / 768 / 1024 / 1440）以外を増やさない原則にも合わせ、
+ * 769px のクエリを廃止して 1024px に統合した。
+ * DESIGN.md §6.7 の「≤768px はハンバーガー」は満たしたうえで、
+ * 適用範囲を ≤1023px まで広げている（上位互換）。
+ */
+@media (min-width: 1024px) {
   .site-header__inner {
     gap: var(--space-6);
   }
@@ -500,14 +539,14 @@ strong {
     display: flex;
     flex: 0 0 auto;
     align-items: center;
-    gap: var(--space-6);
+    gap: var(--space-8);
     padding: 0;
     border: 0;
   }
 
   .site-nav__list {
     flex-direction: row;
-    gap: var(--space-5);
+    gap: var(--space-6);
   }
 
   .site-nav__list a {
@@ -528,21 +567,6 @@ strong {
   .site-nav__cta .btn {
     width: auto;
     min-height: 44px;
-    padding: 12px 20px;
-    font-size: var(--fs-caption);
-  }
-}
-
-@media (min-width: 1024px) {
-  .site-nav {
-    gap: var(--space-8);
-  }
-
-  .site-nav__list {
-    gap: var(--space-6);
-  }
-
-  .site-nav__cta .btn {
     padding: 14px 26px;
     font-size: var(--fs-small);
   }
@@ -567,7 +591,7 @@ strong {
   letter-spacing: 0.01em;
 }
 
-.hero__title span {
+.hero__title > span {
   display: block;
 }
 
@@ -580,7 +604,7 @@ strong {
   color: var(--ink-muted);
 }
 
-.hero__sub span {
+.hero__sub > span {
   display: block;
 }
 
@@ -681,7 +705,7 @@ strong {
   letter-spacing: 0.02em;
 }
 
-.proof__desc span {
+.proof__desc > span {
   display: block;
 }
 
@@ -842,7 +866,7 @@ strong {
   letter-spacing: 0.01em;
 }
 
-.mission__title span {
+.mission__title > span {
   display: block;
 }
 
@@ -928,6 +952,13 @@ strong {
 .site-footer__grid {
   display: grid;
   gap: clamp(48px, 6vw, 72px);
+}
+
+/* 単独リンクのタップターゲットを 44px 以上にする（DESIGN.md §10.1） */
+.site-footer__logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .site-footer__logo img {
@@ -1021,5 +1052,71 @@ strong {
   .js .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ==========================================================================
+   10. Print
+   画面用の演出（reveal のフェードイン・アクセント面・ナビ）を落とし、
+   本文と会社情報が確実に紙に出る状態にする。
+   ========================================================================== */
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    overflow-x: visible;
+  }
+
+  /* IntersectionObserver が発火しないまま印刷されても本文が消えないようにする */
+  .js .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .skip-link,
+  .menu-toggle,
+  .site-nav {
+    display: none !important;
+  }
+
+  .section,
+  .hero {
+    padding-block: var(--space-6);
+  }
+
+  .section--subtle {
+    background: transparent;
+  }
+
+  /* 項目の途中で改ページさせない */
+  .idx__item,
+  .case__block,
+  .hero__meta-row,
+  .site-footer {
+    break-inside: avoid;
+  }
+
+  /* アクセント面のベタ塗りを避け、枠線で示す */
+  .btn,
+  .btn--primary {
+    min-height: 0;
+    padding: 4px 10px;
+    border: 1px solid #000;
+    background: transparent;
+    color: #000;
+  }
+
+  .btn__arrow,
+  .tlink__arrow {
+    display: none;
   }
 }

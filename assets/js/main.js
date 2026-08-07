@@ -3,11 +3,16 @@
  * Vanilla JS のみ（DESIGN.md §8.1 / CLAUDE.md §5）。外部ライブラリを追加しない。
  *   1. ハンバーガーメニューの開閉（aria-expanded / Escape / リサイズ復帰）
  *   2. IntersectionObserver による控えめなフェードイン（1要素につき1回）
+ *      ＋ 発火しない環境向けのタイムアウトフォールバック
  */
 (() => {
   "use strict";
 
-  const DESKTOP_QUERY = "(min-width: 769px)";
+  /* 横並びナビへ切り替わる幅。style.css のヘッダー用メディアクエリと一致させる */
+  const DESKTOP_QUERY = "(min-width: 1024px)";
+
+  /* reveal のフォールバック待ち時間（load 後） */
+  const REVEAL_FALLBACK_DELAY = 1500;
 
   /* ---------------------------------------------------------------- */
   /* 1. Navigation                                                     */
@@ -92,6 +97,28 @@
     );
 
     targets.forEach((target) => observer.observe(target));
+
+    /*
+     * フォールバック。
+     * プレレンダリング・一部クローラ・スクロールを伴わない自動化環境などでは
+     * IntersectionObserver のコールバックが発火せず、.reveal が opacity:0 のまま
+     * 残ることがある。コンテンツが読めない状態を作らないため、load 完了から
+     * 一定時間後に未表示の要素へ強制的に is-visible を付ける。
+     */
+    const revealAll = () => {
+      observer.disconnect();
+      targets.forEach((target) => target.classList.add("is-visible"));
+    };
+
+    const scheduleFallback = () => {
+      window.setTimeout(revealAll, REVEAL_FALLBACK_DELAY);
+    };
+
+    if (document.readyState === "complete") {
+      scheduleFallback();
+    } else {
+      window.addEventListener("load", scheduleFallback, { once: true });
+    }
   };
 
   const init = () => {

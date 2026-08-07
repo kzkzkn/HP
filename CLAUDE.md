@@ -11,7 +11,7 @@
 - **配信構成**: GitHub Pages（リポジトリ `kzkzkn/HP`、`main` ブランチを配信）。独自ドメインは `CNAME` で設定。
 - **現在の実装**: 素のHTML/CSS/Vanilla JSによる1ページLP（`index.html` + `assets/`）。ビルド工程・パッケージマネージャは無い。
 - **フレームワーク**: Astro等への移行は現時点で行わない。ページ数が増え、ヘッダー・フッター・メタタグ等の共通パーツの手動同期が負担になった時点で検討する。
-- **状況**: **全面リニューアル計画が進行中**。計画書はリポジトリ外（`コーポレートサイト_リニューアル_プランニング書_v2.md`）にあり、リニューアル後の目標体系はこのファイルの §2 に要約してある。
+- **状況**: **全面リニューアル計画が進行中**。計画書はリポジトリ外（`コーポレートサイト_リニューアル_プランニング書_v2.md`）にあり、リニューアル後の目標体系はこのファイルの §2 に要約してある。**Phase 3（デザイン探索）完了・Direction A 採用、Phase 4（トップページ実装）実施中。作業は統合ブランチ `renewal` 上で進める（§6）。**
 - **外部依存**: Google Fonts（Noto Sans JP / IBM Plex Mono）のみ。外部JSライブラリ・フレームワークは追加しない。
 - **問い合わせ導線**: Googleフォーム（`docs/CONTENT.md` のURLを使用）。サイト内に独自フォームは持たない。
 
@@ -24,7 +24,7 @@
 | ファイル | 役割 |
 | --- | --- |
 | `CLAUDE.md` | エージェント作業ルール（本ファイル） |
-| `DESIGN.md` | 見た目のSource of Truth（Visual Theme / Color / Typography / Spacing / Layout & Grid / Components / Photography / Motion / Responsive / Accessibility / Do・Don't）**※作成済み（v1）** |
+| `DESIGN.md` | 見た目のSource of Truth（Visual Theme / Color / Typography / Spacing / Layout & Grid / Components / Photography / Motion / Responsive / Accessibility / Do・Don't）**※作成済み（v2・Phase 4 で確定）** |
 | `docs/CONTENT.md` | 事実のSource of Truth（会社概要・サービス・実績・数字・顧客名・CTA）**※作成済み（v1）** |
 | `docs/BRAND.md` | 言語表現・思想のルール（トーン、使う言葉／使わない言葉、Mission / Vision） |
 | `docs/SITE.md` | 情報設計（Sitemap、各ページの目的・Target・CTA・Section構成）**※作成済み（v1）** |
@@ -40,7 +40,7 @@
 
 | ファイル | 状態 |
 | --- | --- |
-| `DESIGN.md` | **見た目のSoT（正）**。Phase 1 で作成した v1。記述は **[確定]**（方向選択に依存しない原則・制約・基準）と **[暫定]**（Phase 3 のデザイン探索で振れる値。ただし初期値は提案済みで、そのまま実装に使う）の二層構造になっている。詳細は `DESIGN.md` §0 を読む |
+| `DESIGN.md` | **見た目のSoT（正）**。Phase 1 で v1 を作成し、**Phase 4 のトップページ実装で v2 として確定した**（Direction A = Editorial を採用）。**v1 にあった [暫定] は残っておらず、記述された値はすべて実装の実値である。** 確定値を変える場合は実装と本ファイルを同時に更新する。詳細は `DESIGN.md` §0 / §13 を読む |
 | `docs/CONTENT.md` | **事実のSoT（正）**。Phase 2 で作成した v1。旧 `docs/content.md`（チラシPDF転記）の確定コピーと公開前TODOを引き継いでいる。**`【要確認】` が付いた事実は未確定であり、人間が確定するまで本番に出さない。** §0 の利用ルールを必ず読む |
 | `docs/SITE.md` | **情報設計のSoT（正）**。Phase 2 で作成した v1。Sitemap、各ページの目的・Target・CTA・Section構成、meta方針、ページ間導線。付録Aに現行サイトの棚卸し（Keep / Rewrite / Delete / Add）を記録している。**設計であり、実装済みのページは現時点で `/` のみ** |
 
@@ -81,7 +81,7 @@
 ## 3. 作業ルール（必須）
 
 1. **UI・スタイルを変更する前に `DESIGN.md` を読む。** `DESIGN.md` が**見た目のSource of Truth**である。トークン（色・フォント・余白・グリッド）は自分で決めず、必ずそこの定義に従う。定義が無い値が必要になったら、勝手に足さず人間に確認する。確認が取れたら、実装より先に `DESIGN.md` へ追記する。
-   - `DESIGN.md` の **[確定]** は方向選択に依存しない原則・制約であり、勝手に外さない。**[暫定]** は Phase 3 で振れてよい値だが「未定」ではなく、書かれた初期値をそのまま実装に使う（変える場合は理由をPRに書く）。
+   - `DESIGN.md` の **[確定]** は本サイトのデザイン上の決定であり、勝手に外さない。**Phase 4 の確定（v2）により [暫定] は残っていない。** 定義の無い値が必要になったら人間に確認し、実装より先に `DESIGN.md` へ追記する。
    - **例外**: 現行サイト（`main` の `index.html`）への軽微な保守は、リニューアルが本番反映されるまで `docs/design-spec.md` を参照する（§2.2「移行期の扱い」）。
 2. **会社の事実を創作しない。** 実績・数字・顧客名・受賞歴・サービス内容・設立年・資本金・電話番号・導入社数などは、**`docs/CONTENT.md` に書かれているものだけ**を使う。他の資料や推測から補わない。**不明な事実は「要確認」として人間に確認する**（勝手に埋めない、プレースホルダーで本番に出さない）。
    - `docs/CONTENT.md` で `【要確認】` が付いている事実は**未確定**である。人間が確定するまで**本番に出さない**（同 §8 に一覧がある）。
@@ -170,7 +170,7 @@ AIが「それっぽいSaaSサイト」を生成することを防ぐため、�
 
 ### ブランチ
 
-`main` から切り、用途別プレフィックスを付ける。
+用途別プレフィックスを付ける。
 
 | プレフィックス | 用途 |
 | --- | --- |
@@ -181,6 +181,23 @@ AIが「それっぽいSaaSサイト」を生成することを防ぐため、�
 | `design/` | デザイン探索ブランチ（例: `design/direction-a-editorial`） |
 
 例: `feat/case-study-fuji-subaru` / `fix/mobile-nav-overflow` / `chore/add-claude-md`
+
+### リニューアル期間中のブランチ運用（Phase 4〜7）**※現在このルールが適用中**
+
+**`main` は GitHub Pages の配信ブランチであり、そのまま公開中の現行サイトである。下層ページが揃うまで触らない。**
+
+| 起点 / base | 対象 |
+| --- | --- |
+| **`renewal`** | **リニューアルの作業はすべてここから切り、ここへ戻す。** 統合ブランチ（`main` + Direction A 実装） |
+| `main` | **現行サイトの緊急保守のみ。** その場合は `docs/design-spec.md` を参照し（§2.2「移行期の扱い」）、**同じ修正を `renewal` にも反映する** |
+
+1. **リニューアルの作業ブランチは `renewal` から切る。** 作業前に `git checkout renewal && git pull` する。
+2. **PRの base は `renewal`。** `gh pr create --base renewal --head <作業ブランチ>` のように、**base を必ず明示する**（既定の `main` に向けない）。
+3. **`main` を base にする PR は、Phase 7 のリリースPR（`renewal` → `main`）だけ。** それ以外で `main` へ PR を作らない。
+4. **merge は人間が行う**（下記 Pull Request の項と同じ）。エージェントは `renewal` への merge も実行しない。
+5. `renewal` 上では、**Phase 7 までに揃う下層ページへリンクしてよい**（一括リリースのためリンク切れにならない）。理由と例外は `docs/SITE.md` §2.2.1。
+
+> Phase 7 のリリースが完了したら、この節を削除し、ブランチの起点を `main` に戻す。
 
 ### コミット
 

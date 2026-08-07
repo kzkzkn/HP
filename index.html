@@ -11,7 +11,8 @@
     <meta property="og:url" content="https://www.ainotetsujin.com/">
     <meta property="og:image" content="https://www.ainotetsujin.com/assets/img/logo-circle.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="theme-color" content="#F6F4EE">
+    <!-- theme-color は DESIGN.md §2.2 の --bg（#FFFFFF）に追随させた（SITE.md §3.4） -->
+    <meta name="theme-color" content="#FFFFFF">
     <link rel="canonical" href="https://www.ainotetsujin.com/">
     <link rel="icon" href="assets/img/logo-circle.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,375 +31,425 @@
         "email": "goto_kizuku@ainotetsujin.com"
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "株式会社AIの鉄人",
+        "url": "https://www.ainotetsujin.com/"
+      }
+    </script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">本文へスキップ</a>
+
     <header class="site-header">
-      <div class="header-inner container">
-        <a class="logo-link" href="#top" aria-label="株式会社AIの鉄人 トップへ">
-          <img class="site-logo" src="assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" loading="lazy">
+      <div class="site-header__inner container">
+        <a class="site-header__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+          <img src="assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179">
         </a>
-        <button class="menu-toggle" type="button" aria-label="メニュー" aria-controls="primary-nav" aria-expanded="false">
-          <span class="menu-toggle-line"></span>
-          <span class="menu-toggle-line"></span>
-          <span class="menu-toggle-line"></span>
+
+        <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+          <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span></span>
+          <span class="menu-toggle__text">MENU</span>
         </button>
+
         <nav class="site-nav" id="primary-nav" aria-label="グローバルナビゲーション">
-          <ul class="nav-list">
-            <li><a href="#service">SERVICE</a></li>
-            <li><a href="#case">CASE</a></li>
-            <li><a href="#company">COMPANY</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+          <ul class="site-nav__list">
+            <!-- 下層ページは Phase 5〜6 で実装予定（SITE.md §2.2）。本ブランチは比較検討用のためリンク先は計画パスを置いている -->
+            <li><a href="/service/">SERVICE<span class="site-nav__ja">サービス</span></a></li>
+            <li><a href="/case/">CASE<span class="site-nav__ja">導入事例</span></a></li>
+            <li><a href="/company/">COMPANY<span class="site-nav__ja">会社情報</span></a></li>
+            <li><a href="/contact/">CONTACT<span class="site-nav__ja">お問い合わせ</span></a></li>
+            <!-- NEWS は掲載記事が未確定のため項目を出さない（CONTENT.md T-28 / SITE.md §3.1） -->
           </ul>
-          <a class="btn header-cta" href="https://forms.gle/YZ8bPWESxtVHzLJG6" target="_blank" rel="noopener">お問い合わせ</a>
+          <a class="btn btn--primary site-nav__cta" href="/contact/">AI活用について相談する</a>
         </nav>
       </div>
     </header>
 
     <main id="main">
-      <section class="section section-hero" id="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="mono-label">AI SOLUTION PARTNER</p>
-            <p class="hero-kicker">中小・中堅企業向け｜AI活用の定着・伴走支援</p>
-            <h1 class="hero-title">AI、「導入して終わり」に<br>なっていませんか？</h1>
-            <p class="hero-lead">― 6ヶ月で、AIを自分たちで<span class="accent-text">使いこなせる会社へ</span> ―</p>
-            <p class="hero-sub">私たちは貴社の「AI活用推進室」として中に入り、一緒に手を動かしながら定着まで伴走します</p>
-            <div class="hero-actions">
-              <a class="btn" href="https://forms.gle/YZ8bPWESxtVHzLJG6" target="_blank" rel="noopener">お問い合わせ</a>
-              <a class="btn btn-ghost" href="https://forms.gle/YZ8bPWESxtVHzLJG6" target="_blank" rel="noopener">資料請求</a>
+
+      <!-- ============================================================
+           01 Hero （SITE.md §4.1-01）
+           ============================================================ -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <p class="s-label s-label--lg">
+            <span class="s-label__num">01</span><span class="s-label__sep" aria-hidden="true">—</span><span class="s-label__txt">FIELD</span>
+          </p>
+
+          <p class="hero__kicker">現場から、AI導入を再設計する。</p>
+
+          <h1 class="hero__title" id="hero-title">AIを導入する会社から、<br>AIで仕事を変え続ける会社へ。</h1>
+
+          <p class="hero__lead">地方企業の現場に入り込み、<br>AI活用を「定着」まで実装する。</p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="/contact/">相談する</a>
+            <a class="btn btn--ghost" href="/case/">導入事例を見る</a>
+          </div>
+
+          <dl class="hero__meta">
+            <div class="hero__meta-row">
+              <dt>POSITION</dt>
+              <dd>地方企業の現場に入り、AI活用を「定着」まで実装する会社</dd>
             </div>
+            <div class="hero__meta-row">
+              <dt>BASE</dt>
+              <dd>群馬県前橋市</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- PHOTO: 店舗訪問／現場ヒアリング（16:9・フルブリード）
+             T-26（現場写真の撮影・許諾）が未実施のため、単色面とタイポグラフィで構成している。
+             写真が用意でき次第、この .plate を <img> に差し替える。 -->
+        <div class="plate plate--hero">
+          <div class="plate__frame">
+            <p class="plate__slot"><span class="plate__slot-key">PHOTO</span>店舗訪問・現場ヒアリング</p>
+            <p class="plate__big" aria-hidden="true">FIELD</p>
+            <span class="plate__tick" aria-hidden="true"></span>
           </div>
-          <div class="hero-visual card" aria-label="ダッシュボード風ビジュアル">
-            <svg class="hero-dashboard" viewBox="0 0 520 420" aria-hidden="true" role="presentation" focusable="false">
-              <rect x="24" y="24" width="472" height="372" rx="10" fill="#FCFBF7" stroke="#1E1C19" stroke-width="3"/>
-              <rect x="54" y="58" width="120" height="16" rx="8" fill="#1E1C19"/>
-              <rect x="54" y="92" width="184" height="10" rx="5" fill="#D8D3C6"/>
-              <rect x="300" y="58" width="72" height="28" rx="14" fill="#DE2B1C"/>
-              <rect x="386" y="58" width="72" height="28" rx="14" fill="#FCFBF7" stroke="#1E1C19" stroke-width="2"/>
-              <rect x="54" y="136" width="268" height="142" rx="8" fill="#FCFBF7" stroke="#1E1C19" stroke-width="2"/>
-              <path d="M80 238 L124 208 L168 222 L214 174 L262 188 L296 154" fill="none" stroke="#DE2B1C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M80 250 H296" stroke="#D8D3C6" stroke-width="2"/>
-              <path d="M80 216 H296" stroke="#D8D3C6" stroke-width="2"/>
-              <path d="M80 182 H296" stroke="#D8D3C6" stroke-width="2"/>
-              <rect x="350" y="136" width="116" height="142" rx="8" fill="#FCFBF7" stroke="#1E1C19" stroke-width="2"/>
-              <rect x="374" y="226" width="16" height="28" fill="#1E1C19"/>
-              <rect x="404" y="190" width="16" height="64" fill="#DE2B1C"/>
-              <rect x="434" y="158" width="16" height="96" fill="#1E1C19"/>
-              <rect x="54" y="306" width="412" height="56" rx="8" fill="#FCFBF7" stroke="#1E1C19" stroke-width="2"/>
-              <path d="M80 334 l8 8 16 -18" fill="none" stroke="#DE2B1C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="120" y="326" width="96" height="8" rx="4" fill="#1E1C19"/>
-              <rect x="120" y="342" width="248" height="7" rx="3.5" fill="#D8D3C6"/>
-            </svg>
+          <p class="plate__caption"><span class="plate__caption-key">01</span>週次で訪問・オンライン併用</p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           02 Proof （SITE.md §4.1-02 / CONTENT.md §4.1〜§4.2 / DESIGN.md §6.3）
+           ============================================================ -->
+      <section class="section section--invert" id="proof" aria-labelledby="proof-title">
+        <div class="container section__grid">
+          <div class="section__rail">
+            <p class="s-label s-label--invert">
+              <span class="s-label__num">02</span><span class="s-label__sep" aria-hidden="true">—</span><span class="s-label__txt">PROOF</span>
+            </p>
+          </div>
+
+          <div class="section__body">
+            <h2 class="section__title" id="proof-title">実績</h2>
+
+            <div class="stat">
+              <p class="stat__key">RESULT</p>
+              <p class="stat__num">No.1</p>
+              <p class="stat__desc">国内SUBARU販売会社<br>商談支援AIツールの活用定着率</p>
+              <!-- 掲載可能な数値表現はこの1件のみ（CONTENT.md §4.2）。他の数値を追加しない -->
+              <p class="stat__note">商談支援AIツールの活用定着率 国内SUBARU販売会社 1位 を達成（富士スバル様）</p>
+              <p class="stat__note stat__note--sub">対象範囲：国内SUBARU販売会社／商談支援AIツールの活用定着率</p>
+            </div>
+
+            <a class="link-arrow link-arrow--invert" href="/case/">導入事例を見る</a>
           </div>
         </div>
       </section>
 
-      <section class="section" id="issues">
-        <div class="container">
-          <p class="mono-label">ISSUES</p>
-          <h2 class="section-title">こんなお悩みはありませんか？</h2>
-          <div class="issues-grid">
-            <article class="card issue-card">
-              <div class="issue-card-head">
-                <span class="chip">ISSUE 01</span>
-                <svg class="issue-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M7 10.5h22v13H15l-6 5v-5H7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 15h12M12 19h8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-              <p>ChatGPTなどを入れたが、一部の社員しか使っていない</p>
-            </article>
-            <article class="card issue-card">
-              <div class="issue-card-head">
-                <span class="chip">ISSUE 02</span>
-                <svg class="issue-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M8 18h12M20 18l-4-4M20 18l-4 4M20 9h8v8M20 27h8v-8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <p>何から手をつければいいか分からない</p>
-            </article>
-            <article class="card issue-card">
-              <div class="issue-card-head">
-                <span class="chip">ISSUE 03</span>
-                <svg class="issue-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><circle cx="14" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 28c1.2-5 4-8 8-8s6.8 3 8 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M25 10.5c.5-2.2 4.5-2 4.5.5 0 2.8-3.5 2.4-3.5 5M26 21h.1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-              <p>社内にAIに詳しい人がいない、採用も難しい</p>
-            </article>
-            <article class="card issue-card">
-              <div class="issue-card-head">
-                <span class="chip">ISSUE 04</span>
-                <svg class="issue-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><circle cx="18" cy="18" r="12" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M18 11v8l5 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <p>メール・資料づくり・転記作業に毎日時間を取られている</p>
-            </article>
-            <article class="card issue-card">
-              <div class="issue-card-head">
-                <span class="chip">ISSUE 05</span>
-                <svg class="issue-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><path d="M10 7h15a3 3 0 0 1 3 3v19H12a4 4 0 0 1-4-4V9a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 25h16M14 13h9M14 17h7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-              <p>研修は受けたが、現場の仕事は何も変わらなかった</p>
-            </article>
-            <article class="card issue-card">
-              <div class="issue-card-head">
-                <span class="chip">ISSUE 06</span>
-                <svg class="issue-icon" viewBox="0 0 36 36" aria-hidden="true" focusable="false"><circle cx="16" cy="16" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M22 22l7 7M16 12v8M12 16h8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </div>
-              <p>自社の業務のどこにAIが使えるのか、見当がつかない</p>
-            </article>
+      <!-- ============================================================
+           03 Case Study （SITE.md §4.1-03）
+           ============================================================ -->
+      <section class="section" id="case" aria-labelledby="case-title">
+        <div class="container section__grid">
+          <div class="section__rail">
+            <p class="s-label">
+              <span class="s-label__num">03</span><span class="s-label__sep" aria-hidden="true">—</span><span class="s-label__txt">CASE STUDY</span>
+            </p>
           </div>
-        </div>
-      </section>
 
-      <section class="section section-alt" id="solution">
-        <div class="container">
-          <p class="mono-label">OUR APPROACH</p>
-          <h2 class="section-title">私たちの考え方</h2>
-          <p class="section-lead">AI活用は<strong>「どのツールを選ぶか」ではなく「社内に根付かせる進め方」</strong>で成否が決まります。使われないAIは、いくら高機能でも価値はゼロ。だから私たちは、貴社の「AI活用推進室」の一員として中に入り、毎日の業務の中で一緒に手を動かしながら、<strong>社内にAIを広められる人（推進役）を育てます</strong>。目指すのは、6ヶ月後に私たちがいなくても自分たちで使いこなせている状態です。</p>
-          <div class="solution-flow" aria-label="課題から成果までの流れ">
-            <div class="flow-box card">課題</div>
-            <svg class="flow-arrow" viewBox="0 0 48 24" aria-hidden="true" focusable="false"><path d="M4 12h36M30 5l10 7-10 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div class="flow-box flow-box-accent">AIの鉄人</div>
-            <svg class="flow-arrow" viewBox="0 0 48 24" aria-hidden="true" focusable="false"><path d="M4 12h36M30 5l10 7-10 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div class="flow-box card">成果</div>
-          </div>
-          <h3 class="path-title">6ヶ月で「自分たちで使いこなせる」までの道のり</h3>
-          <div class="timeline">
-            <article class="card step-card">
-              <div class="step-meta">
-                <span class="step-badge">STEP 1</span>
-                <span class="step-period">1〜2ヶ月目</span>
+          <div class="section__body">
+            <h2 class="section__title" id="case-title">現場で何が起きたか</h2>
+            <!-- 社名の露出を現行サイト以上に増やさないため、本セクションでは業種表記に留める（CONTENT.md §4.4 / T-03） -->
+            <p class="case__client">自動車販売業　SUBARU正規特約店</p>
+
+            <div class="case__flow">
+              <div class="case__block">
+                <p class="case__block-key"><span>A</span>課題</p>
+                <p class="case__block-text">AIツールを導入したが、現場で十分に使われない。</p>
               </div>
-              <div class="step-body">
-                <h4>推進役を決めて、育てる</h4>
-                <ul>
-                  <li>社長・役員の皆様とご相談し、社内の「AI推進役」を任命</li>
-                  <li>私たちが貴社のAI活用推進室として実働を開始（週次で訪問・オンライン併用）</li>
-                  <li>AIの基本と、社内に広めるための進め方を推進役の方にすべて伝授</li>
-                  <li>メール・企画書づくりなど、まずは身近な業務をAIで時短</li>
-                  <li>貴社の業務を棚卸しし、効果（時間削減）の大きい業務を洗い出し</li>
-                  <li>プログラミング不要、AIに指示するだけの「業務アプリづくり」も習得</li>
+
+              <div class="case__block">
+                <p class="case__block-key"><span>B</span>取り組み</p>
+                <ul class="case__acts">
+                  <li>店舗訪問</li>
+                  <li>現場ヒアリング</li>
+                  <li>研修</li>
+                  <li>管理職レビュー</li>
+                  <li>利用データ分析</li>
+                  <li>改善</li>
+                </ul>
+                <p class="case__acts-note">※実施の順序・期間は公開情報として確定していないため、順序を示さず並列に記載しています。</p>
+              </div>
+
+              <div class="case__block">
+                <p class="case__block-key"><span>C</span>成果</p>
+                <!-- CONTENT.md §4.1 確定コピー（一字一句そのまま） -->
+                <p class="case__result">伴走支援により、国内SUBARU販売会社のなかで商談支援AIツールの活用定着率1位を達成。ご担当者はメール・書類作成など一部業務の時間を大幅に削減し、自動化も実現。全店舗でキックオフイベントを開催し、高い満足度を獲得しています。</p>
+                <ul class="case__facts">
+                  <li>メール・書類作成など一部業務の時間を大幅削減、自動化も実現</li>
+                  <li>全店舗でキックオフ（導入説明会）を開催、高い満足度を獲得</li>
                 </ul>
               </div>
-            </article>
-            <article class="card step-card">
-              <div class="step-meta">
-                <span class="step-badge">STEP 2</span>
-                <span class="step-period">3〜4ヶ月目</span>
-              </div>
-              <div class="step-body">
-                <h4>1つの業務で、目に見える成果を出す</h4>
-                <ul>
-                  <li>洗い出した中から、効果が最も大きい業務を1つ選定</li>
-                  <li>実際の業務の中で自動化の仕組みをつくり、現場で運用開始</li>
-                  <li>推進役の方がご自身の手で直し・改善できるよう、隣で徹底サポート</li>
-                  <li>「AIでここまで変わる」という成功例を社内に示し、次の展開への土台に</li>
-                </ul>
-              </div>
-            </article>
-            <article class="card step-card">
-              <div class="step-meta">
-                <span class="step-badge">STEP 3</span>
-                <span class="step-period">5〜6ヶ月目</span>
-              </div>
-              <div class="step-body">
-                <h4>全社へ広げて、卒業</h4>
-                <ul>
-                  <li>各部署・各店舗ごとに、ひとつひとつ丁寧にキックオフ（導入説明会）を開催</li>
-                  <li>現場からの質問にその場で対応し、「使える人」を一人ずつ増やす</li>
-                  <li>私たちがいなくても回る体制を整えて、伴走支援を卒業</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-          <p class="solution-note">※上記の進め方は一例です。貴社の課題・現状・体制に合わせて、期間や内容は柔軟に設計いたします。</p>
-          <div class="after-box card">
-            <h3>6ヶ月後、貴社はこうなっています</h3>
-            <ul class="check-grid">
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>社内にAIを広められる「推進役」が育っている</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>効果の大きい業務が1つ以上、自動化されている</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>日常業務でAIを使うのが当たり前になっている</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>次にどの業務へ広げるか、自分たちで判断・実行できる</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="service">
-        <div class="container">
-          <p class="mono-label">SERVICE</p>
-          <h2 class="section-title">サービス</h2>
-          <p class="section-lead">AIツールの導入から定着・活用までを支援する専門会社です。外から教えるだけの研修ではなく、お客様の社内に入り込み、実際の業務の中で一緒に手を動かす「伴走型」が特長です。</p>
-          <div class="service-grid">
-            <article class="card service-card">
-              <svg class="service-icon" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><rect x="9" y="10" width="38" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 46h20M28 40v6M18 24l7 7 14-14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <h3>AI活用の伴走支援</h3>
-              <p>貴社の「AI活用推進室」として中に入り、定着までを支援</p>
-            </article>
-            <article class="card service-card">
-              <svg class="service-icon" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><path d="M12 16h32v26H18l-6 5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M20 24h16M20 31h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="42" cy="14" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-              <h3>AI研修</h3>
-              <p>現場の言葉で、パソコンが苦手な方にも分かる形でお伝えする実務直結の研修</p>
-            </article>
-            <article class="card service-card">
-              <svg class="service-icon" viewBox="0 0 56 56" aria-hidden="true" focusable="false"><rect x="10" y="12" width="16" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><rect x="30" y="32" width="16" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M26 18h8a8 8 0 0 1 8 8v6M30 38h-8a8 8 0 0 1-8-8v-6M36 26l6 6 6-6M20 30l-6-6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <h3>業務自動化支援</h3>
-              <p>メール・書類作成などの業務を棚卸しし、効果の大きい仕事から自動化</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="reasons">
-        <div class="container">
-          <p class="mono-label">WHY US</p>
-          <h2 class="section-title">私たちの強み（選ばれる理由）</h2>
-          <div class="reasons-grid">
-            <article class="card reason-card reason-tall">
-              <h3>1. 教えて終わりではなく、一緒に働くから</h3>
-              <p>研修やセミナーではなく、貴社の推進担当として実務の中でご支援します。</p>
-            </article>
-            <article class="card reason-card">
-              <h3>2. 「組織への定着」を最優先するから</h3>
-              <p>当たり前にAIを使う状態をつくることがゴールです。</p>
-            </article>
-            <article class="card reason-card reason-accent">
-              <h3>3. 社内に「推進役」を育てるから</h3>
-              <p>社長・役員の皆様と相談して適任者を決め、進め方をすべて引き継ぎます。</p>
-            </article>
-            <article class="card reason-card reason-wide">
-              <h3>4. 難しい専門用語を使わないから</h3>
-              <p>現場の言葉で、パソコンが苦手な方にも分かる形でお伝えします。</p>
-            </article>
-            <article class="card reason-card">
-              <h3>5. 効果の大きい業務から着手するから</h3>
-              <p>業務を棚卸しし、時間削減の効果が一番大きい仕事から自動化します。</p>
-            </article>
-            <article class="card reason-card">
-              <h3>6. 全社に広がるまでやり切るから</h3>
-              <p>部署・店舗ごとに説明会を行い、一人ひとりが使える状態まで伴走します。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-alt" id="case">
-        <div class="container">
-          <div class="card case-highlight">
-            <p class="mono-label">CASE</p>
-            <h2 class="section-title">実績・支援事例</h2>
-            <p class="case-lead">商談支援AIツールの活用定着率</p>
-            <p class="case-rank">国内SUBARU販売会社 <span class="num-xl">1位</span></p>
-            <p class="case-note">を達成（富士スバル様）</p>
-          </div>
-          <div class="case-facts">
-            <article class="card fact-card">
-              <p>メール・書類作成など一部業務の時間を大幅削減、自動化も実現</p>
-            </article>
-            <article class="card fact-card">
-              <p>全店舗でキックオフ（導入説明会）を開催、高い満足度を獲得</p>
-            </article>
-          </div>
-          <div class="card case-table">
-            <dl>
-              <div>
-                <dt>業種</dt>
-                <dd>自動車販売業 SUBARU正規特約店（富士スバル様）</dd>
-              </div>
-              <div>
-                <dt>成果</dt>
-                <dd>伴走支援により、国内SUBARU販売会社のなかで商談支援AIツールの活用定着率1位を達成。ご担当者はメール・書類作成など一部業務の時間を大幅に削減し、自動化も実現。全店舗でキックオフイベントを開催し、高い満足度を獲得しています。</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="mission">
-        <div class="container">
-          <div class="card mission-card">
-            <p class="mono-label">MISSION</p>
-            <h2>「AIを、一部の詳しい人のものではなく、全員の道具に。」</h2>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="company">
-        <div class="container">
-          <p class="mono-label">COMPANY</p>
-          <h2 class="section-title">会社概要</h2>
-          <div class="ceo-message">
-            <div class="ceo-photo-wrap">
-              <img src="assets/img/ceo-photo.jpg" alt="代表取締役 後藤築" width="1600" height="981" loading="lazy">
             </div>
-            <div class="ceo-copy">
-              <p class="mono-label">CEO MESSAGE</p>
-              <p>AI活用は「どのツールを選ぶか」ではなく「社内に根付かせる進め方」で成否が決まります。使われないAIは、いくら高機能でも価値はゼロ。だから私たちは、貴社のAI活用推進室の一員として中に入り、毎日の業務の中で一緒に手を動かします。まずは「うちの場合はどこから？」というご相談だけでもお待ちしています。</p>
-              <p class="ceo-signature">株式会社AIの鉄人 代表取締役 後藤 築</p>
+
+            <!-- PHOTO: 商談・研修風景（3:2）— T-26 未実施のため単色面で構成 -->
+            <div class="plate plate--case">
+              <div class="plate__frame">
+                <p class="plate__slot"><span class="plate__slot-key">PHOTO</span>研修・商談風景</p>
+                <span class="plate__tick" aria-hidden="true"></span>
+              </div>
+              <p class="plate__caption"><span class="plate__caption-key">02</span>部署・店舗ごとにキックオフ（導入説明会）を実施</p>
             </div>
-          </div>
-          <div class="card company-table">
-            <dl>
-              <div>
-                <dt>社名</dt>
-                <dd>株式会社AIの鉄人</dd>
-              </div>
-              <div>
-                <dt>所在地</dt>
-                <dd>群馬県前橋市南町三丁目50番地2 プラザアン2階 D-53</dd>
-              </div>
-              <div>
-                <dt>代表者</dt>
-                <dd>後藤 築</dd>
-              </div>
-              <div>
-                <dt>事業内容</dt>
-                <dd>AIツール導入・定着・活用の伴走支援、AI研修、業務自動化支援</dd>
-              </div>
-              <div>
-                <dt>MAIL</dt>
-                <dd><a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a></dd>
-              </div>
-              <div>
-                <dt>HP</dt>
-                <dd><a href="https://www.ainotetsujin.com/">https://www.ainotetsujin.com/</a></dd>
-              </div>
-            </dl>
+
+            <!-- 詳細ページ /case/fuji-subaru/ は T-03・T-13 が確定するまで作らない（SITE.md §4.3）。リンクにしない -->
+            <p class="status">
+              <span class="status__key">DETAIL</span>
+              <span class="status__value">COMING SOON</span>
+            </p>
+
+            <a class="link-arrow" href="/case/">導入事例を見る</a>
           </div>
         </div>
       </section>
 
-      <section class="section" id="contact">
+      <!-- ============================================================
+           04 What We Do （SITE.md §4.1-04 / DESIGN.md §6.4）
+           ============================================================ -->
+      <section class="section section--subtle" id="whatwedo" aria-labelledby="whatwedo-title">
+        <div class="container section__grid">
+          <div class="section__rail">
+            <p class="s-label">
+              <span class="s-label__num">04</span><span class="s-label__sep" aria-hidden="true">—</span><span class="s-label__txt">WHAT WE DO</span>
+            </p>
+          </div>
+
+          <div class="section__body">
+            <h2 class="section__title" id="whatwedo-title">何をする会社か</h2>
+            <p class="section__lead">現場に入り、一緒に手を動かし、使われる状態まで持っていき、社内に残す。この4工程で進めます。</p>
+          </div>
+        </div>
+
         <div class="container">
-          <div class="card contact-card">
-            <p class="mono-label">CONTACT</p>
-            <h2 class="section-title">お問い合わせ</h2>
-            <p class="contact-lead">まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ！</p>
-            <div class="contact-actions">
-              <a class="btn" href="https://forms.gle/YZ8bPWESxtVHzLJG6" target="_blank" rel="noopener">お問い合わせフォームへ</a>
-              <a class="btn btn-ghost" href="https://forms.gle/YZ8bPWESxtVHzLJG6" target="_blank" rel="noopener">資料請求（サービス資料をお送りします）</a>
+          <ol class="proc">
+            <li class="proc__item">
+              <p class="proc__num" aria-hidden="true">01</p>
+              <div class="proc__body">
+                <h3 class="proc__title">現場を知る</h3>
+                <p class="proc__text">業務を棚卸しし、時間削減の効果が一番大きい仕事から自動化します。</p>
+              </div>
+            </li>
+            <li class="proc__item">
+              <p class="proc__num" aria-hidden="true">02</p>
+              <div class="proc__body">
+                <h3 class="proc__title">一緒につくる</h3>
+                <p class="proc__text">研修やセミナーではなく、貴社の推進担当として実務の中でご支援します。</p>
+              </div>
+            </li>
+            <li class="proc__item">
+              <p class="proc__num" aria-hidden="true">03</p>
+              <div class="proc__body">
+                <h3 class="proc__title">使われるまでやる</h3>
+                <p class="proc__text">部署・店舗ごとに説明会を行い、一人ひとりが使える状態まで伴走します。</p>
+              </div>
+            </li>
+            <li class="proc__item">
+              <p class="proc__num" aria-hidden="true">04</p>
+              <div class="proc__body">
+                <h3 class="proc__title">社内に残す</h3>
+                <p class="proc__text">社長・役員の皆様と相談して適任者を決め、進め方をすべて引き継ぎます。</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- PHOTO: 業務改善・会議（21:9・フルブリード）— T-26 未実施のため単色面で構成 -->
+        <div class="plate plate--band">
+          <div class="plate__frame plate__frame--dark">
+            <p class="plate__slot plate__slot--invert"><span class="plate__slot-key">PHOTO</span>現場での業務改善・会議</p>
+            <p class="plate__big plate__big--invert" aria-hidden="true">01 → 04</p>
+            <span class="plate__tick" aria-hidden="true"></span>
+          </div>
+          <p class="plate__caption"><span class="plate__caption-key">03</span>貴社の「AI活用推進室」として中に入り、定着までを支援</p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           05 Services （SITE.md §4.1-05 / CONTENT.md §3.2）
+           ============================================================ -->
+      <section class="section" id="service" aria-labelledby="service-title">
+        <div class="container section__grid">
+          <div class="section__rail">
+            <p class="s-label">
+              <span class="s-label__num">05</span><span class="s-label__sep" aria-hidden="true">—</span><span class="s-label__txt">SERVICE</span>
+            </p>
+          </div>
+
+          <div class="section__body">
+            <h2 class="section__title" id="service-title">提供する支援</h2>
+            <p class="section__lead">AIツールの導入から定着・活用までを支援する専門会社です。外から教えるだけの研修ではなく、お客様の社内に入り込み、実際の業務の中で一緒に手を動かす「伴走型」が特長です。</p>
+          </div>
+        </div>
+
+        <div class="container">
+          <ol class="svc">
+            <li class="svc__item">
+              <p class="svc__num" aria-hidden="true">01</p>
+              <h3 class="svc__title">AI導入・活用支援</h3>
+              <p class="svc__text">貴社の「AI活用推進室」として中に入り、定着までを支援</p>
+            </li>
+            <li class="svc__item">
+              <p class="svc__num" aria-hidden="true">02</p>
+              <h3 class="svc__title">業務再設計</h3>
+              <p class="svc__text">メール・書類作成などの業務を棚卸しし、効果の大きい仕事から自動化</p>
+            </li>
+            <li class="svc__item">
+              <p class="svc__num" aria-hidden="true">03</p>
+              <h3 class="svc__title">AI研修</h3>
+              <p class="svc__text">現場の言葉で、パソコンが苦手な方にも分かる形でお伝えする実務直結の研修</p>
+            </li>
+            <li class="svc__item">
+              <p class="svc__num" aria-hidden="true">04</p>
+              <h3 class="svc__title">AIツール開発</h3>
+              <!-- 受託システム開発ではない（SITE.md §4.2-02 / CONTENT.md §3.2）。範囲を超えて書かない -->
+              <p class="svc__text">実際の業務の中で自動化の仕組みをつくり、現場で運用開始</p>
+            </li>
+            <li class="svc__item">
+              <p class="svc__num" aria-hidden="true">05</p>
+              <h3 class="svc__title">定着支援</h3>
+              <p class="svc__text">各部署・各店舗ごとに、ひとつひとつ丁寧にキックオフ（導入説明会）を開催</p>
+            </li>
+            <li class="svc__item">
+              <p class="svc__num" aria-hidden="true">06</p>
+              <h3 class="svc__title">内製化支援</h3>
+              <p class="svc__text">私たちがいなくても回る体制を整えて、伴走支援を卒業</p>
+            </li>
+          </ol>
+
+          <div class="section__foot">
+            <a class="link-arrow" href="/service/">サービスを見る</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           06 Method（SITE.md §4.1-06）は【要確認 T-23】のため実装しない。
+           Field-Native Builder / Adaptive Flow Governance は概念名のみで
+           中身が未定義であり、名前だけを掲載しない。
+           以降の連番は、欠番による誤読を避けるため通しで振り直している。
+           （表示 06 = SITE.md 07 / 表示 07 = SITE.md 08 / 表示 08 = SITE.md 09）
+           ============================================================ -->
+
+      <!-- ============================================================
+           06（SITE.md 07）Company / Philosophy
+           ============================================================ -->
+      <section class="section section--invert" id="company" aria-labelledby="company-title">
+        <div class="container section__grid">
+          <div class="section__rail">
+            <p class="s-label s-label--invert">
+              <span class="s-label__num">06</span><span class="s-label__sep" aria-hidden="true">—</span><span class="s-label__txt">COMPANY</span>
+            </p>
+          </div>
+
+          <div class="section__body">
+            <h2 class="section__title" id="company-title">私たちの立っている場所</h2>
+
+            <div class="statement">
+              <p class="statement__key">MISSION</p>
+              <p class="statement__body">地方企業における<br>AI活用のスタンダードをつくる。</p>
             </div>
-            <div class="contact-qr">
-              <img src="assets/img/contact-qr.png" alt="お問い合わせフォームQRコード" width="480" height="480" loading="lazy">
-              <div>
-                <p>お問い合わせはこちらから</p>
-                <a href="mailto:goto_kizuku@ainotetsujin.com">MAIL: goto_kizuku@ainotetsujin.com</a>
+
+            <div class="statement">
+              <p class="statement__key">VISION</p>
+              <p class="statement__body statement__body--sm">AIを、群馬の“当たり前”に。</p>
+            </div>
+
+            <!-- 思想的コピーとしての利用（CONTENT.md §2.5）。Mission・Vision と並ぶ見出しレベルにしない -->
+            <p class="statement__aside">「AIを、一部の詳しい人のものではなく、全員の道具に。」— 私たちはこの考え方で仕事をしています。</p>
+
+            <a class="link-arrow link-arrow--invert" href="/company/">会社情報を見る</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           07（SITE.md 08）People
+           代表以外のメンバーは【要確認 T-24】のため、代表のみで構成する。
+           「チーム」「メンバー」を前提とした表現を使わない。
+           代表メッセージ本文は CONTENT.md §5.2 の暫定文（旧原稿版が正・T-30）。
+           正式文面は【要確認 T-01】。
+           ============================================================ -->
+      <section class="section" id="people" aria-labelledby="people-title">
+        <div class="container section__grid">
+          <div class="section__rail">
+            <p class="s-label">
+              <span class="s-label__num">07</span><span class="s-label__sep" aria-hidden="true">—</span><span class="s-label__txt">PEOPLE</span>
+            </p>
+          </div>
+
+          <div class="section__body">
+            <h2 class="section__title" id="people-title">現場に入る人</h2>
+
+            <div class="people">
+              <div class="people__figure">
+                <img src="assets/img/ceo-photo.jpg" alt="株式会社AIの鉄人 代表取締役 後藤 築" width="1600" height="981" loading="lazy" decoding="async">
+              </div>
+              <div class="people__body">
+                <p class="people__role">代表取締役</p>
+                <p class="people__name">後藤 築</p>
+                <p class="people__message">AI活用は「どのツールを選ぶか」ではなく「社内に根付かせる進め方」で成否が決まります。使われないAIは、いくら高機能でも価値はゼロ。だから私たちは、貴社のAI活用推進室の一員として中に入り、毎日の業務の中で一緒に手を動かします。まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。</p>
+                <p class="people__sign">株式会社AIの鉄人 代表取締役 後藤 築</p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- ============================================================
+           08（SITE.md 09）CTA
+           ============================================================ -->
+      <section class="section section--cta" id="contact" aria-labelledby="cta-title">
+        <div class="container section__grid">
+          <div class="section__rail">
+            <p class="s-label">
+              <span class="s-label__num">08</span><span class="s-label__sep" aria-hidden="true">—</span><span class="s-label__txt">CONTACT</span>
+            </p>
+          </div>
+
+          <div class="section__body">
+            <h2 class="section__title" id="cta-title">AI活用について相談する</h2>
+            <p class="cta__text">まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。</p>
+            <a class="btn btn--primary btn--lg" href="/contact/">AI活用について相談する</a>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer">
-      <div class="footer-inner">
-        <a class="footer-logo-link" href="#top" aria-label="株式会社AIの鉄人 トップへ">
-          <img class="footer-logo" src="assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" loading="lazy">
-        </a>
-        <nav class="footer-nav" aria-label="フッターナビゲーション">
-          <ul class="nav-list">
-            <li><a href="#service">SERVICE</a></li>
-            <li><a href="#case">CASE</a></li>
-            <li><a href="#company">COMPANY</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+      <div class="container site-footer__grid">
+        <div class="site-footer__block site-footer__block--org">
+          <img class="site-footer__logo" src="assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" loading="lazy" decoding="async">
+          <p class="site-footer__name">株式会社AIの鉄人</p>
+          <p class="site-footer__addr">群馬県前橋市南町三丁目50番地2<br>プラザアン2階 D-53</p>
+          <p class="site-footer__mail"><a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a></p>
+        </div>
+
+        <nav class="site-footer__block site-footer__block--nav" aria-label="フッターナビゲーション">
+          <p class="site-footer__key">SITE MAP</p>
+          <ul>
+            <li><a href="/service/">SERVICE</a></li>
+            <li><a href="/case/">CASE</a></li>
+            <li><a href="/company/">COMPANY</a></li>
+            <li><a href="/contact/">CONTACT</a></li>
           </ul>
         </nav>
-        <p class="footer-copy">© 2026 株式会社AIの鉄人</p>
+
+        <div class="site-footer__block site-footer__block--util">
+          <p class="site-footer__key">CONTACT</p>
+          <p class="site-footer__contact"><a href="/contact/">AI活用について相談する</a></p>
+          <p class="site-footer__privacy"><a href="/privacy/">PRIVACY POLICY</a></p>
+        </div>
+      </div>
+
+      <div class="container site-footer__bottom">
+        <p class="site-footer__copy">© 2026 株式会社AIの鉄人</p>
       </div>
     </footer>
   </body>

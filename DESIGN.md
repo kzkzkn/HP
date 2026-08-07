@@ -517,7 +517,7 @@ Editorial / Precise / Confident / Modern / Field-oriented / Understated Technolo
 
 1. **`prefers-reduced-motion: reduce` / IntersectionObserver 非対応** → 即時に全要素を表示する。
 2. **スクリプトの読み込み失敗** → `<script onerror>` で `js` クラスを外し、初期状態の `opacity: 0` 自体を無効化する。
-3. **発火しない環境**（プレレンダリング・一部クローラ・スクロールを伴わない自動化環境など） → **`load` から 1.5秒後**に未表示の `.reveal` へ強制的に `is-visible` を付ける。
+3. **発火しない環境**（プレレンダリング・一部クローラ・スクロールを伴わない自動化環境など） → **`load` から 1.5秒後、IntersectionObserver のコールバックが一度も発火していない場合のみ**、全 `.reveal` へ強制的に `is-visible` を付ける。IO は正常環境では `observe()` 直後に必ず初回コールバックが発火する（画面外要素でも `isIntersecting: false` で来る）ため、これで「IO が機能していない環境」だけを正確に救済でき、通常のブラウザではスクロール連動のフェードインがそのまま生きる。
 4. **印刷時** → `@media print` で `.reveal` の初期状態を打ち消す（§8.3）。
 
 ### 8.3 印刷

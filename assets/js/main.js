@@ -84,8 +84,17 @@
       return;
     }
 
+    /*
+     * observerFired は「IntersectionObserver の仕組み自体が動いているか」のフラグ。
+     * IO は正常な環境では observe() 直後に必ず初回コールバックが発火する
+     * （画面外の要素でも isIntersecting: false のエントリが来る）ため、
+     * 一度も発火していない = IO が機能していない環境、と判定できる。
+     */
+    let observerFired = false;
+
     const observer = new IntersectionObserver(
       (entries) => {
+        observerFired = true;
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
@@ -101,9 +110,10 @@
     /*
      * フォールバック。
      * プレレンダリング・一部クローラ・スクロールを伴わない自動化環境などでは
-     * IntersectionObserver のコールバックが発火せず、.reveal が opacity:0 のまま
-     * 残ることがある。コンテンツが読めない状態を作らないため、load 完了から
-     * 一定時間後に未表示の要素へ強制的に is-visible を付ける。
+     * IntersectionObserver のコールバックが一度も発火せず、.reveal が opacity:0 の
+     * まま残ることがある。その場合のみ全要素を強制表示する。
+     * IO が機能している通常のブラウザでは何もせず、スクロール連動のフェードイン
+     * （DESIGN.md §8.2）をそのまま生かす。
      */
     const revealAll = () => {
       observer.disconnect();
@@ -111,7 +121,11 @@
     };
 
     const scheduleFallback = () => {
-      window.setTimeout(revealAll, REVEAL_FALLBACK_DELAY);
+      window.setTimeout(() => {
+        if (!observerFired) {
+          revealAll();
+        }
+      }, REVEAL_FALLBACK_DELAY);
     };
 
     if (document.readyState === "complete") {

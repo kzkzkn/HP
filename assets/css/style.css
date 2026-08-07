@@ -590,6 +590,11 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* aspect-ratio と min-height を併用すると、幅が auto のままだと
+     ブラウザが「min-height × 比率」から幅を逆算してしまい（例: 220px × 21/9 = 513px）、
+     親を押し広げて横方向のはみ出しを起こす。width を確定させて幅の逆算を止める。 */
+  width: 100%;
+  max-width: 100%;
   padding: var(--space-5);
   background: var(--bg-subtle);
   border-top: 1px solid var(--line-strong);
@@ -619,6 +624,8 @@ button {
 
 .plate__slot {
   display: flex;
+  min-width: 0;
+  max-width: 100%;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-3);
@@ -639,6 +646,8 @@ button {
 }
 
 .plate__big {
+  max-width: 100%;
+  overflow-wrap: anywhere;
   font-family: var(--font-mono);
   font-size: clamp(2.5rem, 9vw, 7rem);
   font-weight: 400;

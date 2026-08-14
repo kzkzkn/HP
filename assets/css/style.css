@@ -11,10 +11,11 @@
      4. Typography primitives
      5. Components（button / text link / index list）
      6. Header / Nav
-     7. Sections 01-07
-     8. Footer
-     9. Motion / Reduced motion
-    10. Print
+     7. Sections（トップページ 01-07）
+     8. 下層ページ（パンくず / ページ見出し / 事例一覧）
+     9. Footer
+    10. Motion / Reduced motion
+    11. Print
    ========================================================================== */
 
 /* ==========================================================================
@@ -930,7 +931,207 @@ strong {
 }
 
 /* ==========================================================================
-   8. Footer
+   8. 下層ページ（Phase 5 以降）
+   トップページに存在しないクラスだけで構成し、既存の見た目に影響を与えない。
+   使う値は DESIGN.md v2 のトークンか、§7 のトップページ実装で既に使っている実値
+   （clamp(40px, 5vw, 64px) 等）に限る。新しい数値を持ち込まない。
+   ========================================================================== */
+
+/* --- 現在地表示（グローバルナビ / フッターナビ） ------------------------- */
+/*
+ * 色だけで現在地を示さない（DESIGN.md §10.4）。ウェイトの変化を主の手がかりにし、
+ * 横並びナビでは下線を併用する。プログラム的な伝達は aria-current="page"。
+ */
+.site-nav__list a[aria-current="page"],
+.site-footer__nav a[aria-current="page"] {
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .site-nav__list a[aria-current="page"] {
+    border-bottom-color: var(--ink);
+  }
+}
+
+/* --- Breadcrumb（SITE.md §5.2） ----------------------------------------- */
+
+.breadcrumb {
+  margin-bottom: var(--space-6);
+}
+
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.9em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+}
+
+/* 区切り記号は装飾のため支援技術に読ませない（生成コンテンツは読み上げ対象外） */
+.breadcrumb__item + .breadcrumb__item::before {
+  content: "/";
+  margin-right: 0.9em;
+  color: var(--line-ui);
+}
+
+/*
+ * 単独リンクのタップターゲットを 44×44px 以上にする（DESIGN.md §6.2 / §10.1）。
+ * 幅は min-width で確保し、テキストは左端に寄せてコンテナ左端との揃えを崩さない。
+ */
+.breadcrumb__item > a,
+.breadcrumb__item > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.breadcrumb__item > a {
+  color: var(--ink);
+}
+
+/*
+ * リンクであることを色だけで示さない（DESIGN.md §10.4）。下線は内側の span に付け、
+ * タップターゲットを広げた分だけ下線が伸びないようにする。
+ */
+.breadcrumb__item > a > span {
+  border-bottom: 1px solid var(--line-ui);
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.breadcrumb__item > a:hover {
+  color: var(--accent-dark);
+}
+
+.breadcrumb__item > a:hover > span {
+  border-bottom-color: currentColor;
+}
+
+/* --- Page head（下層ページの見出し＋リード） ---------------------------- */
+/*
+ * 最上部のセクションのため、上端の全幅罫線は引かない（DESIGN.md §6.1）。
+ * トップのヒーローより低くし、下層ページであることを高さでも示す。
+ */
+.page-head {
+  padding-block: var(--space-7) clamp(56px, 7vw, 96px);
+  border-top: 0;
+}
+
+.page-head__title {
+  margin-top: var(--space-4);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.page-head__lead {
+  max-width: var(--container-text);
+  margin-top: var(--space-6);
+  font-size: var(--fs-lead);
+  line-height: 1.9;
+  color: var(--ink-muted);
+}
+
+/* --- Case list（/case/ 事例一覧・DESIGN.md §6.4 カードにしない） -------- */
+/*
+ * 1件でも成立するよう、上下の罫線で1件分の「記録」を区切る。
+ * 囲み枠・影・背景色は持たせない。事例が増えたら項目を足すだけで並ぶ。
+ */
+.case-list {
+  border-bottom: 1px solid var(--line);
+}
+
+.case-list__item {
+  padding-block: clamp(40px, 5vw, 64px);
+  border-top: 1px solid var(--line);
+}
+
+.case-list__index {
+  display: block;
+  line-height: 1;
+}
+
+.case-list__title {
+  margin-top: var(--space-4);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.case-list__industry {
+  margin-top: var(--space-2);
+  font-size: var(--fs-small);
+  line-height: 1.8;
+  color: var(--ink-muted);
+}
+
+/*
+ * 詳細ページ未公開の状態表示。リンクにしない（SITE.md §4.3）。
+ * 状態が伝わるよう記号ではなく文字で示し、公開予定日は書かない。
+ */
+.case-list__status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  font-size: var(--fs-caption);
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.case-list__status-mark {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line-ui);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+
+.case-list__body {
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+/* ハイライト表現（CONTENT.md §4.1 の確定コピー）。数値は --ink のまま（DESIGN.md §6.3） */
+.case-list__highlight {
+  max-width: 24em;
+  margin-top: var(--space-4);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+.case-list__note {
+  margin-top: clamp(40px, 5vw, 64px);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line-ui);
+}
+
+/*
+ * 事例ブロック（.case__*）はトップページ 03 Case Study と同じ実装を再利用する。
+ * 1024px 以上で 4:8 のグリッドに切り替わるため、事例項目側では列を作らず
+ * 積み上げのままにし、ラベル列の左端がコンテナ左端に揃うようにする。
+ */
+.case-list__body .case__blocks {
+  margin-top: clamp(40px, 5vw, 64px);
+  /* 下端は注釈の罫線（--line-ui）が受けるため、罫線を二重に引かない */
+  border-bottom: 0;
+}
+
+/* ==========================================================================
+   9. Footer
    ========================================================================== */
 
 /*
@@ -1025,7 +1226,7 @@ strong {
 }
 
 /* ==========================================================================
-   9. Motion（DESIGN.md §8）
+   10. Motion（DESIGN.md §8）
    ========================================================================== */
 
 .js .reveal {
@@ -1056,7 +1257,7 @@ strong {
 }
 
 /* ==========================================================================
-   10. Print
+   11. Print
    画面用の演出（reveal のフェードイン・アクセント面・ナビ）を落とし、
    本文と会社情報が確実に紙に出る状態にする。
    ========================================================================== */
@@ -1100,6 +1301,7 @@ strong {
   /* 項目の途中で改ページさせない */
   .idx__item,
   .case__block,
+  .case-list__head,
   .hero__meta-row,
   .site-footer {
     break-inside: avoid;

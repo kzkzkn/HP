@@ -3,14 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>株式会社AIの鉄人｜地方企業のAI活用を、定着まで実装する</title>
-    <meta name="description" content="株式会社AIの鉄人は、地方企業の現場に入り込み、AI活用を「定着」まで実装する会社です。貴社の「AI活用推進室」として中に入り、毎日の業務の中で一緒に手を動かします。国内SUBARU販売会社のなかで商談支援AIツールの活用定着率1位の伴走実績。群馬県前橋市。">
-    <meta property="og:title" content="株式会社AIの鉄人｜地方企業のAI活用を、定着まで実装する">
-    <meta property="og:description" content="株式会社AIの鉄人は、地方企業の現場に入り込み、AI活用を「定着」まで実装する会社です。貴社の「AI活用推進室」として中に入り、毎日の業務の中で一緒に手を動かします。国内SUBARU販売会社のなかで商談支援AIツールの活用定着率1位の伴走実績。群馬県前橋市。">
+    <!--
+      meta の方針は SITE.md §3.4。トップのみ `社名｜提供価値の要約` の順で組む。
+      title / description に書ける事実は CONTENT.md の範囲のみ（§2.3 Sub / §2.4 Core
+      Position / §3.1 前置き文 / §4.1 確定表現 / §1 所在地）。
+      顧客名（富士スバル様）は掲載許諾が未確認【要確認 T-03】のため、
+      「現行サイト以上に社名の露出を増やさない」方針（CONTENT.md §4.4）に従い meta には出さない。
+    -->
+    <title>株式会社AIの鉄人｜地方企業の現場に入り、AI活用を定着まで実装する</title>
+    <meta name="description" content="株式会社AIの鉄人（群馬県前橋市）は、地方企業の現場に入り込み、AI活用を「定着」まで実装する会社です。貴社の「AI活用推進室」として中に入り、毎日の業務の中で一緒に手を動かします。伴走支援により、国内SUBARU販売会社のなかで商談支援AIツールの活用定着率1位を達成しました。">
+    <meta property="og:title" content="株式会社AIの鉄人｜地方企業の現場に入り、AI活用を定着まで実装する">
+    <meta property="og:description" content="株式会社AIの鉄人（群馬県前橋市）は、地方企業の現場に入り込み、AI活用を「定着」まで実装する会社です。貴社の「AI活用推進室」として中に入り、毎日の業務の中で一緒に手を動かします。伴走支援により、国内SUBARU販売会社のなかで商談支援AIツールの活用定着率1位を達成しました。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.ainotetsujin.com/">
     <!-- TODO(CONTENT T-04): 専用OG画像（1200×630）が未作成のため、暫定でロゴを使用 -->
     <meta property="og:image" content="https://www.ainotetsujin.com/assets/img/logo-circle.png">
+    <meta property="og:image:width" content="480">
+    <meta property="og:image:height" content="407">
+    <meta property="og:image:alt" content="株式会社AIの鉄人 ロゴ">
     <meta property="og:site_name" content="株式会社AIの鉄人">
     <meta property="og:locale" content="ja_JP">
     <meta name="twitter:card" content="summary_large_image">
@@ -19,10 +29,25 @@
     <link rel="icon" href="assets/img/logo-circle.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <!--
+      Webフォント（DESIGN.md §3.1）
+      1) 読み込むウェイトは実際に使う分だけにする。日本語フォントは1ウェイトあたりの
+         転送量が大きい。Noto Sans JP は 400 / 700、IBM Plex Mono は 400 / 500。
+         Noto Sans JP 500 は CSS 上で使用箇所が無いため読み込まない。
+      2) CSS はレンダリングをブロックしないよう非同期で読み込む（media=print → onload）。
+         `display=swap` により、どのみち先にシステムフォントで描画されるため、
+         見え方の順序は変わらず初期表示だけが早くなる。JS 無効時は noscript で従来どおり。
+    -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="assets/css/style.css">
+    <!--
+      `js` クラスは reveal の初期状態（不可視）を有効にするフラグ。
+      main.js の読み込みに失敗した場合はフラグを外し、コンテンツが不可視のまま
+      残らないようにする（発火しない場合の保険は main.js 側のタイムアウト）。
+    -->
     <script>document.documentElement.classList.add("js");</script>
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -53,8 +78,10 @@
 
     <!-- =====================================================================
          Header（SITE.md §3.1）
-         ナビの遷移先は SITE.md の計画パス。下層ページは Phase 5-6 で実装するため
-         現時点では 404 になる。NEWS は【要確認 T-28】のため項目を出さない。
+         ナビの遷移先は SITE.md の計画パス。下層ページは Phase 5-6 で `renewal` 上に
+         実装し、Phase 7 で main へ一括リリースする（SITE.md §2.2.1 リリース戦略）ため、
+         本番公開時点でリンク切れは発生しない。renewal ブランチ単体のプレビューでは
+         404 になる。NEWS は【要確認 T-28】のため項目を出さない。
          ===================================================================== -->
     <header class="site-header">
       <div class="container site-header__inner">
@@ -83,7 +110,24 @@
     <main id="main">
 
       <!-- ===================================================================
-           SITE.md §4.1 No.01 — Hero
+           セクション連番の方針（SITE.md §4.1）
+           SITE.md の設計番号 01〜09 のうち、06 Method【T-23】と 08 People【T-24】は
+           未確定のため実装しない。画面に出す mono ラベルの連番は、実装したセクション
+           だけを 01 から通しで振り直す（欠番を見せない）。対応表は下記のとおり。
+
+             表示 01 = SITE.md No.01 Hero
+             表示 02 = SITE.md No.02 Proof
+             表示 03 = SITE.md No.03 Case Study
+             表示 04 = SITE.md No.04 What We Do
+             表示 05 = SITE.md No.05 Services
+             表示 06 = SITE.md No.07 Company / Philosophy
+             表示 07 = SITE.md No.09 CTA
+
+           未実装セクションを実装する際は、この対応表と表示連番を同時に更新する。
+           =================================================================== -->
+
+      <!-- ===================================================================
+           SITE.md §4.1 No.01 — Hero（表示連番 01）
            Main / Sub は CONTENT.md §2.3 の確定コピー（改行位置を含む）
            =================================================================== -->
       <section class="section hero" aria-labelledby="hero-title">
@@ -93,9 +137,14 @@
             <span aria-hidden="true">—</span>
             <span>MESSAGE</span>
           </p>
+          <!--
+            確定コピーの文言と指定改行位置（外側 span = 1行）は変更しない。
+            内側の .nobr は「意味の切れ目でのみ折り返す」ための改行制御
+            （DESIGN.md §3.4）。375/390px 幅で行末に孤立文字が出るのを防ぐ。
+          -->
           <h1 class="hero__title" id="hero-title">
-            <span>AIを導入する会社から、</span>
-            <span>AIで仕事を変え続ける会社へ。</span>
+            <span><span class="nobr">AIを導入する</span><span class="nobr">会社から、</span></span>
+            <span><span class="nobr">AIで仕事を</span><span class="nobr">変え続ける</span><span class="nobr">会社へ。</span></span>
           </h1>
           <p class="hero__sub">
             <span>地方企業の現場に入り込み、</span>
@@ -122,7 +171,7 @@
       </section>
 
       <!-- ===================================================================
-           SITE.md §4.1 No.02 — Proof
+           SITE.md §4.1 No.02 — Proof（表示連番 02）
            数値は CONTENT.md §4.1〜§4.2 の確定表現のみ。対象範囲の注釈を必ず併記する
            =================================================================== -->
       <section class="section section--subtle" id="proof" aria-labelledby="proof-title">
@@ -158,7 +207,7 @@
       </section>
 
       <!-- ===================================================================
-           SITE.md §4.1 No.03 — Case Study
+           SITE.md §4.1 No.03 — Case Study（表示連番 03）
            詳細ページ /case/fuji-subaru/ は保留（SITE.md §4.3・§4.4 の決定）。
            リンクを作らず、導線は /case/ 一覧へ向ける
            =================================================================== -->
@@ -170,7 +219,7 @@
               <span aria-hidden="true">—</span>
               <span>CASE STUDY</span>
             </p>
-            <h2 class="section__title" id="case-title">富士スバル様 — 自動車販売業 SUBARU正規特約店</h2>
+            <h2 class="section__title" id="case-title"><span class="nobr">富士スバル様</span> <span class="nobr">— 自動車販売業</span> <span class="nobr">SUBARU正規特約店</span></h2>
           </div>
 
           <!-- PHOTO: 店舗でのキックオフ（導入説明会）の様子（3:2） -->
@@ -182,7 +231,7 @@
                 <span class="case__block-label-ja">課題</span>
               </h3>
               <div class="case__block-inner">
-                <p class="case__block-title">AIツールを導入したが、現場で十分に使われない。</p>
+                <p class="case__block-title"><span class="nobr">AIツールを導入したが、</span><span class="nobr">現場で十分に使われない。</span></p>
                 <p class="case__block-body">※課題の記述は、私たちが向き合っている一般的なものです。個社固有の課題については記載していません。</p>
               </div>
             </div>
@@ -193,7 +242,7 @@
                 <span class="case__block-label-ja">取り組み</span>
               </h3>
               <div class="case__block-inner">
-                <p class="case__block-title">外から教えるのではなく、社内に入り込んで一緒に手を動かす。</p>
+                <p class="case__block-title"><span class="nobr">外から教えるのではなく、</span><span class="nobr">社内に入り込んで</span><span class="nobr">一緒に手を動かす。</span></p>
                 <ul class="case__tags">
                   <li>店舗訪問</li>
                   <li>現場ヒアリング</li>
@@ -228,7 +277,7 @@
       </section>
 
       <!-- ===================================================================
-           SITE.md §4.1 No.04 — What We Do
+           SITE.md §4.1 No.04 — What We Do（表示連番 04）
            カードにせず連番付きリストで組む（DESIGN.md §6.4）
            =================================================================== -->
       <section class="section" id="what-we-do" aria-labelledby="wwd-title">
@@ -270,7 +319,7 @@
       </section>
 
       <!-- ===================================================================
-           SITE.md §4.1 No.05 — Services
+           SITE.md §4.1 No.05 — Services（表示連番 05）
            6区分は CONTENT.md §3.2（T-20 承認済み）。説明は §3.1・§7.4 の範囲を超えない
            =================================================================== -->
       <section class="section section--subtle" id="service" aria-labelledby="service-title">
@@ -330,7 +379,7 @@
       -->
 
       <!-- ===================================================================
-           SITE.md §4.1 No.07 — Company / Philosophy
+           SITE.md §4.1 No.07 — Company / Philosophy（表示連番 06）
            Mission / Vision は CONTENT.md §2.1 / §2.2 の確定コピー（改行・引用符を含む）
            =================================================================== -->
       <section class="section" id="company" aria-labelledby="mission-title">
@@ -343,7 +392,7 @@
             </p>
             <h2 class="mission__title" id="mission-title">
               <span>地方企業における</span>
-              <span>AI活用のスタンダードをつくる。</span>
+              <span><span class="nobr">AI活用の</span><span class="nobr">スタンダードを</span><span class="nobr">つくる。</span></span>
             </h2>
             <p class="mono mission__caption">MISSION</p>
           </div>
@@ -352,7 +401,7 @@
 
           <div class="vision offset-2 reveal">
             <p class="mono">VISION</p>
-            <h3 class="vision__title">AIを、群馬の“当たり前”に。</h3>
+            <h3 class="vision__title"><span class="nobr">AIを、</span><span class="nobr">群馬の</span><span class="nobr">“当たり前”に。</span></h3>
           </div>
 
           <div class="philosophy offset-2 reveal">
@@ -374,7 +423,7 @@
       -->
 
       <!-- ===================================================================
-           SITE.md §4.1 No.09 — CTA
+           SITE.md §4.1 No.09 — CTA（表示連番 07）
            見出しは CONTENT.md §2.3 の別案（ブランドコピー）、リードは §6.2 の確定コピー
            =================================================================== -->
       <section class="section section--subtle" id="contact" aria-labelledby="cta-title">
@@ -385,7 +434,7 @@
               <span aria-hidden="true">—</span>
               <span>CONTACT</span>
             </p>
-            <h2 class="cta__title" id="cta-title">現場から、AI導入を再設計する。</h2>
+            <h2 class="cta__title" id="cta-title"><span class="nobr">現場から、</span><span class="nobr">AI導入を</span><span class="nobr">再設計する。</span></h2>
             <p class="cta__lead">まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。</p>
           </div>
           <div class="cta__actions reveal">

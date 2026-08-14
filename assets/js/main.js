@@ -3,11 +3,16 @@
  * Vanilla JS のみ（DESIGN.md §8.1 / CLAUDE.md §5）。外部ライブラリを追加しない。
  *   1. ハンバーガーメニューの開閉（aria-expanded / Escape / リサイズ復帰）
  *   2. IntersectionObserver による控えめなフェードイン（1要素につき1回）
+ *      ＋ 発火しない環境向けのタイムアウトフォールバック
  */
 (() => {
   "use strict";
 
-  const DESKTOP_QUERY = "(min-width: 769px)";
+  /* 横並びナビへ切り替わる幅。style.css のヘッダー用メディアクエリと一致させる */
+  const DESKTOP_QUERY = "(min-width: 1024px)";
+
+  /* reveal のフォールバック待ち時間（load 後） */
+  const REVEAL_FALLBACK_DELAY = 1500;
 
   /* ---------------------------------------------------------------- */
   /* 1. Navigation                                                     */
@@ -79,8 +84,17 @@
       return;
     }
 
+    /*
+     * observerFired は「IntersectionObserver の仕組み自体が動いているか」のフラグ。
+     * IO は正常な環境では observe() 直後に必ず初回コールバックが発火する
+     * （画面外の要素でも isIntersecting: false のエントリが来る）ため、
+     * 一度も発火していない = IO が機能していない環境、と判定できる。
+     */
+    let observerFired = false;
+
     const observer = new IntersectionObserver(
       (entries) => {
+        observerFired = true;
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
@@ -92,6 +106,33 @@
     );
 
     targets.forEach((target) => observer.observe(target));
+
+    /*
+     * フォールバック。
+     * プレレンダリング・一部クローラ・スクロールを伴わない自動化環境などでは
+     * IntersectionObserver のコールバックが一度も発火せず、.reveal が opacity:0 の
+     * まま残ることがある。その場合のみ全要素を強制表示する。
+     * IO が機能している通常のブラウザでは何もせず、スクロール連動のフェードイン
+     * （DESIGN.md §8.2）をそのまま生かす。
+     */
+    const revealAll = () => {
+      observer.disconnect();
+      targets.forEach((target) => target.classList.add("is-visible"));
+    };
+
+    const scheduleFallback = () => {
+      window.setTimeout(() => {
+        if (!observerFired) {
+          revealAll();
+        }
+      }, REVEAL_FALLBACK_DELAY);
+    };
+
+    if (document.readyState === "complete") {
+      scheduleFallback();
+    } else {
+      window.addEventListener("load", scheduleFallback, { once: true });
+    }
   };
 
   const init = () => {

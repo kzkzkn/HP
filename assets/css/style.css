@@ -805,23 +805,10 @@ strong {
   margin-top: var(--space-5);
 }
 
+/* 記号・字下げ・行間隔の定義は .bullets（§8）と共通。ここではサイズだけを変える */
 .case__facts li {
-  position: relative;
-  max-width: 34em;
-  padding-left: 1.4em;
   font-size: var(--fs-small);
   line-height: 1.8;
-}
-
-.case__facts li + li {
-  margin-top: var(--space-3);
-}
-
-.case__facts li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  color: var(--ink-muted);
 }
 
 .case__foot {
@@ -943,7 +930,8 @@ strong {
  * 横並びナビでは下線を併用する。プログラム的な伝達は aria-current="page"。
  */
 .site-nav__list a[aria-current="page"],
-.site-footer__nav a[aria-current="page"] {
+.site-footer__nav a[aria-current="page"],
+.site-footer__util a[aria-current="page"] {
   font-weight: 700;
 }
 
@@ -1130,6 +1118,378 @@ strong {
   border-bottom: 0;
 }
 
+/* --- 箇条書き（DESIGN.md §6.4 / アイコンを使わない） --------------------- */
+/*
+ * 記号は「—」1種類に統一する。意味を持たないアイコンを置かない（CLAUDE.md §5）。
+ * 同じ役割に複数の見た目を作らないため（DESIGN.md §6 共通原則）、字下げ・記号・
+ * 行間隔の定義はここ1箇所に集約し、文脈ごとの違いは文字サイズだけにする。
+ *   .bullets      … /service/ の STEP 詳細・支援後の状態・想定される課題（16px）
+ *   .case__facts  … トップ 03 Case Study / /case/ の事実カード（14px。§7 で指定）
+ *   .prose ul     … /privacy/ の条項内リスト（16px）
+ */
+.bullets li,
+.case__facts li,
+.prose ul li {
+  position: relative;
+  max-width: 34em;
+  padding-left: 1.4em;
+}
+
+/* 文字サイズだけを文脈ごとに変える（.case__facts は §7 側で 14px を指定している） */
+.bullets li,
+.prose ul li {
+  font-size: var(--fs-body);
+  line-height: 1.9;
+}
+
+.bullets li::before,
+.case__facts li::before,
+.prose ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--ink-muted);
+}
+
+.bullets li + li,
+.case__facts li + li {
+  margin-top: var(--space-3);
+}
+
+/* --- セクション内の従属ブロック ----------------------------------------- */
+/*
+ * 1セクション1メッセージ（DESIGN.md §5.1）を保ったまま、本題に付随する補足
+ * （例: サービス一覧に対する「事業の3分類との関係」）を置くための間隔。
+ * 見出しレベルは h3 のままで、余白の差だけで主従を示す（DESIGN.md §1.3）。
+ */
+.subblock {
+  margin-top: clamp(56px, 7vw, 104px);
+}
+
+.subblock__title {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.subblock__lead {
+  max-width: 34em;
+  margin-top: var(--space-4);
+  font-size: var(--fs-body);
+  line-height: 1.9;
+  color: var(--ink-muted);
+}
+
+.subblock .deflist {
+  margin-top: var(--space-6);
+}
+
+/* --- Definition list（DESIGN.md §6.5 会社概要等） ------------------------ */
+/*
+ * 囲み罫線を持たせず、行を水平罫線で区切る。SP（≤480px）は縦組み、
+ * 481px 以上で「項目 / 内容」の2カラムに切り替える。
+ */
+.deflist {
+  border-bottom: 1px solid var(--line);
+}
+
+.deflist__row {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.deflist dt {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+}
+
+.deflist dd {
+  font-size: var(--fs-body);
+  line-height: 1.9;
+}
+
+/*
+ * リンクであることを色だけで示さない（DESIGN.md §10.4）。
+ * MAIL / HP の行はリンクが <dd> の内容そのものであり、文章中のインラインリンクでは
+ * ないため、単独リンクとして 44px のタップターゲットを確保する（DESIGN.md §6.2 / §10.1）。
+ */
+.deflist dd a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border-bottom: 1px solid var(--line-ui);
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.deflist dd a:hover {
+  color: var(--accent-dark);
+  border-bottom-color: currentColor;
+}
+
+.deflist__sub {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--fs-caption);
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+@media (min-width: 481px) {
+  .deflist__row {
+    grid-template-columns: minmax(8rem, 13rem) minmax(0, 1fr);
+    column-gap: var(--space-6);
+    row-gap: 0;
+    align-items: baseline;
+    padding-block: var(--space-6);
+  }
+}
+
+/* --- Step list（/service/ 6ヶ月のプロセス） ------------------------------ */
+/*
+ * 事例ブロック（.case__block）と同じ 4:8 の骨格を使い、左に STEP 番号と期間、
+ * 右に見出しと内容を置く。カード・バッジにしない（DESIGN.md §6.4 / §12.2）。
+ */
+.steps {
+  border-bottom: 1px solid var(--line);
+}
+
+.steps__item {
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--line);
+}
+
+.steps__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.12em;
+}
+
+.steps__period {
+  color: var(--ink-muted);
+}
+
+.steps__title {
+  margin-top: var(--space-3);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.steps__list {
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .steps__item {
+    padding-block: var(--space-7);
+  }
+}
+
+/*
+ * 4fr : 8fr の2カラムは lg（1024px）から。DESIGN.md §5.2 [確定] が
+ * この分割を ≥1024px に限定しているため、トップ・事例ページの .case__block と
+ * 同じ幅で切り替える。768〜1023px では積み上げのままにし、本文の1行文字数
+ * （全角32〜42字。§3.2）を割らないようにする。
+ */
+@media (min-width: 1024px) {
+  .steps__item {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: var(--grid-gap);
+  }
+
+  .steps__meta {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .steps__title {
+    margin-top: 0;
+  }
+}
+
+/* --- 代表メッセージ（/company/） ---------------------------------------- */
+
+.ceo {
+  display: grid;
+  gap: clamp(32px, 5vw, 56px);
+  align-items: start;
+}
+
+.ceo__photo {
+  max-width: 20rem; /* 縦積み時に写真が主役になりすぎない上限 */
+}
+
+/*
+ * 人物写真のトリミングは 4:5、角丸 0（DESIGN.md §7.3）。
+ * 元データが横位置のため object-position で被写体を保持する。
+ */
+.ceo__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 76% center;
+  border-radius: var(--radius);
+}
+
+.ceo__name {
+  margin-top: var(--space-4);
+  font-size: var(--fs-small);
+  line-height: 1.8;
+  color: var(--ink-muted);
+}
+
+.ceo__body {
+  max-width: var(--container-text);
+  font-size: var(--fs-lead);
+  line-height: 1.95;
+}
+
+.ceo__signature {
+  margin-top: var(--space-6);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+}
+
+/*
+ * 2カラム化は lg（1024px）から（.steps__item と同じ理由）。
+ * それ未満では縦積みになり、DOM順のとおり本文 → 写真の順で並ぶ
+ * （DESIGN.md §9.2「2カラムの本文＋写真は縦積み（写真を下）」）。
+ * 1024px 以上では写真を左段へ明示配置する。
+ */
+@media (min-width: 1024px) {
+  .ceo {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    column-gap: var(--grid-gap);
+  }
+
+  .ceo__photo {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: none;
+  }
+
+  .ceo__text {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+/* --- 思想的コピー（/company/ Philosophy） ------------------------------- */
+/*
+ * CONTENT.md §2.5 の決定により、この一文は Mission ではなく本文中の思想的コピー
+ * として扱う。Mission / Vision と並ぶ見出しレベルにしないため、見出し要素にせず
+ * サイズも --fs-h3（Mission は --fs-display）に留める。
+ */
+.statement {
+  max-width: 24em;
+  margin-top: clamp(40px, 5vw, 64px);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line-ui);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+/* --- 問い合わせ手段（/contact/） ---------------------------------------- */
+
+.method__body > * + * {
+  margin-top: var(--space-4);
+}
+
+.method__note {
+  font-size: var(--fs-caption);
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.method__qr {
+  display: block;
+  width: 10rem;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+/* --- 長文ページ（/privacy/） -------------------------------------------- */
+/*
+ * 規約本文は本文カラム幅（全角42字相当）に収める（DESIGN.md §3.2）。
+ * 条項の区切りは水平罫線で示し、囲み枠を作らない。
+ */
+.prose {
+  max-width: var(--container-text);
+}
+
+.prose > * + * {
+  margin-top: var(--space-5);
+}
+
+.prose h2 {
+  margin-top: clamp(48px, 6vw, 72px);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.prose p {
+  font-size: var(--fs-body);
+  line-height: 1.9;
+}
+
+.prose li + li {
+  margin-top: var(--space-2);
+}
+
+/* 番号付きリスト。マーカーは CSS カウンタで描き、本文の文字列には含めない */
+.prose ol {
+  counter-reset: prose-ol;
+}
+
+.prose ol li {
+  position: relative;
+  counter-increment: prose-ol;
+  max-width: 34em;
+  padding-left: 1.6em; /* 「1.」の分だけ字下げを広く取る */
+  font-size: var(--fs-body);
+  line-height: 1.9;
+}
+
+.prose ol li::before {
+  content: counter(prose-ol) ".";
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+}
+
+.prose a {
+  border-bottom: 1px solid var(--line-ui);
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.prose a:hover {
+  color: var(--accent-dark);
+  border-bottom-color: currentColor;
+}
+
 /* ==========================================================================
    9. Footer
    ========================================================================== */
@@ -1303,6 +1663,9 @@ strong {
   .case__block,
   .case-list__head,
   .hero__meta-row,
+  .steps__item,
+  .deflist__row,
+  .ceo,
   .site-footer {
     break-inside: avoid;
   }

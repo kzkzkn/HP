@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+      meta の方針は SITE.md §3.4 / §4.2。下層ページは `ページ名｜株式会社AIの鉄人` の順。
+      description に書ける事実は CONTENT.md の範囲のみ（§3.1 前置き文 / §3.2 6区分 /
+      §7.4 6ヶ月の道のり / §1 所在地）。価格・契約期間・稼働頻度は【要確認 T-21】のため書かない。
+    -->
+    <title>サービス｜株式会社AIの鉄人</title>
+    <meta name="description" content="株式会社AIの鉄人（群馬県前橋市）のサービスです。AI導入・活用支援、業務再設計、AI研修、AIツール開発、定着支援、内製化支援の6区分で支援します。貴社の「AI活用推進室」として中に入り、6ヶ月後に自分たちで使いこなせている状態を目指して伴走します。">
+    <meta property="og:title" content="サービス｜株式会社AIの鉄人">
+    <meta property="og:description" content="株式会社AIの鉄人（群馬県前橋市）のサービスです。AI導入・活用支援、業務再設計、AI研修、AIツール開発、定着支援、内製化支援の6区分で支援します。貴社の「AI活用推進室」として中に入り、6ヶ月後に自分たちで使いこなせている状態を目指して伴走します。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ainotetsujin.com/service/">
+    <!-- TODO(CONTENT T-04): 専用OG画像（1200×630）が未作成のため、暫定でロゴを使用 -->
+    <meta property="og:image" content="https://www.ainotetsujin.com/assets/img/logo-circle.png">
+    <meta property="og:image:width" content="480">
+    <meta property="og:image:height" content="407">
+    <meta property="og:image:alt" content="株式会社AIの鉄人 ロゴ">
+    <meta property="og:site_name" content="株式会社AIの鉄人">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="canonical" href="https://www.ainotetsujin.com/service/">
+    <link rel="icon" href="../assets/img/logo-circle.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Webフォントの読み込み方針はトップページと同一（DESIGN.md §3.1）。共通パーツのため全ページを同時に更新する -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!--
+      `js` クラスは reveal の初期状態（不可視）を有効にするフラグ。
+      main.js の読み込みに失敗した場合はフラグを外し、コンテンツが不可視のまま残らないようにする。
+    -->
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="../assets/js/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+    <!-- 下層ページの構造化データは BreadcrumbList（SITE.md §3.4 / §5.2） -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "HOME",
+            "item": "https://www.ainotetsujin.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "サービス",
+            "item": "https://www.ainotetsujin.com/service/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <!-- =====================================================================
+         Header（SITE.md §3.1）— 全ページ共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）。
+         このページは SERVICE のため、該当項目に aria-current="page" を付けている。
+         ===================================================================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-header__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+          <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" decoding="async">
+        </a>
+        <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="primary-nav" aria-expanded="false">
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="グローバルナビゲーション">
+          <ul class="site-nav__list">
+            <li><a href="/service/" aria-current="page">SERVICE</a></li>
+            <li><a href="/case/">CASE</a></li>
+            <li><a href="/company/">COMPANY</a></li>
+            <li><a href="/contact/">CONTACT</a></li>
+          </ul>
+          <div class="site-nav__cta">
+            <a class="btn btn--secondary" href="/contact/">AI活用について相談する</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ===================================================================
+           SITE.md §4.2 — /service/ サービス
+           セクション構成と表示連番（設計上の No. ⇄ 画面の連番）:
+             01 SERVICE   = SITE.md §4.2 No.01 イントロ（ページ見出し＋伴走型の説明）
+             02 SERVICES  = SITE.md §4.2 No.02 サービス一覧（6区分）
+             03 PROCESS   = SITE.md §4.2 No.03 進め方（6ヶ月のプロセス）
+             04 OUTCOME   = SITE.md §4.2 No.04 支援後の状態
+             05 ISSUES    = SITE.md §4.2 No.05 想定される課題
+             —            = SITE.md §4.2 No.06 提供条件【要確認 T-21】→ 実装しない（後述）
+             06 CONTACT   = SITE.md §4.2 No.07 CTA
+           欠番を訪問者に見せないため、実装したセクションだけを 01 から通しで振る
+           （SITE.md §4.1「セクション番号の方針」と同じ扱い）。
+           =================================================================== -->
+
+      <!-- ===================================================================
+           01 — イントロ（ページ見出し＋伴走型の説明）
+           リード文は CONTENT.md §3.1「前置き文（AIの鉄人とは）」の確定コピー。
+           最上部のセクションのため、上端の全幅罫線は引かない（DESIGN.md §6.1）
+           =================================================================== -->
+      <section class="section page-head" aria-labelledby="page-title">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="パンくずリスト">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item"><a href="/"><span>HOME</span></a></li>
+              <li class="breadcrumb__item"><span aria-current="page">サービス</span></li>
+            </ol>
+          </nav>
+
+          <p class="label">
+            <span class="label__num">01</span>
+            <span aria-hidden="true">—</span>
+            <span>SERVICE</span>
+          </p>
+          <h1 class="page-head__title" id="page-title">サービス</h1>
+          <p class="page-head__lead">
+            AIツールの導入から定着・活用までを支援する専門会社です。外から教えるだけの研修ではなく、お客様の社内に入り込み、実際の業務の中で一緒に手を動かす「伴走型」が特長です。
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           02 — サービス一覧（6区分）
+           6区分は CONTENT.md §3.2（T-20 承認済み）。説明文はトップページ 05 Services と
+           同一で、§3.1・§7.4 の範囲を超えない。カード・アイコンを使わずリストで組む
+           （DESIGN.md §6.4 / SITE.md §4.2-02）
+           =================================================================== -->
+      <section class="section" id="service" aria-labelledby="service-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">02</span>
+              <span aria-hidden="true">—</span>
+              <span>SERVICES</span>
+            </p>
+            <h2 class="section__title" id="service-title">提供している支援</h2>
+          </div>
+
+          <ol class="idx reveal">
+            <li class="idx__item">
+              <span class="idx__num" aria-hidden="true">01</span>
+              <h3 class="idx__title">AI導入・活用支援</h3>
+              <p class="idx__desc">貴社の「AI活用推進室」として中に入り、定着までを支援します。</p>
+            </li>
+            <li class="idx__item">
+              <span class="idx__num" aria-hidden="true">02</span>
+              <h3 class="idx__title">業務再設計</h3>
+              <p class="idx__desc">貴社の業務を棚卸しし、効果（時間削減）の大きい業務から仕事の進め方を見直します。</p>
+            </li>
+            <li class="idx__item">
+              <span class="idx__num" aria-hidden="true">03</span>
+              <h3 class="idx__title">AI研修</h3>
+              <p class="idx__desc">現場の言葉で、パソコンが苦手な方にも分かる形でお伝えする実務直結の研修です。</p>
+            </li>
+            <li class="idx__item">
+              <span class="idx__num" aria-hidden="true">04</span>
+              <h3 class="idx__title">AIツール開発</h3>
+              <p class="idx__desc">プログラミング不要、AIに指示するだけの「業務アプリづくり」。実際の業務の中で自動化の仕組みをつくり、現場で運用を始めます。</p>
+            </li>
+            <li class="idx__item">
+              <span class="idx__num" aria-hidden="true">05</span>
+              <h3 class="idx__title">定着支援</h3>
+              <p class="idx__desc">部署・店舗ごとにキックオフ（導入説明会）を開催し、一人ひとりが使える状態まで伴走します。</p>
+            </li>
+            <li class="idx__item">
+              <span class="idx__num" aria-hidden="true">06</span>
+              <h3 class="idx__title">内製化支援</h3>
+              <p class="idx__desc">社内の「推進役」を育て、私たちがいなくても回る体制を整えて卒業します。</p>
+            </li>
+          </ol>
+
+          <!--
+            「AIツール開発」の範囲は CONTENT.md §3.2 で明示的に限定されている
+            （受託システム開発を請け負うという意味ではない）。範囲を超えて読まれないよう注記する。
+          -->
+          <p class="note list-section__foot reveal">
+            ※「AIツール開発」は、実際の業務の中で自動化の仕組みや「業務アプリ」をつくる支援を指します。受託でのシステム開発を意味するものではありません。
+          </p>
+
+          <!--
+            6区分と3分類の関係（CONTENT.md §3.2）。
+            3分類が事業の骨格、6区分はサイト上での見せ方であり、両者は矛盾しない。
+            各分類の説明文は §3.1 の確定コピー。
+          -->
+          <div class="subblock reveal">
+            <h3 class="subblock__title">事業の3分類との関係</h3>
+            <p class="subblock__lead">上記の6区分は、事業の骨格である次の3分類を、探しやすい粒度に分けたものです。</p>
+            <dl class="deflist">
+              <div class="deflist__row">
+                <dt>AI活用の伴走支援</dt>
+                <dd>
+                  貴社の「AI活用推進室」として中に入り、定着までを支援
+                  <span class="deflist__sub">01 AI導入・活用支援 ／ 05 定着支援 ／ 06 内製化支援</span>
+                </dd>
+              </div>
+              <div class="deflist__row">
+                <dt>AI研修</dt>
+                <dd>
+                  現場の言葉で、パソコンが苦手な方にも分かる形でお伝えする実務直結の研修
+                  <span class="deflist__sub">03 AI研修</span>
+                </dd>
+              </div>
+              <div class="deflist__row">
+                <dt>業務自動化支援</dt>
+                <dd>
+                  メール・書類作成などの業務を棚卸しし、効果の大きい仕事から自動化
+                  <span class="deflist__sub">02 業務再設計 ／ 04 AIツール開発</span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           03 — 進め方（6ヶ月のプロセス）
+           見出し・STEPの内容・注記はすべて CONTENT.md §7.4 の確定コピー。
+           注記「※上記の進め方は一例です…」は必ず併記する（SITE.md §4.2-03 / R-09）。
+           STEP番号・期間・見出しは組版上3つに分けて配置しているが、文言は変えていない。
+           =================================================================== -->
+      <section class="section section--subtle" id="process" aria-labelledby="process-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">03</span>
+              <span aria-hidden="true">—</span>
+              <span>PROCESS</span>
+            </p>
+            <h2 class="section__title" id="process-title">6ヶ月で「自分たちで使いこなせる」までの道のり</h2>
+          </div>
+
+          <!-- PHOTO: 推進役との週次ミーティング（3:2） -->
+
+          <ol class="steps reveal">
+            <li class="steps__item">
+              <div class="steps__meta">
+                <span class="steps__num">STEP 1</span>
+                <span class="steps__period">1〜2ヶ月目</span>
+              </div>
+              <div class="steps__body">
+                <h3 class="steps__title">推進役を決めて、育てる</h3>
+                <ul class="bullets steps__list">
+                  <li>社長・役員の皆様とご相談し、社内の「AI推進役」を任命</li>
+                  <li>私たちが貴社のAI活用推進室として実働を開始（週次で訪問・オンライン併用）</li>
+                  <li>AIの基本と、社内に広めるための進め方を推進役の方にすべて伝授</li>
+                  <li>メール・企画書づくりなど、まずは身近な業務をAIで時短</li>
+                  <li>貴社の業務を棚卸しし、効果（時間削減）の大きい業務を洗い出し</li>
+                  <li>プログラミング不要、AIに指示するだけの「業務アプリづくり」も習得</li>
+                </ul>
+              </div>
+            </li>
+            <li class="steps__item">
+              <div class="steps__meta">
+                <span class="steps__num">STEP 2</span>
+                <span class="steps__period">3〜4ヶ月目</span>
+              </div>
+              <div class="steps__body">
+                <h3 class="steps__title">1つの業務で、目に見える成果を出す</h3>
+                <ul class="bullets steps__list">
+                  <li>洗い出した中から、効果が最も大きい業務を1つ選定</li>
+                  <li>実際の業務の中で自動化の仕組みをつくり、現場で運用開始</li>
+                  <li>推進役の方がご自身の手で直し・改善できるよう、隣で徹底サポート</li>
+                  <li>「AIでここまで変わる」という成功例を社内に示し、次の展開への土台に</li>
+                </ul>
+              </div>
+            </li>
+            <li class="steps__item">
+              <div class="steps__meta">
+                <span class="steps__num">STEP 3</span>
+                <span class="steps__period">5〜6ヶ月目</span>
+              </div>
+              <div class="steps__body">
+                <h3 class="steps__title">全社へ広げて、卒業</h3>
+                <ul class="bullets steps__list">
+                  <li>各部署・各店舗ごとに、ひとつひとつ丁寧にキックオフ（導入説明会）を開催</li>
+                  <li>現場からの質問にその場で対応し、「使える人」を一人ずつ増やす</li>
+                  <li>私たちがいなくても回る体制を整えて、伴走支援を卒業</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+
+          <p class="note list-section__foot reveal">
+            ※上記の進め方は一例です。貴社の課題・現状・体制に合わせて、期間や内容は柔軟に設計いたします。
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           04 — 支援後の状態
+           見出し・4項目は CONTENT.md §7.4 の確定コピー。
+           チェックアイコン付きグリッドは使わない（R-10 / CLAUDE.md §5）
+           =================================================================== -->
+      <section class="section" id="outcome" aria-labelledby="outcome-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">04</span>
+              <span aria-hidden="true">—</span>
+              <span>OUTCOME</span>
+            </p>
+            <h2 class="section__title" id="outcome-title">6ヶ月後、貴社はこうなっています</h2>
+          </div>
+
+          <ul class="bullets reveal">
+            <li>社内にAIを広められる「推進役」が育っている</li>
+            <li>効果の大きい業務が1つ以上、自動化されている</li>
+            <li>日常業務でAIを使うのが当たり前になっている</li>
+            <li>次にどの業務へ広げるか、自分たちで判断・実行できる</li>
+          </ul>
+
+          <!-- SITE.md §5.2 の導線ルール: /service/ → /case/。副CTAは1セクションに1つ -->
+          <div class="list-section__foot reveal">
+            <a class="tlink" href="/case/">実際の支援例を見る<span class="tlink__arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           05 — 想定される課題
+           6項目は CONTENT.md §7.3 の確定コピー（一字一句そのまま。CLAUDE.md §3-2）。
+           SITE.md §4.2-05 の「縮約して掲載」は、確定コピーの一字一句ルールが優先する
+           ため、文言は変えずに提示の仕方を縮約した（カード・アイコン・チップを使わず、
+           罫線のない1カラムの箇条書きにする）。「お悩みはありませんか？」型の煽り見出しも使わない。
+           =================================================================== -->
+      <section class="section" id="issues" aria-labelledby="issues-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">05</span>
+              <span aria-hidden="true">—</span>
+              <span>ISSUES</span>
+            </p>
+            <h2 class="section__title" id="issues-title">想定される課題</h2>
+          </div>
+
+          <ul class="bullets reveal">
+            <li>ChatGPTなどを入れたが、一部の社員しか使っていない</li>
+            <li>何から手をつければいいか分からない</li>
+            <li>社内にAIに詳しい人がいない、採用も難しい</li>
+            <li>メール・資料づくり・転記作業に毎日時間を取られている</li>
+            <li>研修は受けたが、現場の仕事は何も変わらなかった</li>
+            <li>自社の業務のどこにAIが使えるのか、見当がつかない</li>
+          </ul>
+        </div>
+      </section>
+
+      <!--
+        SITE.md §4.2 No.06 — 提供条件は【要確認 T-21】のため実装しない。
+        契約期間・価格・稼働頻度の標準値・オンライン／訪問の比率がいずれも未確定であり、
+        「確定するまでこのセクションを置かない」という決定に従う（SITE.md §4.2-06 /
+        CONTENT.md §3.3）。確定したら CONTENT.md → SITE.md → 実装の順に反映する。
+      -->
+
+      <!-- ===================================================================
+           06 — CTA（SITE.md §4.2 No.07 / §3.3 主CTA）
+           見出しは CONTENT.md §2.3 の別案（ブランドコピー）、リードは §6.2 の確定コピー
+           =================================================================== -->
+      <section class="section section--subtle" id="contact" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">06</span>
+              <span aria-hidden="true">—</span>
+              <span>CONTACT</span>
+            </p>
+            <h2 class="cta__title" id="cta-title"><span class="nobr">現場から、</span><span class="nobr">AI導入を</span><span class="nobr">再設計する。</span></h2>
+            <p class="cta__lead">まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。</p>
+          </div>
+          <div class="cta__actions reveal">
+            <a class="btn btn--primary" href="/contact/">AI活用について相談する<span class="btn__arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- =====================================================================
+         Footer（SITE.md §3.2）— 全ページ共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）
+         ===================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div>
+            <a class="site-footer__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+              <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" loading="lazy" decoding="async">
+            </a>
+            <address class="site-footer__company">
+              株式会社AIの鉄人<br>
+              群馬県前橋市南町三丁目50番地2 プラザアン2階 D-53<br>
+              <a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a>
+            </address>
+          </div>
+          <nav class="site-footer__nav" aria-label="フッターナビゲーション">
+            <p class="site-footer__heading">SITEMAP</p>
+            <ul>
+              <li><a href="/service/" aria-current="page">SERVICE</a></li>
+              <li><a href="/case/">CASE</a></li>
+              <li><a href="/company/">COMPANY</a></li>
+              <li><a href="/contact/">CONTACT</a></li>
+            </ul>
+          </nav>
+          <div class="site-footer__util">
+            <p class="site-footer__heading">INFORMATION</p>
+            <ul>
+              <li><a href="/privacy/">PRIVACY POLICY</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p class="site-footer__copyright">© 2026 株式会社AIの鉄人</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -109,20 +109,34 @@
 
     /*
      * フォールバック。
-     * プレレンダリング・一部クローラ・スクロールを伴わない自動化環境などでは
-     * IntersectionObserver のコールバックが一度も発火せず、.reveal が opacity:0 の
-     * まま残ることがある。その場合のみ全要素を強制表示する。
-     * IO が機能している通常のブラウザでは何もせず、スクロール連動のフェードイン
-     * （DESIGN.md §8.2）をそのまま生かす。
+     * .reveal は opacity:0 で始まるため、IO が実質的に働かない環境では本文が
+     * 見えないまま残ってしまう。働かないケースは2種類ある。
+     *   a) コールバックが一度も発火しない
+     *      （プレレンダリング・一部クローラ・スクロールを伴わない自動化環境）
+     *   b) 初回コールバックは発火するが、以後スクロールが起きないため
+     *      ファーストビュー外の要素が永久に可視にならない
+     *      （バックグラウンドタブ・ヘッドレス描画・リンクプレビュー生成など、
+     *        文書が不可視のまま読み込まれる場合）
+     * b) は observerFired では検出できない。IO は observe() 直後に
+     * isIntersecting:false の初回エントリを返すため、不可視の文書でも
+     * observerFired が true になってしまうからである。
+     *
+     * 不可視の文書には「スクロールに連れて現れる」という体験自体が存在しないので、
+     * 判定は単純に「文書が不可視なら全部出す」でよい。
+     * 文書が可視な通常のブラウザではどちらの条件も成立せず、スクロール連動の
+     * フェードイン（DESIGN.md §8.2）はそのまま生きる。
      */
     const revealAll = () => {
       observer.disconnect();
       targets.forEach((target) => target.classList.add("is-visible"));
     };
 
+    const shouldForceReveal = () =>
+      !observerFired || document.visibilityState === "hidden";
+
     const scheduleFallback = () => {
       window.setTimeout(() => {
-        if (!observerFired) {
+        if (shouldForceReveal()) {
           revealAll();
         }
       }, REVEAL_FALLBACK_DELAY);
@@ -135,9 +149,20 @@
     }
   };
 
+  /*
+   * init が途中で例外を投げると、.js .reveal（opacity:0）が付いたまま
+   * 表示ロジックだけが失われ、本文が見えなくなる。HTML 側の onerror は
+   * 「main.js の読み込み失敗」しか拾えないため、実行時エラーはここで受け止め、
+   * js フラグを外して素の（アニメーション無しの）表示へ落とす。
+   */
   const init = () => {
-    initNavigation();
-    initReveal();
+    try {
+      initNavigation();
+      initReveal();
+    } catch (error) {
+      document.documentElement.classList.remove("js");
+      throw error; // 握りつぶさず、コンソールには残す
+    }
   };
 
   if (document.readyState === "loading") {

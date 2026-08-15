@@ -33,13 +33,12 @@
 - ここに定義の無い値が必要になったら、**勝手に足さず人間に確認する**（`CLAUDE.md` §3-1）。追加が決まったら、実装より先にこのファイルへ書く。
 - **確定値を変える必要が出たら、`index.html` / `style.css` の実値と本ファイルを必ず同時に更新する。** どちらか片方だけを変えない。
 
-### 0.2 移行期の扱い
+### 0.2 見た目のSoTは本ファイルに一本化した（移行期は終了）
 
-`docs/design-spec.md` は**現行サイト（`main` の `index.html`）の実装記録**として保持する。
+**本ファイルが唯一の見た目のSoTである。** 2026-08-15 のリリースで旧LPが本番から姿を消したため、「リニューアル実装は `DESIGN.md`、現行サイトの保守は `docs/design-spec.md`」という移行期の切り分けは**解消した**（`CLAUDE.md` §2.2）。
 
-- リニューアル実装（Phase 3以降のブランチ・新規ページ）→ **本ファイルに従う。**
-- 現行 `index.html` への軽微な保守（誤字修正・リンク差し替え等）→ リニューアルが本番反映されるまでは **`docs/design-spec.md` を参照する。**
-- 現行サイトを本ファイルのトークンに合わせて書き換える作業は、Phase 4 の実装で一括して行う。**部分的な混在をさせない。**
+- 旧仕様書は `docs/archive/design-spec-lp-v1.md` へ移した。**参照専用のアーカイブであり、守るべきルールではない。** ここの数値を新しい実装に持ち込まない。
+- 何を引き継ぎ、何を捨てたかの判断は §12 にある。
 
 ---
 
@@ -126,7 +125,7 @@ Editorial / Precise / Confident / Modern / Field-oriented / Understated Technolo
   --line-strong:   #14171A;  /* [確定] 構造を示す強い罫線（セクション境界・セカンダリボタン） */
 
   /* --- Accent（ロゴ由来の赤。1色のみ） --- */
-  --accent:        #DE2B1C;  /* [確定] ロゴ赤の実測値（design-spec.md より継承） */
+  --accent:        #DE2B1C;  /* [確定] ロゴ赤の実測値（旧LPの仕様書より継承。§12） */
   --accent-dark:   #B72217;  /* [確定] 小サイズ文字・hover・Off White上で赤が必要なとき */
 
   /* --- Focus --- */
@@ -174,7 +173,7 @@ Editorial / Precise / Confident / Modern / Field-oriented / Understated Technolo
 
 ### 2.4 アクセント赤の使用ルール
 
-**[確定]（`docs/design-spec.md` から継承）**
+**[確定]（旧LPの仕様書から継承。§12）**
 
 - **`--accent` を小サイズ本文に使わない。** Off White 背景上では 4.3:1 でAA未達になる。小サイズで赤が必要なときは `--accent-dark`。
 - `--accent` の許容用途: プライマリボタンの背面、24px以上の見出し内キーワード、極小面積の記号・下線・インジケーター。
@@ -246,7 +245,7 @@ Editorial / Precise / Confident / Modern / Field-oriented / Understated Technolo
 
 - セクションには **`IBM Plex Mono` の小さな英字ラベル**を添える。大文字、`letter-spacing: 0.12em`。
 - 連番を持たせる（`01` / `02` …）。CADDi 的な `01 — SERVICE` 形式を基本とする。連番の振り方は `docs/SITE.md` §4.1 の管轄。
-- **[確定] ラベルの色は `--ink-muted`。アクセント赤を使わない**（現行 design-spec.md はアクセント色を使っていたが非継承）。ただし**連番部分（`01` 等）だけは `--ink`** にして、ラベル内での主従を作る。
+- **[確定] ラベルの色は `--ink-muted`。アクセント赤を使わない**（旧LPの仕様書はアクセント色を使っていたが非継承）。ただし**連番部分（`01` 等）だけは `--ink`** にして、ラベル内での主従を作る。
 - ラベルは**見出しの上**に置き、見出しとの距離（12px = `--space-3`）を本文行間より詰める（ひとまとまりに見せる）。
 
 ### 3.4 日本語見出しの改行制御
@@ -674,9 +673,9 @@ Editorial / Precise / Confident / Modern / Field-oriented / Understated Technolo
 
 ---
 
-## 12. `docs/design-spec.md` からの継承 / 非継承
+## 12. 旧LPのデザイン仕様（`docs/archive/design-spec-lp-v1.md`）からの継承 / 非継承
 
-現行サイトのデザイン仕様のうち、何を引き継ぎ、何を捨てるかの判断。**`docs/design-spec.md` 自体は現行実装の記録として残す**（§0.2）。
+リニューアル前の1ページLPのデザイン仕様のうち、何を引き継ぎ、何を捨てるかの判断。**旧仕様書そのものは `docs/archive/design-spec-lp-v1.md` に参照専用のアーカイブとして残している**（§0.2）。
 
 ### 12.1 継承するもの
 

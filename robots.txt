@@ -1,0 +1,14 @@
+# 公開ページはすべてクロール・インデックスを許可する。
+# ただし、GitHub Pages はリポジトリ内の全ファイルをそのまま配信するため、
+# 公開ページではない社内ドキュメント（作業ルール・事実のSoT・情報設計・素材台帳など）も
+# URL として到達できてしまう。これらは検索結果に載せない。
+# ※ robots.txt はクロールを止めるだけで閲覧を止めるものではない。
+#    非公開にしたい記述がある場合は、配信ツリーの外へ出す必要がある。
+User-agent: *
+Allow: /
+Disallow: /docs/
+Disallow: /CLAUDE.md
+Disallow: /AGENTS.md
+Disallow: /DESIGN.md
+
+Sitemap: https://www.ainotetsujin.com/sitemap.xml

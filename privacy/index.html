@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+      meta の方針は SITE.md §3.4 / §4.8。下層ページは `ページ名｜株式会社AIの鉄人` の順。
+      本文は CONTENT.md §9 の確定原稿（2026-08-07 ユーザー確定）を一字一句そのまま使う。
+    -->
+    <title>プライバシーポリシー｜株式会社AIの鉄人</title>
+    <meta name="description" content="株式会社AIの鉄人（群馬県前橋市）のプライバシーポリシーです。お問い合わせフォームおよびメールを通じて取得する個人情報の項目・利用目的・第三者提供・外部サービスの利用・開示等の請求への対応について定めています。">
+    <meta property="og:title" content="プライバシーポリシー｜株式会社AIの鉄人">
+    <meta property="og:description" content="株式会社AIの鉄人（群馬県前橋市）のプライバシーポリシーです。お問い合わせフォームおよびメールを通じて取得する個人情報の項目・利用目的・第三者提供・外部サービスの利用・開示等の請求への対応について定めています。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ainotetsujin.com/privacy/">
+    <!-- TODO(CONTENT T-04): 専用OG画像（1200×630）が未作成のため、暫定でロゴを使用 -->
+    <meta property="og:image" content="https://www.ainotetsujin.com/assets/img/logo-circle.png">
+    <meta property="og:image:width" content="480">
+    <meta property="og:image:height" content="407">
+    <meta property="og:image:alt" content="株式会社AIの鉄人 ロゴ">
+    <meta property="og:site_name" content="株式会社AIの鉄人">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="canonical" href="https://www.ainotetsujin.com/privacy/">
+    <link rel="icon" href="../assets/img/logo-circle.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Webフォントの読み込み方針はトップページと同一（DESIGN.md §3.1）。共通パーツのため全ページを同時に更新する -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!--
+      `js` クラスは reveal の初期状態（不可視）を有効にするフラグ。
+      main.js の読み込みに失敗した場合はフラグを外し、コンテンツが不可視のまま残らないようにする。
+      なお本ページの規約本文には .reveal を付けず、常時表示にしている（読まれることが目的のため）。
+    -->
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="../assets/js/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+    <!-- 下層ページの構造化データは BreadcrumbList（SITE.md §3.4 / §5.2） -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "HOME",
+            "item": "https://www.ainotetsujin.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "プライバシーポリシー",
+            "item": "https://www.ainotetsujin.com/privacy/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <!-- =====================================================================
+         Header（SITE.md §3.1）— 全ページ共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）。
+         このページはグローバルナビの項目ではないため、ナビには aria-current を置かず、
+         フッターのユーティリティ行（PRIVACY POLICY）に付けている。
+         ===================================================================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-header__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+          <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" decoding="async">
+        </a>
+        <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="primary-nav" aria-expanded="false">
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="グローバルナビゲーション">
+          <ul class="site-nav__list">
+            <li><a href="/service/">SERVICE</a></li>
+            <li><a href="/case/">CASE</a></li>
+            <li><a href="/company/">COMPANY</a></li>
+            <li><a href="/contact/">CONTACT</a></li>
+          </ul>
+          <div class="site-nav__cta">
+            <a class="btn btn--secondary" href="/contact/">AI活用について相談する</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ===================================================================
+           SITE.md §4.8 — /privacy/ プライバシーポリシー
+           本文は CONTENT.md §9 の確定原稿を一字一句そのまま掲載する（§0-3 と同じ扱い）。
+           見出し構造はページのマークアップとして適切な形に整えている
+           （h1 = プライバシーポリシー、各条項 = h2）。文言は変えていない。
+           主CTAは置かない（SITE.md §4.8）。
+           セクションの mono ラベルに連番を振っていないのは、このページが「何段階の話が
+           あるか」を示すリズムを持たない単一の規約文書であり、条項番号（1〜9）が
+           本文側の見出しとして既に連番になっているため。
+           =================================================================== -->
+
+      <!-- ===================================================================
+           ページ見出し
+           最上部のセクションのため、上端の全幅罫線は引かない（DESIGN.md §6.1）
+           =================================================================== -->
+      <section class="section page-head" aria-labelledby="page-title">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="パンくずリスト">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item"><a href="/"><span>HOME</span></a></li>
+              <li class="breadcrumb__item"><span aria-current="page">プライバシーポリシー</span></li>
+            </ol>
+          </nav>
+
+          <p class="label">
+            <span>PRIVACY POLICY</span>
+          </p>
+          <h1 class="page-head__title" id="page-title">プライバシーポリシー</h1>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           本文（CONTENT.md §9 の確定原稿）
+           =================================================================== -->
+      <section class="section" aria-label="プライバシーポリシー本文">
+        <div class="container">
+          <div class="prose">
+            <!--
+              TODO(CONTENT T-27): 制定日をリリース時に記入
+              制定日は未確定のため、表示しない（推測・仮の日付を本番に出さない。CONTENT.md §0-2）。
+              確定したら CONTENT.md §9 を先に更新し、この位置に制定日の行を追加する。
+            -->
+            <p><strong>株式会社AIの鉄人</strong>（以下「当社」）は、当社ウェブサイト（https://www.ainotetsujin.com/ 以下「本サイト」）における個人情報の取り扱いについて、以下のとおりプライバシーポリシーを定めます。</p>
+
+            <h2>1. 事業者情報</h2>
+            <ul>
+              <li>名称: 株式会社AIの鉄人</li>
+              <li>所在地: 群馬県前橋市南町三丁目50番地2 プラザアン2階 D-53</li>
+              <li>代表者: 後藤 築</li>
+            </ul>
+
+            <h2>2. 取得する個人情報と取得方法</h2>
+            <p>当社は、本サイトのお問い合わせフォーム（Google フォーム）およびメールを通じて、以下の情報を取得します。</p>
+            <ul>
+              <li>メールアドレス</li>
+              <li>お問い合わせ種別</li>
+              <li>会社名</li>
+              <li>お名前（ご担当者様）</li>
+              <li>電話番号</li>
+              <li>お問い合わせ内容の詳細</li>
+              <li>ご希望の返信方法</li>
+              <li>弊社を知ったきっかけ</li>
+            </ul>
+            <p>本サイト自体は、Cookieによる利用者の追跡やアクセス解析ツールを使用していません。</p>
+
+            <h2>3. 利用目的</h2>
+            <p>取得した個人情報は、以下の目的にのみ利用します。</p>
+            <ol>
+              <li>お問い合わせ・ご相談への回答および連絡</li>
+              <li>当社サービスに関するご案内（お問い合わせいただいた内容に関連する場合）</li>
+            </ol>
+
+            <h2>4. 第三者提供</h2>
+            <p>当社は、法令に基づく場合を除き、ご本人の同意なく個人情報を第三者に提供しません。</p>
+
+            <h2>5. 外部サービスの利用</h2>
+            <p>本サイトは以下の外部サービスを利用しており、各サービスの利用に伴い、利用者のブラウザから各事業者へ通信が発生します。詳細は各社のプライバシーポリシーをご確認ください。</p>
+            <ul>
+              <li><strong>GitHub Pages</strong>（サイトのホスティング / GitHub, Inc.）</li>
+              <li><strong>Google フォーム</strong>（お問い合わせの受付 / Google LLC）</li>
+              <li><strong>Google Fonts</strong>（フォントの配信 / Google LLC）</li>
+            </ul>
+
+            <h2>6. 安全管理措置</h2>
+            <p>当社は、取得した個人情報の漏えい、滅失または毀損の防止のため、必要かつ適切な安全管理措置を講じます。</p>
+
+            <h2>7. 開示・訂正・削除の請求</h2>
+            <p>ご本人からの個人情報の開示・訂正・利用停止・削除のご請求には、ご本人であることを確認のうえ、合理的な期間内に対応します。下記窓口までご連絡ください。</p>
+
+            <h2>8. 本ポリシーの改定</h2>
+            <p>本ポリシーの内容は、法令の改正や運用の変更に応じて改定することがあります。改定後の内容は本ページに掲載した時点から適用されます。</p>
+
+            <h2>9. お問い合わせ窓口</h2>
+            <p>
+              株式会社AIの鉄人<br>
+              メール: <a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- =====================================================================
+         Footer（SITE.md §3.2）— 全ページ共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）
+         ===================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div>
+            <a class="site-footer__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+              <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" loading="lazy" decoding="async">
+            </a>
+            <address class="site-footer__company">
+              株式会社AIの鉄人<br>
+              群馬県前橋市南町三丁目50番地2 プラザアン2階 D-53<br>
+              <a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a>
+            </address>
+          </div>
+          <nav class="site-footer__nav" aria-label="フッターナビゲーション">
+            <p class="site-footer__heading">SITEMAP</p>
+            <ul>
+              <li><a href="/service/">SERVICE</a></li>
+              <li><a href="/case/">CASE</a></li>
+              <li><a href="/company/">COMPANY</a></li>
+              <li><a href="/contact/">CONTACT</a></li>
+            </ul>
+          </nav>
+          <div class="site-footer__util">
+            <p class="site-footer__heading">INFORMATION</p>
+            <ul>
+              <li><a href="/privacy/" aria-current="page">PRIVACY POLICY</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p class="site-footer__copyright">© 2026 株式会社AIの鉄人</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -6,9 +6,11 @@
     <!--
       meta の方針は SITE.md §3.4 / §4.3。下層ページは `ページ名｜株式会社AIの鉄人` の順。
       description に書ける事実は CONTENT.md の範囲のみ（§1 所在地 / §2.3 Sub / §4.1 確定表現）。
-      顧客名（富士スバル様）は掲載許諾が未確認【要確認 T-03】のため、
-      「現行サイト以上に社名の露出を増やさない」方針（CONTENT.md §4.4）に従い meta には出さない
-      （トップページと同じ扱い）。
+      顧客名は掲載許諾が未確認【要確認 T-03】のため meta に出さない
+      （CONTENT.md §4.4「現行サイト以上に社名の露出を増やさない」）。
+      〔決定: 2026-08-15 ユーザー確定〕本文でも社名を伏せ、業種表記のみで掲出する。
+      許諾が取得できるまで、このページのソースにも顧客名を残さない
+      （HTMLコメントも配信されるため）。決定の記録は CONTENT.md §4.4 / §8.1。
       詳細ページが準備中であることを description に書かない（SITE.md §4.3）。
     -->
     <title>導入事例｜株式会社AIの鉄人</title>
@@ -132,11 +134,12 @@
 
       <!-- ===================================================================
            02 — 事例リスト
-           現時点で公開できる事例は富士スバル様の1件のみ（CONTENT.md §4.5）。
+           現時点で公開できる事例は1件のみ（CONTENT.md §4.5）。
            件数を水増しする表現・匿名事例での穴埋めを行わない（SITE.md §4.3）。
-           詳細ページ /case/fuji-subaru/ は数値【T-13】と掲載許諾【T-03】が確定する
-           まで作らない（SITE.md §2.2 / §4.4）。項目をリンクにせず Coming Soon の
+           詳細ページは数値【T-13】と掲載許諾【T-03】が確定するまで作らない
+           （SITE.md §2.2 / §4.4）。項目をリンクにせず Coming Soon の
            状態表示に留め、公開予定日は書かない（未確定のため）。
+           社名は伏せて業種表記のみとする〔決定: 2026-08-15 ユーザー確定〕。
            =================================================================== -->
       <section class="section" id="case" aria-labelledby="case-list-title">
         <div class="container">
@@ -155,12 +158,19 @@
             <li class="case-list__item reveal">
               <div class="case-list__head">
                 <p class="mono case-list__index" aria-hidden="true">CASE 01</p>
-                <h3 class="case-list__title">富士スバル様</h3>
-                <p class="case-list__industry">自動車販売業 SUBARU正規特約店</p>
+                <!--
+                  社名は伏せ、業種表記のみで掲出する〔決定: 2026-08-15 ユーザー確定〕。
+                  T-03（Web掲載許諾）が確認できるまで、このページに顧客名を出さない
+                  （CONTENT.md §4.4 / §8.1）。表記は同 §4.4 が例示する形式に合わせた。
+                  見出しが業種表記になったため、直下にあった業種の行
+                  （.case-list__industry）は重複するので外している。
+                  許諾が取得できたら、見出しを顧客名に戻し、業種の行を復活させる。
+                -->
+                <h3 class="case-list__title"><span class="nobr">自動車販売業</span><span class="nobr">（SUBARU正規特約店）</span></h3>
                 <!--
                   リンクにしない（SITE.md §4.3「Coming Soon の扱い」）。
                   詳細ページが公開できるようになったら、この状態表示を外して
-                  項目全体を /case/fuji-subaru/ へのリンクにする。
+                  項目全体を詳細ページへのリンクにする。
                 -->
                 <p class="case-list__status">
                   <span class="case-list__status-mark">Coming Soon</span>
@@ -175,7 +185,7 @@
                   アクセント赤は先頭の 32×3px インジケーターだけに使う（.proof__stat-label を再利用）。
                 -->
                 <p class="proof__stat-label">HIGHLIGHT</p>
-                <p class="case-list__highlight"><span class="nobr">商談支援AIツールの</span><span class="nobr">活用定着率</span> <strong><span class="nobr">国内SUBARU販売会社</span> <span class="nobr">1位</span></strong> <span class="nobr">を達成</span><span class="nobr">（富士スバル様）</span></p>
+                <p class="case-list__highlight"><span class="nobr">商談支援AIツールの</span><span class="nobr">活用定着率</span> <strong><span class="nobr">国内SUBARU販売会社</span> <span class="nobr">1位</span></strong> <span class="nobr">を達成</span><span class="nobr">（自動車販売業 SUBARU正規特約店）</span></p>
 
                 <div class="case__blocks">
                   <div class="case__block">
@@ -226,7 +236,7 @@
 
                 <!-- 対象範囲の注釈は必ず併記する（CONTENT.md §4.2 / DESIGN.md §6.3） -->
                 <p class="note case-list__note">
-                  ※対象範囲: 国内SUBARU販売会社／商談支援AIツールの活用定着率。富士スバル様への伴走支援における実績です。
+                  ※対象範囲: 国内SUBARU販売会社／商談支援AIツールの活用定着率。自動車販売業（SUBARU正規特約店）への伴走支援における実績です。
                 </p>
               </div>
             </li>

@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+      meta の方針は SITE.md §3.4 / §4.5。下層ページは `ページ名｜株式会社AIの鉄人` の順。
+      description に書ける事実は CONTENT.md の範囲のみ（§1 会社概要 / §2.1 Mission）。
+      設立年・資本金・従業員数などは【要確認 T-05〜T-12】のため書かない。
+    -->
+    <title>会社情報｜株式会社AIの鉄人</title>
+    <meta name="description" content="株式会社AIの鉄人（群馬県前橋市南町）の会社情報です。代表取締役は後藤 築。AIツール導入・定着・活用の伴走支援、AI研修、業務自動化支援を行っています。「地方企業におけるAI活用のスタンダードをつくる。」をMissionに掲げています。">
+    <meta property="og:title" content="会社情報｜株式会社AIの鉄人">
+    <meta property="og:description" content="株式会社AIの鉄人（群馬県前橋市南町）の会社情報です。代表取締役は後藤 築。AIツール導入・定着・活用の伴走支援、AI研修、業務自動化支援を行っています。「地方企業におけるAI活用のスタンダードをつくる。」をMissionに掲げています。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ainotetsujin.com/company/">
+    <!-- TODO(CONTENT T-04): 専用OG画像（1200×630）が未作成のため、暫定でロゴを使用 -->
+    <meta property="og:image" content="https://www.ainotetsujin.com/assets/img/logo-circle.png">
+    <meta property="og:image:width" content="480">
+    <meta property="og:image:height" content="407">
+    <meta property="og:image:alt" content="株式会社AIの鉄人 ロゴ">
+    <meta property="og:site_name" content="株式会社AIの鉄人">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="canonical" href="https://www.ainotetsujin.com/company/">
+    <link rel="icon" href="../assets/img/logo-circle.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Webフォントの読み込み方針はトップページと同一（DESIGN.md §3.1）。共通パーツのため全ページを同時に更新する -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!--
+      `js` クラスは reveal の初期状態（不可視）を有効にするフラグ。
+      main.js の読み込みに失敗した場合はフラグを外し、コンテンツが不可視のまま残らないようにする。
+    -->
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="../assets/js/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+    <!-- 下層ページの構造化データは BreadcrumbList（SITE.md §3.4 / §5.2） -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "HOME",
+            "item": "https://www.ainotetsujin.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "会社情報",
+            "item": "https://www.ainotetsujin.com/company/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <!-- =====================================================================
+         Header（SITE.md §3.1）— 全ページ共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）。
+         このページは COMPANY のため、該当項目に aria-current="page" を付けている。
+         ===================================================================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-header__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+          <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" decoding="async">
+        </a>
+        <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="primary-nav" aria-expanded="false">
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="グローバルナビゲーション">
+          <ul class="site-nav__list">
+            <li><a href="/service/">SERVICE</a></li>
+            <li><a href="/case/">CASE</a></li>
+            <li><a href="/company/" aria-current="page">COMPANY</a></li>
+            <li><a href="/contact/">CONTACT</a></li>
+          </ul>
+          <div class="site-nav__cta">
+            <a class="btn btn--secondary" href="/contact/">AI活用について相談する</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ===================================================================
+           SITE.md §4.5 — /company/ 会社情報
+           セクション構成と表示連番（設計上の No. ⇄ 画面の連番）:
+             01 COMPANY          = 下層ページ共通のページ見出し（設計上の No. は持たない）
+             02 MISSION / VISION = SITE.md §4.5 No.01 Mission / Vision
+             03 PHILOSOPHY       = SITE.md §4.5 No.02 Philosophy
+             04 MESSAGE          = SITE.md §4.5 No.03 代表メッセージ
+             05 PROFILE          = SITE.md §4.5 No.04 会社概要
+             —                   = SITE.md §4.5 No.05 People【要確認 T-24】→ 実装しない（後述）
+             06 CONTACT          = SITE.md §4.5 No.06 CTA
+           欠番を訪問者に見せないため、実装したセクションだけを 01 から通しで振る
+           （SITE.md §4.1「セクション番号の方針」と同じ扱い）。
+           =================================================================== -->
+
+      <!-- ===================================================================
+           01 — ページ見出し＋リード
+           最上部のセクションのため、上端の全幅罫線は引かない（DESIGN.md §6.1）
+           =================================================================== -->
+      <section class="section page-head" aria-labelledby="page-title">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="パンくずリスト">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item"><a href="/"><span>HOME</span></a></li>
+              <li class="breadcrumb__item"><span aria-current="page">会社情報</span></li>
+            </ol>
+          </nav>
+
+          <p class="label">
+            <span class="label__num">01</span>
+            <span aria-hidden="true">—</span>
+            <span>COMPANY</span>
+          </p>
+          <h1 class="page-head__title" id="page-title">会社情報</h1>
+          <p class="page-head__lead">
+            群馬県前橋市を拠点に、地方企業の現場に入り込み、AI活用を「定着」まで実装しています。
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           02 — Mission / Vision
+           確定コピー（CONTENT.md §2.1 / §2.2）。改行位置・引用符（全角ダブルミニュート）を
+           含めてそのまま使う。Mission ブロックは「宣言 → その下に MISSION ラベル」の順で
+           組む（DESIGN.md §6.6）。反転面は使わない
+           =================================================================== -->
+      <section class="section" id="mission" aria-labelledby="mission-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">02</span>
+              <span aria-hidden="true">—</span>
+              <span>MISSION / VISION</span>
+            </p>
+            <h2 class="mission__title" id="mission-title">
+              <span>地方企業における</span>
+              <span><span class="nobr">AI活用の</span><span class="nobr">スタンダードを</span><span class="nobr">つくる。</span></span>
+            </h2>
+            <p class="mono mission__caption">MISSION</p>
+          </div>
+
+          <!-- PHOTO: 地方企業の現場・群馬（3:2） -->
+
+          <div class="vision offset-2 reveal">
+            <p class="mono">VISION</p>
+            <h3 class="vision__title"><span class="nobr">AIを、</span><span class="nobr">群馬の</span><span class="nobr">“当たり前”に。</span></h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           03 — Philosophy
+           本文は CONTENT.md §7.4 導入文の確定コピー（強調位置を含む）。
+           末尾の一文は CONTENT.md §2.5 の宣言。T-22 の決定により Mission としては
+           掲出せず、Mission / Vision と並ぶ見出しレベルにもしない（本文中の思想的コピー）
+           =================================================================== -->
+      <section class="section section--subtle" id="philosophy" aria-labelledby="philosophy-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">03</span>
+              <span aria-hidden="true">—</span>
+              <span>PHILOSOPHY</span>
+            </p>
+            <h2 class="section__title" id="philosophy-title">私たちの考え方</h2>
+          </div>
+
+          <div class="reveal">
+            <p class="philosophy__body">AI活用は<strong>「どのツールを選ぶか」ではなく「社内に根付かせる進め方」</strong>で成否が決まります。使われないAIは、いくら高機能でも価値はゼロ。だから私たちは、貴社の「AI活用推進室」の一員として中に入り、毎日の業務の中で一緒に手を動かしながら、<strong>社内にAIを広められる人（推進役）を育てます</strong>。目指すのは、6ヶ月後に私たちがいなくても自分たちで使いこなせている状態です。</p>
+            <p class="statement"><span class="nobr">「AIを、</span><span class="nobr">一部の詳しい人の</span><span class="nobr">ものではなく、</span><span class="nobr">全員の道具に。」</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           04 — 代表メッセージ
+           本文は CONTENT.md §5.2 の確定分（既存2版のうち旧原稿版を正とする決定
+           〔T-30・2026-08-06〕）。署名表記は §5.1 の確定コピー。
+           TODO(CONTENT T-01): 正式文面は代表確認待ち。確定したら CONTENT.md §5.2 を
+           先に更新し、その文面へ差し替える。
+           TODO(CONTENT T-02): 写真は透かしなしの元データがあれば差し替える。
+           TODO(CONTENT T-25): 経歴・プロフィールは未確定のため書かない。
+           =================================================================== -->
+      <section class="section" id="message" aria-labelledby="message-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">04</span>
+              <span aria-hidden="true">—</span>
+              <span>MESSAGE</span>
+            </p>
+            <h2 class="section__title" id="message-title">代表メッセージ</h2>
+          </div>
+
+          <!--
+            SPでは本文が先、写真が後になるようDOM順を「本文 → 写真」にしている
+            （DESIGN.md §9.2「2カラムの本文＋写真は縦積み（写真を下）」）。
+            1024px 以上では CSS のグリッド配置で写真を左段へ置く。
+          -->
+          <div class="ceo reveal">
+            <div class="ceo__text">
+              <p class="ceo__body">AI活用は「どのツールを選ぶか」ではなく「社内に根付かせる進め方」で成否が決まります。使われないAIは、いくら高機能でも価値はゼロ。だから私たちは、貴社のAI活用推進室の一員として中に入り、毎日の業務の中で一緒に手を動かします。まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。</p>
+              <p class="ceo__signature">株式会社AIの鉄人 代表取締役 後藤 築</p>
+            </div>
+            <figure class="ceo__photo">
+              <!-- 人物写真は 4:5 にトリミングして表示する（DESIGN.md §7.3。CSS の object-fit で処理） -->
+              <img src="../assets/img/ceo-photo.jpg" alt="マイクを持って話す代表取締役 後藤 築" width="1600" height="981" loading="lazy" decoding="async">
+              <figcaption class="ceo__name">代表取締役　後藤 築</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           05 — 会社概要
+           CONTENT.md §1 のうち【要確認】が付いていない項目だけを出す。
+           設立年月（T-05）・資本金（T-06）・従業員数（T-07）・電話番号（T-08）・
+           法人番号（T-09）・英字表記（T-10）・代表者名の読み仮名（T-11）・
+           拠点（T-12）は未確定のため、推測で埋めず行ごと出さない（CONTENT.md §0-2 / §1）。
+           事業内容は登記どおり3分類で書く（サービス6区分と混同しない。SITE.md §4.5-04）
+           =================================================================== -->
+      <section class="section section--subtle" id="profile" aria-labelledby="profile-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">05</span>
+              <span aria-hidden="true">—</span>
+              <span>PROFILE</span>
+            </p>
+            <h2 class="section__title" id="profile-title">会社概要</h2>
+          </div>
+
+          <dl class="deflist reveal">
+            <div class="deflist__row">
+              <dt>社名</dt>
+              <dd>株式会社AIの鉄人</dd>
+            </div>
+            <div class="deflist__row">
+              <dt>所在地</dt>
+              <dd>群馬県前橋市南町三丁目50番地2 プラザアン2階 D-53</dd>
+            </div>
+            <div class="deflist__row">
+              <dt>代表者</dt>
+              <dd>後藤 築</dd>
+            </div>
+            <div class="deflist__row">
+              <dt>事業内容</dt>
+              <dd>AIツール導入・定着・活用の伴走支援、AI研修、業務自動化支援</dd>
+            </div>
+            <div class="deflist__row">
+              <dt>MAIL</dt>
+              <dd><a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a></dd>
+            </div>
+            <div class="deflist__row">
+              <dt>HP</dt>
+              <dd><a href="https://www.ainotetsujin.com/">https://www.ainotetsujin.com/</a></dd>
+            </div>
+          </dl>
+          <!-- TODO(CONTENT T-05〜T-12): 設立年月・資本金・従業員数・電話番号・法人番号・英字表記・読み仮名・拠点が確定したら行を追加する -->
+
+          <!-- SITE.md §5.2 の導線ルール: /company/ → /case/「実績を見る」。副CTAは1セクションに1つ -->
+          <div class="list-section__foot reveal">
+            <a class="tlink" href="/case/">実績を見る<span class="tlink__arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!--
+        SITE.md §4.5 No.05 — People は【要確認 T-24】のため実装しない。
+        代表以外のメンバーの氏名・役割・写真・掲載可否・人数がすべて未確定であり、
+        「確定するまで置かない」という決定に従う（CONTENT.md §5.3）。
+        「チーム」「メンバー」を前提とした文言も使わない。
+      -->
+
+      <!-- ===================================================================
+           06 — CTA（SITE.md §4.5 No.06 / §3.3 主CTA）
+           見出しは CONTENT.md §2.3 の別案（ブランドコピー）、リードは §6.2 の確定コピー
+           =================================================================== -->
+      <section class="section" id="contact" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">06</span>
+              <span aria-hidden="true">—</span>
+              <span>CONTACT</span>
+            </p>
+            <h2 class="cta__title" id="cta-title"><span class="nobr">現場から、</span><span class="nobr">AI導入を</span><span class="nobr">再設計する。</span></h2>
+            <p class="cta__lead">まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。</p>
+          </div>
+          <div class="cta__actions reveal">
+            <a class="btn btn--primary" href="/contact/">AI活用について相談する<span class="btn__arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- =====================================================================
+         Footer（SITE.md §3.2）— 全ページ共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）
+         ===================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div>
+            <a class="site-footer__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+              <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" loading="lazy" decoding="async">
+            </a>
+            <address class="site-footer__company">
+              株式会社AIの鉄人<br>
+              群馬県前橋市南町三丁目50番地2 プラザアン2階 D-53<br>
+              <a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a>
+            </address>
+          </div>
+          <nav class="site-footer__nav" aria-label="フッターナビゲーション">
+            <p class="site-footer__heading">SITEMAP</p>
+            <ul>
+              <li><a href="/service/">SERVICE</a></li>
+              <li><a href="/case/">CASE</a></li>
+              <li><a href="/company/" aria-current="page">COMPANY</a></li>
+              <li><a href="/contact/">CONTACT</a></li>
+            </ul>
+          </nav>
+          <div class="site-footer__util">
+            <p class="site-footer__heading">INFORMATION</p>
+            <ul>
+              <li><a href="/privacy/">PRIVACY POLICY</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p class="site-footer__copyright">© 2026 株式会社AIの鉄人</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

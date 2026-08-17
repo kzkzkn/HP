@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+      meta の方針は SITE.md §3.4 / §4.3。下層ページは `ページ名｜株式会社AIの鉄人` の順。
+      description に書ける事実は CONTENT.md の範囲のみ（§1 所在地 / §2.3 Sub / §4.1 確定表現）。
+      顧客名は掲載許諾が未確認【要確認 T-03】のため meta に出さない
+      （CONTENT.md §4.4「現行サイト以上に社名の露出を増やさない」）。
+      〔決定: 2026-08-15 ユーザー確定〕本文でも社名を伏せ、業種表記のみで掲出する。
+      許諾が取得できるまで、このページのソースにも顧客名を残さない
+      （HTMLコメントも配信されるため）。決定の記録は CONTENT.md §4.4 / §8.1。
+      詳細ページが準備中であることを description に書かない（SITE.md §4.3）。
+    -->
+    <title>導入事例｜株式会社AIの鉄人</title>
+    <meta name="description" content="株式会社AIの鉄人（群馬県前橋市）の導入事例です。地方企業の現場に入り込み、AI活用を「定着」まで実装する伴走支援の取り組みと成果を紹介します。自動車販売業（SUBARU正規特約店）では、国内SUBARU販売会社のなかで商談支援AIツールの活用定着率1位を達成しました。">
+    <meta property="og:title" content="導入事例｜株式会社AIの鉄人">
+    <meta property="og:description" content="株式会社AIの鉄人（群馬県前橋市）の導入事例です。地方企業の現場に入り込み、AI活用を「定着」まで実装する伴走支援の取り組みと成果を紹介します。自動車販売業（SUBARU正規特約店）では、国内SUBARU販売会社のなかで商談支援AIツールの活用定着率1位を達成しました。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ainotetsujin.com/case/">
+    <!-- TODO(CONTENT T-04): 専用OG画像（1200×630）が未作成のため、暫定でロゴを使用 -->
+    <meta property="og:image" content="https://www.ainotetsujin.com/assets/img/logo-circle.png">
+    <meta property="og:image:width" content="480">
+    <meta property="og:image:height" content="407">
+    <meta property="og:image:alt" content="株式会社AIの鉄人 ロゴ">
+    <meta property="og:site_name" content="株式会社AIの鉄人">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="canonical" href="https://www.ainotetsujin.com/case/">
+    <link rel="icon" href="../assets/img/logo-circle.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Webフォントの読み込み方針はトップページと同一（DESIGN.md §3.1）。共通パーツのため両ページを同時に更新する -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!--
+      `js` クラスは reveal の初期状態（不可視）を有効にするフラグ。
+      main.js の読み込みに失敗した場合はフラグを外し、コンテンツが不可視のまま残らないようにする。
+    -->
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="../assets/js/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+    <!-- 下層ページの構造化データは BreadcrumbList（SITE.md §3.4 / §5.2） -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "HOME",
+            "item": "https://www.ainotetsujin.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "導入事例",
+            "item": "https://www.ainotetsujin.com/case/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <!-- =====================================================================
+         Header（SITE.md §3.1）— トップページと同一の共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）。
+         このページは CASE のため、該当項目に aria-current="page" を付けている。
+         ===================================================================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-header__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+          <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" decoding="async">
+        </a>
+        <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="primary-nav" aria-expanded="false">
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="グローバルナビゲーション">
+          <ul class="site-nav__list">
+            <li><a href="/service/">SERVICE</a></li>
+            <li><a href="/case/" aria-current="page">CASE</a></li>
+            <li><a href="/company/">COMPANY</a></li>
+            <li><a href="/contact/">CONTACT</a></li>
+          </ul>
+          <div class="site-nav__cta">
+            <a class="btn btn--secondary" href="/contact/">AI活用について相談する</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ===================================================================
+           SITE.md §4.3 — /case/ 導入事例（一覧）
+           セクション構成と表示連番:
+             01 CASE          = SITE.md §4.3 No.01 ページ見出し＋リード
+             02 CASE STUDIES  = SITE.md §4.3 No.02 事例リスト（現時点で1件）
+             03 CONTACT       = SITE.md §4.3 No.03 CTA
+           事例を追加するときは、02 のリストに項目を足す（表示連番は変わらない）。
+           =================================================================== -->
+
+      <!-- ===================================================================
+           01 — ページ見出し＋リード
+           最上部のセクションのため、上端の全幅罫線は引かない（DESIGN.md §6.1）
+           =================================================================== -->
+      <section class="section page-head" aria-labelledby="page-title">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="パンくずリスト">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item"><a href="/"><span>HOME</span></a></li>
+              <li class="breadcrumb__item"><span aria-current="page">導入事例</span></li>
+            </ol>
+          </nav>
+
+          <p class="label">
+            <span class="label__num">01</span>
+            <span aria-hidden="true">—</span>
+            <span>CASE</span>
+          </p>
+          <h1 class="page-head__title" id="page-title">導入事例</h1>
+          <p class="page-head__lead">
+            現場に入り、AI活用が定着するまで伴走した支援の記録です。掲載しているのは、実際にご一緒した取り組みだけです。
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           02 — 事例リスト
+           現時点で公開できる事例は1件のみ（CONTENT.md §4.5）。
+           件数を水増しする表現・匿名事例での穴埋めを行わない（SITE.md §4.3）。
+           詳細ページは数値【T-13】と掲載許諾【T-03】が確定するまで作らない
+           （SITE.md §2.2 / §4.4）。項目をリンクにせず Coming Soon の
+           状態表示に留め、公開予定日は書かない（未確定のため）。
+           社名は伏せて業種表記のみとする〔決定: 2026-08-15 ユーザー確定〕。
+           =================================================================== -->
+      <section class="section" id="case" aria-labelledby="case-list-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">02</span>
+              <span aria-hidden="true">—</span>
+              <span>CASE STUDIES</span>
+            </p>
+            <h2 class="section__title" id="case-list-title">公開している事例</h2>
+          </div>
+
+          <!-- PHOTO: 店舗でのキックオフ（導入説明会）の様子（3:2） -->
+
+          <ol class="case-list">
+            <li class="case-list__item reveal">
+              <div class="case-list__head">
+                <p class="mono case-list__index" aria-hidden="true">CASE 01</p>
+                <!--
+                  社名は伏せ、業種表記のみで掲出する〔決定: 2026-08-15 ユーザー確定〕。
+                  T-03（Web掲載許諾）が確認できるまで、このページに顧客名を出さない
+                  （CONTENT.md §4.4 / §8.1）。表記は同 §4.4 が例示する形式に合わせた。
+                  見出しが業種表記になったため、直下にあった業種の行
+                  （.case-list__industry）は重複するので外している。
+                  許諾が取得できたら、見出しを顧客名に戻し、業種の行を復活させる。
+                -->
+                <h3 class="case-list__title"><span class="nobr">自動車販売業</span><span class="nobr">（SUBARU正規特約店）</span></h3>
+                <!--
+                  リンクにしない（SITE.md §4.3「Coming Soon の扱い」）。
+                  詳細ページが公開できるようになったら、この状態表示を外して
+                  項目全体を詳細ページへのリンクにする。
+                -->
+                <p class="case-list__status">
+                  <span class="case-list__status-mark">Coming Soon</span>
+                  <span>詳細ページは準備中です。</span>
+                </p>
+              </div>
+
+              <div class="case-list__body">
+                <!--
+                  CONTENT.md §4.1 ハイライト表現（確定コピー・強調位置を含む）。
+                  ラベルは DESIGN.md §6.3 の Stat / Number Block と同じ組み方にし、
+                  アクセント赤は先頭の 32×3px インジケーターだけに使う（.proof__stat-label を再利用）。
+                -->
+                <p class="proof__stat-label">HIGHLIGHT</p>
+                <p class="case-list__highlight"><span class="nobr">商談支援AIツールの</span><span class="nobr">活用定着率</span> <strong><span class="nobr">国内SUBARU販売会社</span> <span class="nobr">1位</span></strong> <span class="nobr">を達成</span><span class="nobr">（自動車販売業 SUBARU正規特約店）</span></p>
+
+                <div class="case__blocks">
+                  <div class="case__block">
+                    <h4 class="case__block-label">
+                      <span class="case__block-label-en" aria-hidden="true">ISSUE</span>
+                      <span class="case__block-label-ja">課題</span>
+                    </h4>
+                    <div class="case__block-inner">
+                      <p class="case__block-title"><span class="nobr">AIツールを導入したが、</span><span class="nobr">現場で十分に使われない。</span></p>
+                      <p class="case__block-body">※課題の記述は、私たちが向き合っている一般的なものです。個社固有の課題については記載していません。</p>
+                    </div>
+                  </div>
+
+                  <div class="case__block">
+                    <h4 class="case__block-label">
+                      <span class="case__block-label-en" aria-hidden="true">APPROACH</span>
+                      <span class="case__block-label-ja">取り組み</span>
+                    </h4>
+                    <div class="case__block-inner">
+                      <p class="case__block-title"><span class="nobr">外から教えるのではなく、</span><span class="nobr">社内に入り込んで</span><span class="nobr">一緒に手を動かす。</span></p>
+                      <ul class="case__tags">
+                        <li>店舗訪問</li>
+                        <li>現場ヒアリング</li>
+                        <li>研修</li>
+                        <li>管理職レビュー</li>
+                        <li>利用データ分析</li>
+                        <li>改善</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="case__block">
+                    <h4 class="case__block-label">
+                      <span class="case__block-label-en" aria-hidden="true">RESULT</span>
+                      <span class="case__block-label-ja">成果</span>
+                    </h4>
+                    <div class="case__block-inner">
+                      <!-- CONTENT.md §4.1 成果（確定コピー・一字一句） -->
+                      <p class="case__block-result">伴走支援により、国内SUBARU販売会社のなかで商談支援AIツールの活用定着率1位を達成。ご担当者はメール・書類作成など一部業務の時間を大幅に削減し、自動化も実現。全店舗でキックオフイベントを開催し、高い満足度を獲得しています。</p>
+                      <!-- CONTENT.md §4.1 事実カード（確定コピー） -->
+                      <ul class="case__facts">
+                        <li>メール・書類作成など一部業務の時間を大幅削減、自動化も実現</li>
+                        <li>全店舗でキックオフ（導入説明会）を開催、高い満足度を獲得</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 対象範囲の注釈は必ず併記する（CONTENT.md §4.2 / DESIGN.md §6.3） -->
+                <p class="note case-list__note">
+                  ※対象範囲: 国内SUBARU販売会社／商談支援AIツールの活用定着率。自動車販売業（SUBARU正規特約店）への伴走支援における実績です。
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <!-- SITE.md §5.2 の導線ルール: /case/ → /service/「支援内容を見る」。副CTAは1セクションに1つ -->
+          <div class="list-section__foot reveal">
+            <a class="tlink" href="/service/">支援内容を見る<span class="tlink__arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           03 — CTA（SITE.md §4.3 No.03 / §3.3 主CTA）
+           見出しは CONTENT.md §2.3 の別案（ブランドコピー）、リードは §6.2 の確定コピー
+           =================================================================== -->
+      <section class="section section--subtle" id="contact" aria-labelledby="cta-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">03</span>
+              <span aria-hidden="true">—</span>
+              <span>CONTACT</span>
+            </p>
+            <h2 class="cta__title" id="cta-title"><span class="nobr">現場から、</span><span class="nobr">AI導入を</span><span class="nobr">再設計する。</span></h2>
+            <p class="cta__lead">まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。</p>
+          </div>
+          <div class="cta__actions reveal">
+            <a class="btn btn--primary" href="/contact/">AI活用について相談する<span class="btn__arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- =====================================================================
+         Footer（SITE.md §3.2）— トップページと同一の共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）
+         ===================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div>
+            <a class="site-footer__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+              <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" loading="lazy" decoding="async">
+            </a>
+            <address class="site-footer__company">
+              株式会社AIの鉄人<br>
+              群馬県前橋市南町三丁目50番地2 プラザアン2階 D-53<br>
+              <a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a>
+            </address>
+          </div>
+          <nav class="site-footer__nav" aria-label="フッターナビゲーション">
+            <p class="site-footer__heading">SITEMAP</p>
+            <ul>
+              <li><a href="/service/">SERVICE</a></li>
+              <li><a href="/case/" aria-current="page">CASE</a></li>
+              <li><a href="/company/">COMPANY</a></li>
+              <li><a href="/contact/">CONTACT</a></li>
+            </ul>
+          </nav>
+          <div class="site-footer__util">
+            <p class="site-footer__heading">INFORMATION</p>
+            <ul>
+              <li><a href="/privacy/">PRIVACY POLICY</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p class="site-footer__copyright">© 2026 株式会社AIの鉄人</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

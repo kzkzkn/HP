@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+      meta の方針は SITE.md §3.4 / §4.7。下層ページは `ページ名｜株式会社AIの鉄人` の順。
+      description に書ける事実は CONTENT.md の範囲のみ（§6.1 問い合わせ導線 / §6.2 誘導文 / §1 所在地）。
+      電話番号・受付時間・返信目安は【要確認 T-08】のため書かない。
+    -->
+    <title>お問い合わせ｜株式会社AIの鉄人</title>
+    <meta name="description" content="株式会社AIの鉄人（群馬県前橋市）へのお問い合わせ・資料請求のご案内です。お問い合わせフォーム（Googleフォーム）またはメールで受け付けています。まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。">
+    <meta property="og:title" content="お問い合わせ｜株式会社AIの鉄人">
+    <meta property="og:description" content="株式会社AIの鉄人（群馬県前橋市）へのお問い合わせ・資料請求のご案内です。お問い合わせフォーム（Googleフォーム）またはメールで受け付けています。まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ainotetsujin.com/contact/">
+    <!-- TODO(CONTENT T-04): 専用OG画像（1200×630）が未作成のため、暫定でロゴを使用 -->
+    <meta property="og:image" content="https://www.ainotetsujin.com/assets/img/logo-circle.png">
+    <meta property="og:image:width" content="480">
+    <meta property="og:image:height" content="407">
+    <meta property="og:image:alt" content="株式会社AIの鉄人 ロゴ">
+    <meta property="og:site_name" content="株式会社AIの鉄人">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="canonical" href="https://www.ainotetsujin.com/contact/">
+    <link rel="icon" href="../assets/img/logo-circle.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Webフォントの読み込み方針はトップページと同一（DESIGN.md §3.1）。共通パーツのため全ページを同時に更新する -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!--
+      `js` クラスは reveal の初期状態（不可視）を有効にするフラグ。
+      main.js の読み込みに失敗した場合はフラグを外し、コンテンツが不可視のまま残らないようにする。
+    -->
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="../assets/js/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
+    <!-- 下層ページの構造化データは BreadcrumbList（SITE.md §3.4 / §5.2） -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "HOME",
+            "item": "https://www.ainotetsujin.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "お問い合わせ",
+            "item": "https://www.ainotetsujin.com/contact/"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+
+    <!-- =====================================================================
+         Header（SITE.md §3.1）— 全ページ共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）。
+         このページは CONTACT のため、該当項目に aria-current="page" を付けている。
+         ===================================================================== -->
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="site-header__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+          <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" decoding="async">
+        </a>
+        <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="primary-nav" aria-expanded="false">
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+          <span class="menu-toggle__line" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" id="primary-nav" aria-label="グローバルナビゲーション">
+          <ul class="site-nav__list">
+            <li><a href="/service/">SERVICE</a></li>
+            <li><a href="/case/">CASE</a></li>
+            <li><a href="/company/">COMPANY</a></li>
+            <li><a href="/contact/" aria-current="page">CONTACT</a></li>
+          </ul>
+          <div class="site-nav__cta">
+            <a class="btn btn--secondary" href="/contact/">AI活用について相談する</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ===================================================================
+           SITE.md §4.7 — /contact/ お問い合わせ
+           セクション構成と表示連番（設計上の No. ⇄ 画面の連番）:
+             01 CONTACT   = SITE.md §4.7 No.01 見出し＋誘導文
+             02 HOW TO    = SITE.md §4.7 No.02 問い合わせ手段（フォーム／メール／QR）
+             03 DOCUMENT  = SITE.md §4.7 No.03 補足（資料はフォーム送信後にメールで送付）
+             04 COMPANY   = SITE.md §4.7 No.04 会社情報（所在地・MAIL）
+           このページ自体が最終導線のため、末尾に別のCTAブロックは置かない（SITE.md §3.3）。
+           サイト内に独自フォームを持たない（CLAUDE.md §1）。
+           =================================================================== -->
+
+      <!-- ===================================================================
+           01 — 見出し＋誘導文
+           誘導文は CONTENT.md §6.2 の確定コピー（句点で終える。感嘆符を使わない〔T-32〕）。
+           最上部のセクションのため、上端の全幅罫線は引かない（DESIGN.md §6.1）
+           =================================================================== -->
+      <section class="section page-head" aria-labelledby="page-title">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="パンくずリスト">
+            <ol class="breadcrumb__list">
+              <li class="breadcrumb__item"><a href="/"><span>HOME</span></a></li>
+              <li class="breadcrumb__item"><span aria-current="page">お問い合わせ</span></li>
+            </ol>
+          </nav>
+
+          <p class="label">
+            <span class="label__num">01</span>
+            <span aria-hidden="true">—</span>
+            <span>CONTACT</span>
+          </p>
+          <h1 class="page-head__title" id="page-title">お問い合わせ</h1>
+          <p class="page-head__lead">
+            まずは「うちの場合はどこから？」というご相談だけでもお気軽にどうぞ。
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           02 — 問い合わせ手段
+           Googleフォーム（お問い合わせ・資料請求 共通）／メール／QRコード。
+           フォームURL・メールアドレス・QR画像は CONTENT.md §6.1。
+           外部サイト（Googleフォーム）へ遷移することが分かるよう、リンク横に注記を置く
+           （DESIGN.md §10.3「別タブで開くリンクにはその旨を伝える」）
+           =================================================================== -->
+      <section class="section" id="how-to-contact" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">02</span>
+              <span aria-hidden="true">—</span>
+              <span>HOW TO CONTACT</span>
+            </p>
+            <h2 class="section__title" id="how-title">ご連絡の方法</h2>
+          </div>
+
+          <ol class="idx reveal">
+            <li class="idx__item">
+              <span class="idx__num" aria-hidden="true">01</span>
+              <h3 class="idx__title">お問い合わせフォーム</h3>
+              <div class="idx__desc method__body">
+                <p>お問い合わせ・資料請求は、共通のフォームで受け付けています。</p>
+                <p>
+                  <a class="btn btn--primary" href="https://forms.gle/YZ8bPWESxtVHzLJG6" target="_blank" rel="noopener">お問い合わせフォームを開く<span class="btn__arrow" aria-hidden="true">→</span></a>
+                </p>
+                <p class="method__note">※外部サービスのGoogleフォームが新しいタブで開きます。</p>
+              </div>
+            </li>
+            <li class="idx__item">
+              <span class="idx__num" aria-hidden="true">02</span>
+              <h3 class="idx__title">メール</h3>
+              <div class="idx__desc method__body">
+                <p>フォームの代わりに、メールでもご連絡いただけます。</p>
+                <p>
+                  <a class="tlink" href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a>
+                </p>
+              </div>
+            </li>
+            <li class="idx__item">
+              <span class="idx__num" aria-hidden="true">03</span>
+              <h3 class="idx__title">QRコード</h3>
+              <div class="idx__desc method__body">
+                <p>お問い合わせはこちらから。スマートフォンで読み取ると、上記と同じお問い合わせフォームが開きます。</p>
+                <p>
+                      <img class="method__qr" src="../assets/img/contact-qr.png" alt="お問い合わせフォームのQRコード" width="480" height="480" loading="lazy" decoding="async">
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           03 — 補足（資料請求について）
+           資料はフォーム送信後にメールで送付する運用（CONTENT.md §6.1）。
+           サイトから直接PDFを配布する導線は持たないため「ダウンロード」という語を使わない
+           （SITE.md §3.3 / §4.7-03）
+           =================================================================== -->
+      <section class="section section--subtle" id="document" aria-labelledby="document-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">03</span>
+              <span aria-hidden="true">—</span>
+              <span>DOCUMENT</span>
+            </p>
+            <h2 class="section__title" id="document-title">資料請求について</h2>
+          </div>
+
+          <ul class="bullets reveal">
+            <li>資料請求は、お問い合わせと同じフォームから承ります。</li>
+            <li>サービス資料は、フォームの送信後にメールでお送りします。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           04 — 会社情報
+           CONTENT.md §1 のうち確定している項目のみ。電話番号・受付時間・返信目安は
+           【要確認 T-08】のため書かない（SITE.md §4.7）
+           =================================================================== -->
+      <section class="section" id="company-info" aria-labelledby="company-info-title">
+        <div class="container">
+          <div class="section__head reveal">
+            <p class="label">
+              <span class="label__num">04</span>
+              <span aria-hidden="true">—</span>
+              <span>COMPANY</span>
+            </p>
+            <h2 class="section__title" id="company-info-title">会社情報</h2>
+          </div>
+
+          <dl class="deflist reveal">
+            <div class="deflist__row">
+              <dt>社名</dt>
+              <dd>株式会社AIの鉄人</dd>
+            </div>
+            <div class="deflist__row">
+              <dt>所在地</dt>
+              <dd>群馬県前橋市南町三丁目50番地2 プラザアン2階 D-53</dd>
+            </div>
+            <div class="deflist__row">
+              <dt>MAIL</dt>
+              <dd><a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a></dd>
+            </div>
+          </dl>
+          <!-- TODO(CONTENT T-08): 電話番号は掲載可否を含めて未確定のため行を出さない -->
+          <!--
+            /contact/ からの副CTAは SITE.md §5.2 の導線ルールに定義が無いため置かない
+            （導線を追加する場合は、実装より先に SITE.md を更新する。CLAUDE.md §3-4）。
+            /company/ へはフッターのナビゲーションから辿れる。
+          -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- =====================================================================
+         Footer（SITE.md §3.2）— 全ページ共通パーツ。
+         変更するときは全ページへ同時に反映する（CLAUDE.md §3-10）
+         ===================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div>
+            <a class="site-footer__logo" href="/" aria-label="株式会社AIの鉄人 トップページ">
+              <img src="../assets/img/logo-horizontal.png" alt="株式会社AIの鉄人" width="720" height="179" loading="lazy" decoding="async">
+            </a>
+            <address class="site-footer__company">
+              株式会社AIの鉄人<br>
+              群馬県前橋市南町三丁目50番地2 プラザアン2階 D-53<br>
+              <a href="mailto:goto_kizuku@ainotetsujin.com">goto_kizuku@ainotetsujin.com</a>
+            </address>
+          </div>
+          <nav class="site-footer__nav" aria-label="フッターナビゲーション">
+            <p class="site-footer__heading">SITEMAP</p>
+            <ul>
+              <li><a href="/service/">SERVICE</a></li>
+              <li><a href="/case/">CASE</a></li>
+              <li><a href="/company/">COMPANY</a></li>
+              <li><a href="/contact/" aria-current="page">CONTACT</a></li>
+            </ul>
+          </nav>
+          <div class="site-footer__util">
+            <p class="site-footer__heading">INFORMATION</p>
+            <ul>
+              <li><a href="/privacy/">PRIVACY POLICY</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer__bottom">
+          <p class="site-footer__copyright">© 2026 株式会社AIの鉄人</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
